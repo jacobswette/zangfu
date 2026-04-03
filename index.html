@@ -183,22 +183,11 @@ Present 3-4 patterns ranked by likelihood. Be clinically precise. Output the dif
 
 let apiKey = localStorage.getItem('zf_api_key') || '';
 
-function saveApiKey() {
-  const val = document.getElementById('api-key-input').value.trim();
-  if (!val.startsWith('sk-ant-')) { alert('That does not look like a valid key. It should start with sk-ant-'); return; }
-  apiKey = val;
-  localStorage.setItem('zf_api_key', val);
-  document.getElementById('api-modal').style.display = 'none';
-  showApp();
-}
 
 function enterApp() {
-  if (!apiKey) {
-    document.getElementById('api-modal').style.display = 'flex';
-  } else {
-    showApp();
-  }
+  showApp();
 }
+ 
 
 function showApp() {
   document.getElementById('landing').style.display = 'none';
