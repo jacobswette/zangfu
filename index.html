@@ -4,98 +4,154 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZangFu — Clinical Tools for Acupuncturists</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  :root{
-    --ink:#1a1a18;--rice:#f7f3ec;--sage:#3d5a47;--sage-light:#eef3f0;
-    --gold:#b8860b;--gold-light:#fdf8ee;--muted:#6b6b62;--border:#d8d4cc;--white:#ffffff;
-    --radius:10px;--radius-lg:16px;
-  }
-  body{font-family:'Inter',sans-serif;background:var(--rice);color:var(--ink);min-height:100vh;font-size:15px;line-height:1.6}
-  #landing{max-width:700px;margin:0 auto;padding:3rem 1.5rem}
-  .logo{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--ink);letter-spacing:-0.03em;margin-bottom:0.5rem;line-height:1.1;font-weight:700}
-  .logo em{color:var(--sage);font-style:normal}
-  .tagline{font-size:1.2rem;color:var(--muted);margin-bottom:3rem;font-style:italic;font-family:'Cormorant Garamond',serif}
-  .hero-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;margin-bottom:2rem}
-  .hero-h{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:1rem}
-  .hero-h em{color:var(--sage);font-style:normal}
-  .hero-p{color:var(--muted);font-size:1rem;margin-bottom:1.75rem;line-height:1.8}
-  .features{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.75rem}
-  .feat{background:var(--sage-light);border-radius:var(--radius);padding:1rem 1.1rem}
-  .feat-title{font-weight:500;font-size:1rem;color:var(--sage);margin-bottom:0.3rem}
-  .feat-desc{font-size:0.9rem;color:var(--muted);line-height:1.7}
-  .cta-btn{width:100%;padding:1rem;background:var(--sage);color:var(--white);border:none;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;transition:background 0.2s}
-  .cta-btn:hover{background:#2d4435}
-  .pricing-strip{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
-  .price-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;text-align:center}
-  .price-card.featured{border:2px solid var(--sage)}
-  .price-badge{display:inline-block;background:var(--sage);color:var(--white);font-size:0.7rem;padding:2px 10px;border-radius:20px;margin-bottom:0.75rem;font-weight:500}
-  .price-amount{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--ink);font-weight:700}
-  .price-amount span{font-size:1rem;color:var(--muted);font-family:'Inter',sans-serif;font-weight:400}
-  .price-label{font-size:0.85rem;color:var(--muted);margin-top:0.25rem}
-  .footer-note{text-align:center;font-size:0.85rem;color:var(--muted);font-style:italic}
-  #app{display:none;min-height:100vh;flex-direction:column}
-  .app-header{background:var(--white);border-bottom:1px solid var(--border);padding:0.875rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
-  .app-logo{font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:var(--ink);font-weight:700}
-  .app-logo em{color:var(--sage);font-style:normal}
-  .user-badge{font-size:0.8rem;color:var(--muted);background:var(--sage-light);padding:4px 12px;border-radius:20px}
-  .app-nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 1.5rem;display:flex}
-  .nav-tab{padding:0.75rem 1.25rem;font-size:0.88rem;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;font-weight:500;transition:all 0.15s}
-  .nav-tab.active{color:var(--sage);border-bottom-color:var(--sage)}
-  .nav-tab:hover{color:var(--ink)}
-  .app-content{flex:1;padding:1.5rem;max-width:780px;margin:0 auto;width:100%}
-  .tool-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;margin-bottom:1.5rem}
-  .tool-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--ink);margin-bottom:0.25rem}
-  .tool-subtitle{font-size:0.9rem;color:var(--muted);margin-bottom:1.5rem}
-  label{display:block;font-size:0.82rem;font-weight:500;color:var(--muted);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.05em}
-  textarea,input{width:100%;padding:0.7rem 0.9rem;border:1px solid var(--border);border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:0.93rem;color:var(--ink);background:var(--white);outline:none;transition:border 0.15s;resize:vertical}
-  textarea:focus,input:focus{border-color:var(--sage)}
-  textarea{min-height:90px}
-  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-  .form-full{margin-bottom:1rem}
-  .generate-btn{display:inline-flex;align-items:center;gap:8px;padding:0.75rem 1.5rem;background:var(--sage);color:var(--white);border:none;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:0.93rem;font-weight:500;cursor:pointer;transition:background 0.2s}
-  .generate-btn:hover{background:#2d4435}
-  .generate-btn:disabled{background:#a0b5a8;cursor:not-allowed}
-  .output-box{background:var(--gold-light);border:1px solid #e8d9a0;border-radius:var(--radius);padding:1.25rem;margin-top:1.25rem;font-size:0.95rem;line-height:1.9;color:var(--ink);white-space:pre-wrap;font-family:'Inter',sans-serif}
-  .output-label{font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem}
-  .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;display:inline-block}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .disclaimer{font-size:0.8rem;color:var(--muted);font-style:italic;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--border)}
-  .chip{padding:6px 14px;border:1px solid var(--border);border-radius:20px;font-size:0.85rem;cursor:pointer;background:var(--white);color:var(--muted);transition:all 0.15s;user-select:none}
-  .chip.selected{background:var(--sage);color:var(--white);border-color:var(--sage)}
-  .pattern-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem}
-  .error-box{background:#fff8e1;border:1px solid #ffe082;border-radius:var(--radius);padding:1rem 1.1rem;margin-top:1rem;font-size:0.85rem;color:#7a5c00}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080c10;
+  --surface:#0e1419;
+  --surface2:#131c24;
+  --border:#1e2d3d;
+  --border2:#2a3f54;
+  --accent:#00d4aa;
+  --accent-dim:rgba(0,212,170,0.08);
+  --accent-glow:rgba(0,212,170,0.25);
+  --text:#e8f0f8;
+  --text2:#7a8fa6;
+  --text3:#3d5166;
+  --danger:#ff4757;
+  --gold:#f0a500;
+}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* GRID OVERLAY */
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.3;pointer-events:none;z-index:0}
+
+/* LANDING */
+#landing{max-width:780px;margin:0 auto;padding:4rem 2rem;position:relative;z-index:1}
+
+.logo-wrap{margin-bottom:0.5rem;display:flex;align-items:baseline;gap:0.5rem}
+.logo{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;color:var(--text);letter-spacing:-0.04em;line-height:1}
+.logo em{color:var(--accent);font-style:normal;text-shadow:0 0 40px var(--accent-glow)}
+.logo-tag{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;border:1px solid var(--accent);padding:3px 8px;border-radius:3px;opacity:0.8;align-self:center}
+.tagline{font-size:0.9rem;color:var(--text3);margin-bottom:4rem;font-family:'IBM Plex Mono',monospace;letter-spacing:0.08em;text-transform:uppercase}
+
+.hero-section{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:3rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.hero-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.hero-h{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--text);line-height:1.1;margin-bottom:1.25rem;letter-spacing:-0.03em}
+.hero-h em{color:var(--accent);font-style:normal}
+.hero-p{color:var(--text2);font-size:1rem;margin-bottom:2.5rem;line-height:1.8;max-width:560px;font-weight:300}
+
+.features{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-bottom:2.5rem;background:var(--border);border:1px solid var(--border)}
+.feat{background:var(--surface2);padding:1.25rem 1.5rem;position:relative}
+.feat::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);opacity:0;transition:opacity 0.2s}
+.feat:hover::before{opacity:1}
+.feat-num{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--text3);letter-spacing:0.1em;margin-bottom:0.5rem}
+.feat-title{font-weight:500;font-size:0.95rem;color:var(--text);margin-bottom:0.35rem;letter-spacing:0.01em}
+.feat-desc{font-size:0.82rem;color:var(--text2);line-height:1.6;font-weight:300}
+
+.cta-btn{display:inline-flex;align-items:center;gap:12px;padding:1rem 2rem;background:var(--accent);color:var(--bg);border:none;border-radius:3px;font-family:'IBM Plex Sans',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em;width:100%;justify-content:center}
+.cta-btn:hover{background:#00f0c0;box-shadow:0 0 30px var(--accent-glow)}
+.cta-arrow{font-size:1.1rem;transition:transform 0.2s}
+.cta-btn:hover .cta-arrow{transform:translateX(4px)}
+
+.pricing-strip{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:3rem}
+.price-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.75rem;position:relative;overflow:hidden}
+.price-card.featured{border-color:var(--accent)}
+.price-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.price-badge{display:inline-block;background:var(--accent-dim);color:var(--accent);font-size:0.65rem;padding:3px 10px;border-radius:2px;margin-bottom:1rem;font-family:'IBM Plex Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;border:1px solid rgba(0,212,170,0.2)}
+.price-amount{font-family:'Syne',sans-serif;font-size:2.5rem;color:var(--text);font-weight:800;letter-spacing:-0.03em;line-height:1}
+.price-amount span{font-size:1rem;color:var(--text2);font-family:'IBM Plex Sans',sans-serif;font-weight:300}
+.price-label{font-size:0.8rem;color:var(--text3);margin-top:0.5rem;font-family:'IBM Plex Mono',monospace}
+
+.footer-note{text-align:center;font-size:0.75rem;color:var(--text3);font-family:'IBM Plex Mono',monospace;letter-spacing:0.05em}
+
+/* APP */
+#app{display:none;min-height:100vh;flex-direction:column;position:relative;z-index:1}
+.app-header{background:rgba(8,12,16,0.95);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;backdrop-filter:blur(10px)}
+.app-logo{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--text);letter-spacing:-0.03em}
+.app-logo em{color:var(--accent);font-style:normal}
+.user-badge{font-size:0.7rem;color:var(--accent);background:var(--accent-dim);padding:4px 12px;border-radius:2px;font-family:'IBM Plex Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;border:1px solid rgba(0,212,170,0.2)}
+
+.app-nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0 2rem;display:flex}
+.nav-tab{padding:1rem 1.5rem;font-size:0.82rem;color:var(--text2);cursor:pointer;border-bottom:1px solid transparent;font-weight:500;transition:all 0.15s;font-family:'IBM Plex Mono',monospace;letter-spacing:0.05em;text-transform:uppercase}
+.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.nav-tab:hover{color:var(--text)}
+
+.app-content{flex:1;padding:2rem;max-width:860px;margin:0 auto;width:100%}
+
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.tool-title{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--text);margin-bottom:0.3rem;letter-spacing:-0.02em}
+.tool-subtitle{font-size:0.82rem;color:var(--text2);margin-bottom:2rem;font-weight:300}
+
+label{display:block;font-size:0.7rem;font-weight:500;color:var(--text3);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.12em;font-family:'IBM Plex Mono',monospace}
+textarea,input{width:100%;padding:0.75rem 1rem;border:1px solid var(--border);border-radius:3px;font-family:'IBM Plex Sans',sans-serif;font-size:0.9rem;color:var(--text);background:var(--surface2);outline:none;transition:border 0.15s;resize:vertical}
+textarea:focus,input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim)}
+textarea{min-height:90px}
+input::placeholder,textarea::placeholder{color:var(--text3)}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-full{margin-bottom:1rem}
+
+.generate-btn{display:inline-flex;align-items:center;gap:8px;padding:0.8rem 1.75rem;background:var(--accent);color:var(--bg);border:none;border-radius:3px;font-family:'IBM Plex Sans',sans-serif;font-size:0.9rem;font-weight:500;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em}
+.generate-btn:hover{background:#00f0c0;box-shadow:0 0 20px var(--accent-glow)}
+.generate-btn:disabled{background:var(--border2);color:var(--text3);cursor:not-allowed;box-shadow:none}
+
+.output-box{background:var(--surface2);border:1px solid var(--border);border-left:2px solid var(--accent);border-radius:3px;padding:1.5rem;margin-top:1.5rem;font-size:0.88rem;line-height:1.9;color:var(--text2);white-space:pre-wrap;font-family:'IBM Plex Mono',monospace}
+.output-label{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;font-weight:500;color:var(--accent);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.output-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+
+.spinner{width:14px;height:14px;border:2px solid rgba(8,12,16,0.3);border-top-color:var(--bg);border-radius:50%;animation:spin 0.7s linear infinite;display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.disclaimer{font-size:0.72rem;color:var(--text3);margin-top:1rem;font-family:'IBM Plex Mono',monospace;letter-spacing:0.03em;padding-top:0.75rem;border-top:1px solid var(--border)}
+
+.chip{padding:5px 14px;border:1px solid var(--border);border-radius:2px;font-size:0.78rem;cursor:pointer;background:var(--surface2);color:var(--text2);transition:all 0.15s;user-select:none;font-family:'IBM Plex Mono',monospace;letter-spacing:0.03em}
+.chip.selected{background:var(--accent-dim);color:var(--accent);border-color:rgba(0,212,170,0.4)}
+.chip:hover{border-color:var(--border2);color:var(--text)}
+.pattern-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
+
+.error-box{background:rgba(255,71,87,0.08);border:1px solid rgba(255,71,87,0.3);border-radius:3px;padding:1rem 1.25rem;margin-top:1rem;font-size:0.82rem;color:#ff8a95;font-family:'IBM Plex Mono',monospace}
 </style>
 </head>
 <body>
 
 <div id="landing">
-  <div class="logo">Zang<em>Fu</em></div>
-  <div class="tagline">Clinical intelligence for acupuncturists</div>
+  <div class="logo-wrap">
+    <div class="logo">Zang<em>Fu</em></div>
+    <div class="logo-tag">v1.0</div>
+  </div>
+  <div class="tagline">Clinical tools for acupuncturists</div>
+
   <div class="hero-section">
     <div class="hero-h">Stop spending your evenings<br><em>writing notes.</em></div>
     <div class="hero-p">ZangFu generates complete SOAP notes, differentiates TCM patterns from even the most complex symptom clusters, and supports your clinical decision-making. Built by an acupuncturist, for acupuncturists.</div>
     <div class="features">
       <div class="feat">
+        <div class="feat-num">01</div>
         <div class="feat-title">SOAP Note Generator</div>
         <div class="feat-desc">Complete TCM SOAP notes from chief complaint, tongue, and pulse in under 30 seconds</div>
       </div>
       <div class="feat">
+        <div class="feat-num">02</div>
         <div class="feat-title">Pattern Differentiator</div>
         <div class="feat-desc">Input symptom clusters, receive ranked TCM pattern differentials with discriminating signs</div>
       </div>
       <div class="feat">
+        <div class="feat-num">03</div>
         <div class="feat-title">Treatment Rationale</div>
         <div class="feat-desc">Auto-generated point prescriptions with individual point justifications for your records</div>
       </div>
       <div class="feat">
+        <div class="feat-num">04</div>
         <div class="feat-title">Built by a LAc</div>
         <div class="feat-desc">Built by a practicing licensed acupuncturist — not a tech company</div>
       </div>
     </div>
-    <button class="cta-btn" onclick="enterApp()">Try ZangFu Free — No Card Required</button>
+    <button class="cta-btn" onclick="enterApp()">Try ZangFu Free — No Card Required <span class="cta-arrow">→</span></button>
   </div>
+
   <div class="pricing-strip">
     <div class="price-card">
       <div class="price-amount">Free</div>
@@ -144,40 +200,40 @@ For each pattern:
 
 Present 3-4 patterns ranked by likelihood. Be clinically precise. Output the differentials only.`;
 
-function enterApp() { showApp(); }
+function enterApp(){showApp()}
 
-function showApp() {
-  document.getElementById('landing').style.display = 'none';
-  document.getElementById('app').style.display = 'flex';
+function showApp(){
+  document.getElementById('landing').style.display='none';
+  document.getElementById('app').style.display='flex';
   renderSOAP();
 }
 
-function showTab(tab, el) {
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+function showTab(tab,el){
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
-  if (tab === 'soap') renderSOAP();
+  if(tab==='soap')renderSOAP();
   else renderPattern();
 }
 
-async function callClaude(systemPrompt, userContent) {
-  const resp = await fetch('/api/generate', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      model: 'claude-haiku-4-5-20251001',
-      max_tokens: 1500,
-      system: systemPrompt,
-      messages: [{ role: 'user', content: userContent }]
+async function callClaude(systemPrompt,userContent){
+  const resp=await fetch('/api/generate',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      model:'claude-haiku-4-5-20251001',
+      max_tokens:1500,
+      system:systemPrompt,
+      messages:[{role:'user',content:userContent}]
     })
   });
-  const data = await resp.json();
-  if (data.content && data.content[0]) return data.content[0].text;
-  if (data.error) throw new Error(data.error.message);
+  const data=await resp.json();
+  if(data.content&&data.content[0])return data.content[0].text;
+  if(data.error)throw new Error(data.error.message);
   throw new Error('Unexpected API response');
 }
 
-function renderSOAP() {
-  document.getElementById('app-content').innerHTML = `
+function renderSOAP(){
+  document.getElementById('app-content').innerHTML=`
     <div class="tool-card">
       <div class="tool-title">SOAP Note Generator</div>
       <div class="tool-subtitle">Enter patient findings — receive a complete TCM SOAP note ready for your records</div>
@@ -209,51 +265,51 @@ function renderSOAP() {
           <input type="text" id="hx" placeholder="e.g., hypothyroidism, gravida 2">
         </div>
       </div>
-      <button class="generate-btn" id="soap-btn" onclick="generateSOAP()">Generate SOAP Note</button>
+      <button class="generate-btn" id="soap-btn" onclick="generateSOAP()">Generate SOAP Note →</button>
       <div id="soap-output"></div>
     </div>`;
 }
 
-async function generateSOAP() {
-  const cc = document.getElementById('cc').value.trim();
-  if (!cc) { alert('Please enter a chief complaint.'); return; }
-  const btn = document.getElementById('soap-btn');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Generating...';
-  const today = new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
-  const userContent = `Date: ${today}
-Patient: ${document.getElementById('demo').value || 'not specified'}
+async function generateSOAP(){
+  const cc=document.getElementById('cc').value.trim();
+  if(!cc){alert('Please enter a chief complaint.');return;}
+  const btn=document.getElementById('soap-btn');
+  btn.disabled=true;
+  btn.innerHTML='<span class="spinner"></span> Generating...';
+  const today=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  const userContent=`Date: ${today}
+Patient: ${document.getElementById('demo').value||'not specified'}
 Chief Complaint: ${cc}
-Tongue: ${document.getElementById('tongue').value || 'not documented'}
-Pulse: ${document.getElementById('pulse').value || 'not documented'}
-Additional Symptoms: ${document.getElementById('symptoms').value || 'none provided'}
-Relevant History: ${document.getElementById('hx').value || 'none'}
+Tongue: ${document.getElementById('tongue').value||'not documented'}
+Pulse: ${document.getElementById('pulse').value||'not documented'}
+Additional Symptoms: ${document.getElementById('symptoms').value||'none provided'}
+Relevant History: ${document.getElementById('hx').value||'none'}
 Generate a complete TCM SOAP note.`;
-  try {
-    const result = await callClaude(SYSTEM_SOAP, userContent);
-    document.getElementById('soap-output').innerHTML = `
+  try{
+    const result=await callClaude(SYSTEM_SOAP,userContent);
+    document.getElementById('soap-output').innerHTML=`
       <div class="output-box">
         <div class="output-label">Generated SOAP Note</div>${escHtml(result)}
       </div>
       <div class="disclaimer">Review all generated content before adding to patient records. Clinical judgment supersedes generated output.</div>`;
-  } catch(e) {
-    document.getElementById('soap-output').innerHTML = `<div class="error-box"><strong>Error:</strong> ${escHtml(e.message)}</div>`;
+  }catch(e){
+    document.getElementById('soap-output').innerHTML=`<div class="error-box">Error: ${escHtml(e.message)}</div>`;
   }
-  btn.disabled = false;
-  btn.innerHTML = 'Generate SOAP Note';
+  btn.disabled=false;
+  btn.innerHTML='Generate SOAP Note →';
 }
 
-const ALL_SYMPTOMS = ['Fatigue','Insomnia','Anxiety','Depression','Irritability','Low libido','Cold limbs','Night sweats','Hot flashes','Palpitations','Chest tightness','Shortness of breath','Poor appetite','Bloating','Loose stools','Constipation','Nausea','Acid reflux','Low back pain','Knee pain','Neck tension','Headache','Dizziness','Tinnitus','Frequent urination','Edema','Dry eyes','Blurred vision','Heavy periods','Irregular periods','Amenorrhea','PMS','Brain fog','Poor memory'];
-let selectedSymptoms = [];
+const ALL_SYMPTOMS=['Fatigue','Insomnia','Anxiety','Depression','Irritability','Low libido','Cold limbs','Night sweats','Hot flashes','Palpitations','Chest tightness','Shortness of breath','Poor appetite','Bloating','Loose stools','Constipation','Nausea','Acid reflux','Low back pain','Knee pain','Neck tension','Headache','Dizziness','Tinnitus','Frequent urination','Edema','Dry eyes','Blurred vision','Heavy periods','Irregular periods','Amenorrhea','PMS','Brain fog','Poor memory'];
+let selectedSymptoms=[];
 
-function renderPattern() {
-  selectedSymptoms = [];
-  document.getElementById('app-content').innerHTML = `
+function renderPattern(){
+  selectedSymptoms=[];
+  document.getElementById('app-content').innerHTML=`
     <div class="tool-card">
       <div class="tool-title">Pattern Differentiator</div>
       <div class="tool-subtitle">Select presenting symptoms — receive ranked TCM pattern differentials with discriminating signs</div>
-      <label>Select Symptoms (tap to toggle)</label>
-      <div class="pattern-chips">${ALL_SYMPTOMS.map(s => `<div class="chip" onclick="toggleChip(this,'${s}')">${s}</div>`).join('')}</div>
+      <label>Select Symptoms</label>
+      <div class="pattern-chips">${ALL_SYMPTOMS.map(s=>`<div class="chip" onclick="toggleChip(this,'${s}')">${s}</div>`).join('')}</div>
       <div class="form-full" style="margin-top:0.5rem">
         <label>Additional Symptoms</label>
         <input type="text" id="extra-symptoms" placeholder="Any symptoms not listed above...">
@@ -262,47 +318,42 @@ function renderPattern() {
         <div><label>Tongue</label><input type="text" id="p-tongue" placeholder="e.g., red, no coat, cracks"></div>
         <div><label>Pulse</label><input type="text" id="p-pulse" placeholder="e.g., rapid, thin, floating"></div>
       </div>
-      <button class="generate-btn" id="pattern-btn" onclick="generatePattern()">Differentiate Patterns</button>
+      <button class="generate-btn" id="pattern-btn" onclick="generatePattern()">Differentiate Patterns →</button>
       <div id="pattern-output"></div>
     </div>`;
 }
 
-function toggleChip(el, sym) {
-  if (selectedSymptoms.includes(sym)) {
-    selectedSymptoms = selectedSymptoms.filter(s => s !== sym);
-    el.classList.remove('selected');
-  } else {
-    selectedSymptoms.push(sym);
-    el.classList.add('selected');
-  }
+function toggleChip(el,sym){
+  if(selectedSymptoms.includes(sym)){selectedSymptoms=selectedSymptoms.filter(s=>s!==sym);el.classList.remove('selected');}
+  else{selectedSymptoms.push(sym);el.classList.add('selected');}
 }
 
-async function generatePattern() {
-  const extra = document.getElementById('extra-symptoms').value.trim();
-  const allSymptoms = [...selectedSymptoms, ...(extra ? [extra] : [])];
-  if (allSymptoms.length < 2) { alert('Please select at least 2 symptoms.'); return; }
-  const btn = document.getElementById('pattern-btn');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Differentiating...';
-  const userContent = `Presenting symptoms: ${allSymptoms.join(', ')}
-Tongue: ${document.getElementById('p-tongue').value || 'not documented'}
-Pulse: ${document.getElementById('p-pulse').value || 'not documented'}
+async function generatePattern(){
+  const extra=document.getElementById('extra-symptoms').value.trim();
+  const allSymptoms=[...selectedSymptoms,...(extra?[extra]:[])];
+  if(allSymptoms.length<2){alert('Please select at least 2 symptoms.');return;}
+  const btn=document.getElementById('pattern-btn');
+  btn.disabled=true;
+  btn.innerHTML='<span class="spinner"></span> Differentiating...';
+  const userContent=`Presenting symptoms: ${allSymptoms.join(', ')}
+Tongue: ${document.getElementById('p-tongue').value||'not documented'}
+Pulse: ${document.getElementById('p-pulse').value||'not documented'}
 Provide a ranked TCM pattern differential diagnosis.`;
-  try {
-    const result = await callClaude(SYSTEM_PATTERN, userContent);
-    document.getElementById('pattern-output').innerHTML = `
+  try{
+    const result=await callClaude(SYSTEM_PATTERN,userContent);
+    document.getElementById('pattern-output').innerHTML=`
       <div class="output-box">
         <div class="output-label">Pattern Differentials</div>${escHtml(result)}
       </div>
       <div class="disclaimer">For clinical reference only. All pattern diagnoses require full in-person assessment.</div>`;
-  } catch(e) {
-    document.getElementById('pattern-output').innerHTML = `<div class="error-box"><strong>Error:</strong> ${escHtml(e.message)}</div>`;
+  }catch(e){
+    document.getElementById('pattern-output').innerHTML=`<div class="error-box">Error: ${escHtml(e.message)}</div>`;
   }
-  btn.disabled = false;
-  btn.innerHTML = 'Differentiate Patterns';
+  btn.disabled=false;
+  btn.innerHTML='Differentiate Patterns →';
 }
 
-function escHtml(str) {
+function escHtml(str){
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 </script>
