@@ -308,6 +308,8 @@ Guidelines:
 - Use plain text with clean line breaks only
 - Output the clinical note only — no preamble, no disclaimers, no commentary`;
   
+const SYSTEM_PATTERN=`You are an expert TCM diagnostician. Given a set of symptoms, return a ranked differential diagnosis of TCM patterns.
+
 For each pattern:
 1. Name the pattern precisely
 2. Likelihood: High / Moderate / Low
