@@ -263,6 +263,7 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
 </div>
 
 <script>
+
 const SYSTEM_NOTE=`You are an expert licensed acupuncturist and TCM practitioner with 20 years of clinical experience. Generate a complete, professional TCM clinical note suitable for a legal medical record.
 
 Format the note using EXACTLY these section headers on their own line in ALL CAPS:
@@ -271,6 +272,18 @@ SUBJECTIVE
 OBJECTIVE
 ASSESSMENT
 PLAN
+
+Under OBJECTIVE, include only the fields that have data provided. Use these field labels followed by a colon on each line:
+
+Tongue:
+Pulse:
+Complexion:
+Voice/Affect:
+Abdomen/Hara:
+Palpation Findings:
+Vertebral Assessment:
+Orthopedic Tests:
+Other Findings:
 
 Under PLAN include these subsections, each on their own line in title case followed by a colon:
 
@@ -282,18 +295,19 @@ Lifestyle Recommendations:
 Treatment Frequency:
 
 Guidelines:
-- Under Points, list each point with its Chinese name and characters in parentheses, e.g. ST 36 (Zusanli, 足三里), no commentary after each point
-
-- Keep all subsections brief and factual, as a licensed practitioner would document in a legal chart — one to three lines maximum per subsection except Points and Herbal Formula
-- Write in documentation style — no second person, do not address the patient or clinician. Write as if documenting findings, e.g. "Return 2x/week x 6 weeks, reassess at visit 12" not "Patient should return" or "I recommend"- Under Herbal Formula, include herb names in pinyin with Chinese characters, e.g. Huang Qi (黄芪) with dosage in grams
+- Under OBJECTIVE, only include fields that were provided — omit any field left blank
+- Under Points, list each point with its Chinese name and characters in parentheses, e.g. ST 36 (Zusanli, 足三里), followed by a brief clinical indication on the same line
+- Under Points, list points only — no explanations, no rationale, no commentary after each point
+- Under Herbal Formula, include herb names in pinyin with Chinese characters, e.g. Huang Qi (黄芪) with dosage in grams
 - Under Treatment Frequency, recommend number of treatments, visit frequency, and reassessment interval based on pattern severity and chronicity
+- Keep all subsections brief and factual, as a licensed practitioner would document in a legal chart — one to three lines maximum per subsection except Points and Herbal Formula
+- Write in documentation style — no second person, do not address the patient or clinician. Write as if documenting findings, e.g. "Return 2x/week x 6 weeks, reassess at visit 12" not "Patient should return" or "I recommend"
 - Be clinically precise and use proper TCM terminology throughout
 - Write in a conservative, professional tone appropriate for a legal medical record
 - Do NOT use any markdown formatting — no asterisks, pound signs, dashes as bullets, or bold or italic markers
 - Use plain text with clean line breaks only
 - Output the clinical note only — no preamble, no disclaimers, no commentary`;
-const SYSTEM_PATTERN=`You are an expert TCM diagnostician. Given a set of symptoms, return a ranked differential diagnosis of TCM patterns.
-
+  
 For each pattern:
 1. Name the pattern precisely
 2. Likelihood: High / Moderate / Low
@@ -368,17 +382,31 @@ function renderUploadMode(){
 function renderManualMode(prefill){
   prefill=prefill||{};
   document.getElementById('mode-content').innerHTML=`
-    <div class="form-full"><label>Chief Complaint</label><input type="text" id="cc" placeholder="e.g., chronic low back pain, worse with cold, fatigue" value="${ea(prefill.chief_complaint)}"></div>
-    <div class="form-grid">
-      <div><label>Tongue</label><input type="text" id="tongue" placeholder="e.g., pale, tooth-marked, thin white coat" value="${ea(prefill.tongue)}"></div>
-      <div><label>Pulse</label><input type="text" id="pulse" placeholder="e.g., deep, thin, slightly wiry at left guan" value="${ea(prefill.pulse)}"></div>
-    </div>
+    <div class="form-full"><label>Chief Complaint</label><input type="text" id="cc" placeholder="e.g., chronic low back pain, worse with cold" value="${ea(prefill.chief_complaint)}"></div>
     <div class="form-full"><label>Additional Symptoms</label><textarea id="symptoms" placeholder="e.g., nocturia, cold limbs, low libido, poor memory...">${eh(prefill.symptoms)}</textarea></div>
     <div class="form-grid">
       <div><label>Patient Age / Sex</label><input type="text" id="demo" placeholder="e.g., 48F" value="${ea(prefill.demo)}"></div>
       <div><label>Relevant History &amp; Medications</label><input type="text" id="hx" placeholder="e.g., hypothyroidism, metformin" value="${ea(prefill.history)}"></div>
     </div>
-    <button class="generate-btn" id="note-btn" onclick="generateNote()">Generate Clinical Note &rarr;</button>
+    <div style="font-size:0.72rem;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem;margin-top:0.5rem">Objective Findings</div>
+    <div class="form-grid">
+      <div><label>Tongue</label><input type="text" id="tongue" placeholder="e.g., pale, tooth-marked, thin white coat" value="${ea(prefill.tongue)}"></div>
+      <div><label>Pulse</label><input type="text" id="pulse" placeholder="e.g., deep, thin, slightly wiry at left guan" value="${ea(prefill.pulse)}"></div>
+    </div>
+    <div class="form-grid">
+      <div><label>Complexion</label><input type="text" id="complexion" placeholder="e.g., sallow, pale, flushed"></div>
+      <div><label>Voice / Affect</label><input type="text" id="voice" placeholder="e.g., low voice, flat affect, anxious"></div>
+    </div>
+    <div class="form-grid">
+      <div><label>Abdomen / Hara</label><input type="text" id="hara" placeholder="e.g., soft, deficient in lower jiao"></div>
+      <div><label>Palpation Findings</label><input type="text" id="palpation" placeholder="e.g., tight paraspinals T4-T6"></div>
+    </div>
+    <div class="form-grid">
+      <div><label>Vertebral Assessment</label><input type="text" id="vertebral" placeholder="e.g., restricted C2-C3 rotation"></div>
+      <div><label>Orthopedic Tests</label><input type="text" id="ortho" placeholder="e.g., positive SLR right at 45 degrees"></div>
+    </div>
+    <div class="form-full"><label>Other Findings</label><input type="text" id="other_findings" placeholder="e.g., toe fungal infection bilateral, acne on upper back"></div>
+    <button class="generate-btn" id="note-btn" onclick="generateNote()" style="margin-top:0.5rem">Generate Clinical Note &rarr;</button>
     <div id="note-output"></div>`;
 }
 
@@ -462,7 +490,27 @@ async function generateNote(){
   const btn=document.getElementById('note-btn');
   btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Generating...';
   const today=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-  const uc=`Date: ${today}\nPatient: ${document.getElementById('demo').value||'not specified'}\nChief Complaint: ${cc}\nTongue: ${document.getElementById('tongue').value||'not documented'}\nPulse: ${document.getElementById('pulse').value||'not documented'}\nAdditional Symptoms: ${document.getElementById('symptoms').value||'none provided'}\nRelevant History & Medications: ${document.getElementById('hx').value||'none'}\nGenerate a complete TCM clinical note.`;
+const fields = [
+    `Date: ${today}`,
+    `Patient: ${document.getElementById('demo').value||'not specified'}`,
+    `Chief Complaint: ${cc}`,
+    `Additional Symptoms: ${document.getElementById('symptoms').value||'none'}`,
+    `Relevant History & Medications: ${document.getElementById('hx').value||'none'}`
+  ];
+  const obj = [
+    ['Tongue', document.getElementById('tongue').value],
+    ['Pulse', document.getElementById('pulse').value],
+    ['Complexion', document.getElementById('complexion').value],
+    ['Voice/Affect', document.getElementById('voice').value],
+    ['Abdomen/Hara', document.getElementById('hara').value],
+    ['Palpation Findings', document.getElementById('palpation').value],
+    ['Vertebral Assessment', document.getElementById('vertebral').value],
+    ['Orthopedic Tests', document.getElementById('ortho').value],
+    ['Other Findings', document.getElementById('other_findings').value]
+  ];
+  obj.forEach(([k,v])=>{ if(v&&v.trim()) fields.push(`${k}: ${v.trim()}`); });
+  fields.push('Generate a complete TCM clinical note.');
+  const uc = fields.join('\n');
   try{
     const result=await callClaude({model:'claude-haiku-4-5-20251001',max_tokens:1800,system:SYSTEM_NOTE,messages:[{role:'user',content:uc}]});
 document.getElementById('note-output').innerHTML=`<div class="output-box"><div class="output-label">Generated Clinical Note</div>${formatNote(result)}</div><div class="disclaimer">For clinical use only. Verify all information before finalizing the record.</div>`;
