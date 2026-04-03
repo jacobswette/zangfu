@@ -263,16 +263,33 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
 </div>
 
 <script>
-const SYSTEM_NOTE=`You are an expert licensed acupuncturist and TCM practitioner with 20 years of clinical experience. Generate a complete, professional clinical note in Traditional Chinese Medicine style.
+const SYSTEM_NOTE=`You are an expert licensed acupuncturist and TCM practitioner with 20 years of clinical experience. Generate a complete, professional TCM clinical note suitable for a legal medical record.
 
-Format the note with these exact sections:
+Format the note using EXACTLY these section headers on their own line in ALL CAPS:
+
 SUBJECTIVE
-OBJECTIVE (Tongue & Pulse)
-ASSESSMENT (TCM Pattern Diagnosis)
-PLAN (Treatment Principle, Points Selected with individual rationale, Herbal Formula with modifications, Dietary Recommendations, Lifestyle Recommendations)
+OBJECTIVE
+ASSESSMENT
+PLAN
 
-Be clinically precise. Use proper TCM terminology. Point rationale should explain each point's specific function for this pattern. Keep the tone professional and documentation-ready. Output the clinical note only. Do NOT use any markdown formatting — no asterisks, no pound signs, no dashes as bullets, no bold or italic markers. Use plain text with clear section labels and clean line breaks only. `;
+Under PLAN include these subsections, each on their own line in title case followed by a colon:
 
+Treatment Principle:
+Points:
+Herbal Formula:
+Dietary Recommendations:
+Lifestyle Recommendations:
+Treatment Frequency:
+
+Guidelines:
+- Under Points, list each point with its Chinese name and characters in parentheses, e.g. ST 36 (Zusanli, 足三里), followed by a brief clinical indication on the same line
+- Under Herbal Formula, include herb names in pinyin with Chinese characters, e.g. Huang Qi (黄芪) with dosage in grams
+- Under Treatment Frequency, recommend number of treatments, visit frequency, and reassessment interval based on pattern severity and chronicity
+- Be clinically precise and use proper TCM terminology throughout
+- Write in a conservative, professional tone appropriate for a legal medical record
+- Do NOT use any markdown formatting — no asterisks, pound signs, dashes as bullets, or bold or italic markers
+- Use plain text with clean line breaks only
+- Output the clinical note only — no preamble, no disclaimers, no commentary`;
 const SYSTEM_PATTERN=`You are an expert TCM diagnostician. Given a set of symptoms, return a ranked differential diagnosis of TCM patterns.
 
 For each pattern:
