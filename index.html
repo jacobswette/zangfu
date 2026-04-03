@@ -4,195 +4,279 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZangFu — Clinical Tools for Acupuncturists</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#080c10;
-  --surface:#0e1419;
-  --surface2:#131c24;
-  --border:#1e2d3d;
-  --border2:#2a3f54;
-  --accent:#00d4aa;
-  --accent-dim:rgba(0,212,170,0.08);
-  --accent-glow:rgba(0,212,170,0.25);
-  --text:#e8f0f8;
-  --text2:#7a8fa6;
-  --text3:#3d5166;
-  --danger:#ff4757;
-  --gold:#f0a500;
+  --bg:#ffffff;--surface:#f7f7f4;--ink:#0d0f0c;--ink2:#5c6068;--ink3:#a8adb5;
+  --border:#e6e8e3;--accent:#065f46;--accent2:#047857;--accent-light:#ecfdf5;--accent-mid:#a7f3d0;
+  --radius:16px;--shadow-sm:0 1px 3px rgba(0,0,0,0.05),0 4px 16px rgba(0,0,0,0.05);
+  --shadow:0 4px 24px rgba(0,0,0,0.07);
 }
-body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
-
-/* GRID OVERLAY */
-body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.3;pointer-events:none;z-index:0}
-
-/* LANDING */
-#landing{max-width:780px;margin:0 auto;padding:4rem 2rem;position:relative;z-index:1}
-
-.logo-wrap{margin-bottom:0.5rem;display:flex;align-items:baseline;gap:0.5rem}
-.logo{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;color:var(--text);letter-spacing:-0.04em;line-height:1}
-.logo em{color:var(--accent);font-style:normal;text-shadow:0 0 40px var(--accent-glow)}
-.logo-tag{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;border:1px solid var(--accent);padding:3px 8px;border-radius:3px;opacity:0.8;align-self:center}
-.tagline{font-size:0.9rem;color:var(--text3);margin-bottom:4rem;font-family:'IBM Plex Mono',monospace;letter-spacing:0.08em;text-transform:uppercase}
-
-.hero-section{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:3rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
-.hero-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
-.hero-h{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--text);line-height:1.1;margin-bottom:1.25rem;letter-spacing:-0.03em}
-.hero-h em{color:var(--accent);font-style:normal}
-.hero-p{color:var(--text2);font-size:1rem;margin-bottom:2.5rem;line-height:1.8;max-width:560px;font-weight:300}
-
-.features{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-bottom:2.5rem;background:var(--border);border:1px solid var(--border)}
-.feat{background:var(--surface2);padding:1.25rem 1.5rem;position:relative}
-.feat::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);opacity:0;transition:opacity 0.2s}
-.feat:hover::before{opacity:1}
-.feat-num{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--text3);letter-spacing:0.1em;margin-bottom:0.5rem}
-.feat-title{font-weight:500;font-size:0.95rem;color:var(--text);margin-bottom:0.35rem;letter-spacing:0.01em}
-.feat-desc{font-size:0.82rem;color:var(--text2);line-height:1.6;font-weight:300}
-
-.cta-btn{display:inline-flex;align-items:center;gap:12px;padding:1rem 2rem;background:var(--accent);color:var(--bg);border:none;border-radius:3px;font-family:'IBM Plex Sans',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em;width:100%;justify-content:center}
-.cta-btn:hover{background:#00f0c0;box-shadow:0 0 30px var(--accent-glow)}
-.cta-arrow{font-size:1.1rem;transition:transform 0.2s}
-.cta-btn:hover .cta-arrow{transform:translateX(4px)}
-
-.pricing-strip{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:3rem}
-.price-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.75rem;position:relative;overflow:hidden}
-.price-card.featured{border-color:var(--accent)}
-.price-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
-.price-badge{display:inline-block;background:var(--accent-dim);color:var(--accent);font-size:0.65rem;padding:3px 10px;border-radius:2px;margin-bottom:1rem;font-family:'IBM Plex Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;border:1px solid rgba(0,212,170,0.2)}
-.price-amount{font-family:'Syne',sans-serif;font-size:2.5rem;color:var(--text);font-weight:800;letter-spacing:-0.03em;line-height:1}
-.price-amount span{font-size:1rem;color:var(--text2);font-family:'IBM Plex Sans',sans-serif;font-weight:300}
-.price-label{font-size:0.8rem;color:var(--text3);margin-top:0.5rem;font-family:'IBM Plex Mono',monospace}
-
-.footer-note{text-align:center;font-size:0.75rem;color:var(--text3);font-family:'IBM Plex Mono',monospace;letter-spacing:0.05em}
-
-/* APP */
-#app{display:none;min-height:100vh;flex-direction:column;position:relative;z-index:1}
-.app-header{background:rgba(8,12,16,0.95);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;backdrop-filter:blur(10px)}
-.app-logo{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--text);letter-spacing:-0.03em}
-.app-logo em{color:var(--accent);font-style:normal}
-.user-badge{font-size:0.7rem;color:var(--accent);background:var(--accent-dim);padding:4px 12px;border-radius:2px;font-family:'IBM Plex Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;border:1px solid rgba(0,212,170,0.2)}
-
-.app-nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0 2rem;display:flex}
-.nav-tab{padding:1rem 1.5rem;font-size:0.82rem;color:var(--text2);cursor:pointer;border-bottom:1px solid transparent;font-weight:500;transition:all 0.15s;font-family:'IBM Plex Mono',monospace;letter-spacing:0.05em;text-transform:uppercase}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);z-index:100}
+.nav-logo{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:700;letter-spacing:-0.03em}
+.nav-logo .zang{color:var(--ink)}.nav-logo .fu{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:2.5rem}
+.nav-link{font-size:0.83rem;color:var(--ink2);cursor:pointer;transition:color 0.15s}.nav-link:hover{color:var(--ink)}
+.nav-btn{padding:9px 22px;background:var(--accent);color:white;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:500;cursor:pointer;transition:all 0.2s}
+.nav-btn:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 4px 16px rgba(6,95,70,0.3)}
+.hero{padding:6rem 3rem 4rem;max-width:1100px;margin:0 auto}
+.hero-h{font-family:'Fraunces',serif;font-size:4.2rem;font-weight:900;color:var(--ink);line-height:1.02;letter-spacing:-0.05em;margin-bottom:1.5rem;max-width:820px}
+.hero-h .italic{font-style:italic;font-weight:300;color:var(--accent)}
+.hero-sub{font-size:1.05rem;color:var(--ink2);font-weight:300;line-height:1.85;max-width:620px;margin-bottom:2.5rem}
+.hero-sub strong{color:var(--ink);font-weight:500}
+.hero-actions{display:flex;gap:1rem;align-items:center;margin-bottom:4rem}
+.btn-primary{padding:15px 36px;background:var(--accent);color:white;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;transition:all 0.25s}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(6,95,70,0.3)}
+.btn-ghost{padding:15px 28px;background:transparent;color:var(--ink2);border:1px solid var(--border);border-radius:100px;font-family:'Inter',sans-serif;font-size:0.95rem;cursor:pointer;transition:all 0.2s}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
+.outcomes{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:5rem}
+.outcome{padding:2rem 1.75rem;border-right:1px solid var(--border);background:var(--surface)}
+.outcome:last-child{border-right:none}
+.outcome-icon{font-size:1.4rem;margin-bottom:0.75rem}
+.outcome-title{font-weight:600;font-size:0.88rem;color:var(--ink);margin-bottom:0.35rem;line-height:1.3}
+.outcome-desc{font-size:0.78rem;color:var(--ink2);line-height:1.6;font-weight:300}
+.demo-section{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:3rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.demo-eyebrow{font-size:0.7rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.demo-eyebrow::before{content:'';width:20px;height:1px;background:var(--accent)}
+.demo-h{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--ink);letter-spacing:-0.03em;line-height:1.2;margin-bottom:1rem}
+.demo-p{font-size:0.88rem;color:var(--ink2);line-height:1.8;font-weight:300;margin-bottom:1.75rem}
+.capability{display:flex;align-items:flex-start;gap:10px;margin-bottom:0.7rem}
+.cap-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:6px;flex-shrink:0}
+.cap-text{font-size:0.85rem;color:var(--ink2);font-weight:300;line-height:1.5}
+.cap-text strong{color:var(--ink);font-weight:500}
+.demo-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.demo-card-header{padding:1rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.demo-card-title{font-size:0.78rem;font-weight:600;color:var(--ink)}
+.demo-badge{font-size:0.62rem;font-weight:600;color:var(--accent);background:var(--accent-light);padding:3px 10px;border-radius:100px;border:1px solid var(--accent-mid)}
+.demo-card-body{padding:1.25rem}
+.demo-field{margin-bottom:0.7rem}
+.demo-label{font-size:0.6rem;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:3px}
+.demo-val{font-size:0.82rem;color:var(--ink);background:var(--surface);padding:6px 10px;border-radius:8px;border:1px solid var(--border)}
+.demo-2col{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:0.7rem}
+.demo-output-section{background:var(--accent-light);border:1px solid var(--accent-mid);border-radius:12px;padding:1.1rem;margin-top:0.25rem}
+.demo-output-title{font-size:0.62rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem}
+.demo-output-row{margin-bottom:0.6rem}
+.demo-output-key{font-size:0.65rem;font-weight:600;color:var(--accent2);margin-bottom:2px;text-transform:uppercase;letter-spacing:0.06em}
+.demo-output-val{font-size:0.78rem;color:var(--ink2);line-height:1.6;font-weight:300}
+.value-chain{background:var(--ink);border-radius:24px;padding:3.5rem 3rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.vc-label{font-size:0.7rem;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.vc-label::before{content:'';width:20px;height:1px;background:rgba(255,255,255,0.3)}
+.vc-h{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:white;letter-spacing:-0.04em;line-height:1.15;margin-bottom:1rem}
+.vc-h em{color:var(--accent-mid);font-style:italic;font-weight:300}
+.vc-p{font-size:0.88rem;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.8}
+.chain-step{display:flex;align-items:flex-start;gap:14px;margin-bottom:1.1rem}
+.chain-num{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:600;color:var(--accent-mid);flex-shrink:0;margin-top:2px}
+.chain-title{font-size:0.88rem;font-weight:500;color:white;margin-bottom:2px}
+.chain-desc{font-size:0.78rem;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.5}
+.chain-arrow{color:rgba(255,255,255,0.15);font-size:0.8rem;margin:0.1rem 0 0.1rem 41px}
+.pricing-wrap{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:3rem;display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;margin-bottom:2rem}
+.pricing-h{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:var(--ink);letter-spacing:-0.04em;line-height:1.15;margin-bottom:1rem}
+.pricing-p{font-size:0.9rem;color:var(--ink2);font-weight:300;line-height:1.8;margin-bottom:1.5rem}
+.pricing-detail{display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--ink2);font-weight:300;margin-bottom:0.5rem}
+.pricing-detail::before{content:'✓';color:var(--accent);font-weight:600}
+.pricing-cards{display:flex;flex-direction:column;gap:1rem}
+.p-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;transition:all 0.2s}
+.p-card:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.07)}
+.p-card.featured{background:var(--accent);border-color:var(--accent)}
+.p-card.featured:hover{box-shadow:0 8px 30px rgba(6,95,70,0.3)}
+.p-row{display:flex;align-items:flex-start;justify-content:space-between}
+.p-amount{font-family:'Fraunces',serif;font-size:2.75rem;color:var(--ink);font-weight:700;letter-spacing:-0.04em;line-height:1}
+.p-card.featured .p-amount{color:white}
+.p-amount sub{font-size:0.9rem;font-family:'Inter',sans-serif;font-weight:300;opacity:0.5;vertical-align:baseline}
+.p-badge{font-size:0.62rem;font-weight:600;color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.15);padding:3px 10px;border-radius:100px;letter-spacing:0.06em;text-transform:uppercase}
+.p-label{font-size:0.78rem;color:var(--ink3);margin-top:0.4rem;line-height:1.6}
+.p-card.featured .p-label{color:rgba(255,255,255,0.45)}
+footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between}
+.footer-logo{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.03em}
+.footer-logo .zang{color:var(--ink)}.footer-logo .fu{color:var(--accent)}
+.footer-note{font-size:0.75rem;color:var(--ink3);text-align:right;line-height:1.9}
+#app{display:none;min-height:100vh;flex-direction:column}
+.app-header{background:rgba(255,255,255,0.95);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;backdrop-filter:blur(16px)}
+.app-logo{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;letter-spacing:-0.03em}
+.app-logo .zang{color:var(--ink)}.app-logo .fu{color:var(--accent)}
+.user-badge{font-size:0.75rem;color:var(--accent);background:var(--accent-light);padding:4px 14px;border-radius:100px;font-weight:500;border:1px solid var(--accent-mid)}
+.app-nav{background:var(--bg);border-bottom:1px solid var(--border);padding:0 2rem;display:flex}
+.nav-tab{padding:1rem 1.25rem;font-size:0.85rem;color:var(--ink2);cursor:pointer;border-bottom:2px solid transparent;font-weight:500;transition:all 0.15s}
 .nav-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
-.nav-tab:hover{color:var(--text)}
-
+.nav-tab:hover{color:var(--ink)}
 .app-content{flex:1;padding:2rem;max-width:860px;margin:0 auto;width:100%}
-
-.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
-.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
-.tool-title{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--text);margin-bottom:0.3rem;letter-spacing:-0.02em}
-.tool-subtitle{font-size:0.82rem;color:var(--text2);margin-bottom:2rem;font-weight:300}
-
-label{display:block;font-size:0.7rem;font-weight:500;color:var(--text3);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.12em;font-family:'IBM Plex Mono',monospace}
-textarea,input{width:100%;padding:0.75rem 1rem;border:1px solid var(--border);border-radius:3px;font-family:'IBM Plex Sans',sans-serif;font-size:0.9rem;color:var(--text);background:var(--surface2);outline:none;transition:border 0.15s;resize:vertical}
-textarea:focus,input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim)}
+.tool-card{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow-sm)}
+.tool-title{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;letter-spacing:-0.02em}
+.tool-subtitle{font-size:0.85rem;color:var(--ink2);margin-bottom:1.75rem;font-weight:300}
+.mode-toggle{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:4px;margin-bottom:2rem;width:fit-content}
+.mode-btn{padding:8px 22px;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.83rem;font-weight:500;cursor:pointer;transition:all 0.2s;background:transparent;color:var(--ink2)}
+.mode-btn.active{background:var(--bg);color:var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.08);border:1px solid var(--border)}
+.upload-zone{border:2px dashed var(--border);border-radius:16px;padding:3rem 2rem;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--surface);margin-bottom:1.25rem}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--accent);background:var(--accent-light)}
+.upload-zone-icon{font-size:2.5rem;margin-bottom:1rem;opacity:0.4}
+.upload-zone-title{font-weight:600;font-size:0.95rem;color:var(--ink);margin-bottom:0.35rem}
+.upload-zone-sub{font-size:0.8rem;color:var(--ink2);font-weight:300;margin-bottom:1.25rem}
+.upload-zone-btn{display:inline-block;padding:8px 20px;background:var(--bg);border:1px solid var(--border);border-radius:100px;font-size:0.82rem;font-weight:500;color:var(--ink2);transition:all 0.2s}
+.upload-zone:hover .upload-zone-btn{border-color:var(--accent);color:var(--accent)}
+.file-selected{background:var(--accent-light);border:1px solid var(--accent-mid);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between}
+.file-selected-name{font-size:0.85rem;font-weight:500;color:var(--ink);display:flex;align-items:center;gap:8px}
+.file-selected-name::before{content:'📄';font-size:1rem}
+.file-remove{font-size:0.78rem;color:var(--ink3);cursor:pointer;transition:color 0.15s}.file-remove:hover{color:var(--ink)}
+.read-btn{display:inline-flex;align-items:center;gap:8px;padding:0.8rem 1.75rem;background:var(--accent);color:white;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:500;cursor:pointer;transition:all 0.2s;margin-bottom:1.5rem}
+.read-btn:hover{background:var(--accent2);box-shadow:0 6px 20px rgba(6,95,70,0.3);transform:translateY(-1px)}
+.read-btn:disabled{background:var(--border);color:var(--ink3);cursor:not-allowed;box-shadow:none;transform:none}
+.read-success{background:var(--accent-light);border:1px solid var(--accent-mid);border-radius:12px;padding:0.9rem 1.25rem;margin-bottom:1.5rem;font-size:0.83rem;color:var(--accent);font-weight:500;display:flex;align-items:center;gap:8px}
+.read-success::before{content:'✓';font-weight:700}
+label{display:block;font-size:0.72rem;font-weight:600;color:var(--ink3);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.08em}
+textarea,input[type=text]{width:100%;padding:0.75rem 1rem;border:1px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--ink);background:var(--surface);outline:none;transition:border 0.15s,background 0.15s;resize:vertical}
+textarea:focus,input[type=text]:focus{border-color:var(--accent);background:white;box-shadow:0 0 0 3px var(--accent-light)}
 textarea{min-height:90px}
-input::placeholder,textarea::placeholder{color:var(--text3)}
-
+input::placeholder,textarea::placeholder{color:var(--ink3)}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
 .form-full{margin-bottom:1rem}
-
-.generate-btn{display:inline-flex;align-items:center;gap:8px;padding:0.8rem 1.75rem;background:var(--accent);color:var(--bg);border:none;border-radius:3px;font-family:'IBM Plex Sans',sans-serif;font-size:0.9rem;font-weight:500;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em}
-.generate-btn:hover{background:#00f0c0;box-shadow:0 0 20px var(--accent-glow)}
-.generate-btn:disabled{background:var(--border2);color:var(--text3);cursor:not-allowed;box-shadow:none}
-
-.output-box{background:var(--surface2);border:1px solid var(--border);border-left:2px solid var(--accent);border-radius:3px;padding:1.5rem;margin-top:1.5rem;font-size:0.88rem;line-height:1.9;color:var(--text2);white-space:pre-wrap;font-family:'IBM Plex Mono',monospace}
-.output-label{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;font-weight:500;color:var(--accent);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
-.output-label::after{content:'';flex:1;height:1px;background:var(--border2)}
-
-.spinner{width:14px;height:14px;border:2px solid rgba(8,12,16,0.3);border-top-color:var(--bg);border-radius:50%;animation:spin 0.7s linear infinite;display:inline-block}
+.generate-btn{display:inline-flex;align-items:center;gap:8px;padding:0.85rem 2rem;background:var(--accent);color:white;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:500;cursor:pointer;transition:all 0.2s}
+.generate-btn:hover{background:var(--accent2);box-shadow:0 6px 20px rgba(6,95,70,0.3);transform:translateY(-1px)}
+.generate-btn:disabled{background:var(--border);color:var(--ink3);cursor:not-allowed;box-shadow:none;transform:none}
+.output-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px;padding:1.5rem;margin-top:1.5rem;font-size:0.88rem;line-height:1.9;color:var(--ink2);white-space:pre-wrap;font-family:'Inter',sans-serif;font-weight:300}
+.output-label{font-size:0.7rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.output-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.spinner{width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.7s linear infinite;display:inline-block}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-.disclaimer{font-size:0.72rem;color:var(--text3);margin-top:1rem;font-family:'IBM Plex Mono',monospace;letter-spacing:0.03em;padding-top:0.75rem;border-top:1px solid var(--border)}
-
-.chip{padding:5px 14px;border:1px solid var(--border);border-radius:2px;font-size:0.78rem;cursor:pointer;background:var(--surface2);color:var(--text2);transition:all 0.15s;user-select:none;font-family:'IBM Plex Mono',monospace;letter-spacing:0.03em}
-.chip.selected{background:var(--accent-dim);color:var(--accent);border-color:rgba(0,212,170,0.4)}
-.chip:hover{border-color:var(--border2);color:var(--text)}
+.disclaimer{font-size:0.72rem;color:var(--ink3);margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--border);font-style:italic}
+.error-box{background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:1rem 1.25rem;margin-top:1rem;font-size:0.82rem;color:#dc2626}
+.chip{padding:6px 14px;border:1px solid var(--border);border-radius:100px;font-size:0.8rem;cursor:pointer;background:white;color:var(--ink2);transition:all 0.15s;user-select:none}
+.chip.selected{background:var(--accent-light);color:var(--accent);border-color:var(--accent-mid)}
+.chip:hover{border-color:var(--ink2)}
 .pattern-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
-
-.error-box{background:rgba(255,71,87,0.08);border:1px solid rgba(255,71,87,0.3);border-radius:3px;padding:1rem 1.25rem;margin-top:1rem;font-size:0.82rem;color:#ff8a95;font-family:'IBM Plex Mono',monospace}
 </style>
 </head>
 <body>
 
 <div id="landing">
-  <div class="logo-wrap">
-    <div class="logo">Zang<em>Fu</em></div>
-    <div class="logo-tag">v1.0</div>
+<nav>
+  <div class="nav-logo"><span class="zang">Zang</span><span class="fu">Fu</span></div>
+  <div class="nav-links">
+    <span class="nav-link" onclick="document.querySelector('.demo-section').scrollIntoView({behavior:'smooth'})">Features</span>
+    <span class="nav-link" onclick="document.querySelector('.pricing-wrap').scrollIntoView({behavior:'smooth'})">Pricing</span>
+    <button class="nav-btn" onclick="enterApp()">Try Free &rarr;</button>
   </div>
-  <div class="tagline">Clinical tools for acupuncturists</div>
+</nav>
 
-  <div class="hero-section">
-    <div class="hero-h">Stop spending your evenings<br><em>writing notes.</em></div>
-    <div class="hero-p">ZangFu generates complete SOAP notes, differentiates TCM patterns from even the most complex symptom clusters, and supports your clinical decision-making. Built by an acupuncturist, for acupuncturists.</div>
-    <div class="features">
-      <div class="feat">
-        <div class="feat-num">01</div>
-        <div class="feat-title">SOAP Note Generator</div>
-        <div class="feat-desc">Complete TCM SOAP notes from chief complaint, tongue, and pulse in under 30 seconds</div>
-      </div>
-      <div class="feat">
-        <div class="feat-num">02</div>
-        <div class="feat-title">Pattern Differentiator</div>
-        <div class="feat-desc">Input symptom clusters, receive ranked TCM pattern differentials with discriminating signs</div>
-      </div>
-      <div class="feat">
-        <div class="feat-num">03</div>
-        <div class="feat-title">Treatment Rationale</div>
-        <div class="feat-desc">Auto-generated point prescriptions with individual point justifications for your records</div>
-      </div>
-      <div class="feat">
-        <div class="feat-num">04</div>
-        <div class="feat-title">Built by a LAc</div>
-        <div class="feat-desc">Built by a practicing licensed acupuncturist — not a tech company</div>
-      </div>
-    </div>
-    <button class="cta-btn" onclick="enterApp()">Try ZangFu Free — No Card Required <span class="cta-arrow">→</span></button>
+<div class="hero">
+  <h1 class="hero-h">The clinical intelligence platform <span class="italic">built for how you practice.</span></h1>
+  <p class="hero-sub">ZangFu brings order to your most complex clinical presentations &mdash; generating <strong>polished, professional documentation</strong> with complete pattern diagnosis, treatment principles, point prescriptions, herbal guidance, dietary recommendations, and lifestyle plans. <strong>In under 30 seconds.</strong></p>
+  <div class="hero-actions">
+    <button class="btn-primary" onclick="enterApp()">Start Free &mdash; No Card Required</button>
+    <button class="btn-ghost" onclick="document.querySelector('.demo-section').scrollIntoView({behavior:'smooth'})">See how it works</button>
   </div>
+  <div class="outcomes">
+    <div class="outcome"><div class="outcome-icon">&#x1F4CB;</div><div class="outcome-title">Professional notes, every time</div><div class="outcome-desc">Highly organized, clinically precise documentation that reflects the quality of your training.</div></div>
+    <div class="outcome"><div class="outcome-icon">&#x1F3AF;</div><div class="outcome-title">Clarity on complex cases</div><div class="outcome-desc">Complete pattern differentials with discriminating signs &mdash; even on your most challenging presentations.</div></div>
+    <div class="outcome"><div class="outcome-icon">&#x1F33F;</div><div class="outcome-title">Complete treatment plans</div><div class="outcome-desc">Points, herbs, diet, and lifestyle &mdash; a full, executable plan generated from your clinical findings.</div></div>
+    <div class="outcome"><div class="outcome-icon">&#x23F1;</div><div class="outcome-title">Less paperwork, more medicine</div><div class="outcome-desc">Reclaim the time you spend on documentation. Invest it in patients, learning, or your life.</div></div>
+  </div>
+</div>
 
-  <div class="pricing-strip">
-    <div class="price-card">
-      <div class="price-amount">Free</div>
-      <div class="price-label">14-day trial · All features</div>
-    </div>
-    <div class="price-card featured">
-      <div class="price-badge">Founding Member</div>
-      <div class="price-amount">$19<span>/mo</span></div>
-      <div class="price-label">Locked for life · First 20 users only</div>
+<div style="max-width:1100px;margin:0 auto;padding:0 3rem 3rem">
+<div class="demo-section">
+  <div>
+    <div class="demo-eyebrow">What ZangFu generates</div>
+    <div class="demo-h">From scattered findings to a complete clinical picture.</div>
+    <div class="demo-p">Enter your clinical findings &mdash; or upload a completed patient intake form. ZangFu organizes complex information into documentation that is thorough, structured, and ready to use.</div>
+    <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>TCM Pattern Diagnosis</strong> &mdash; ranked differentials with supporting and discriminating signs</div></div>
+    <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>Treatment Principle</strong> &mdash; clear therapeutic strategy derived from the pattern</div></div>
+    <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>Point Prescription</strong> &mdash; every point with individual clinical rationale</div></div>
+    <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>Herbal Formula Guidance</strong> &mdash; base formula with modifications for the presentation</div></div>
+    <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>Dietary &amp; Lifestyle Recommendations</strong> &mdash; specific, TCM-informed patient guidance</div></div>
+    <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>Upload Intake Forms</strong> &mdash; drop in a PDF or photo; ZangFu reads and populates everything automatically</div></div>
+  </div>
+  <div class="demo-card">
+    <div class="demo-card-header"><div class="demo-card-title">Generated Clinical Note</div><div class="demo-badge">Sample Output</div></div>
+    <div class="demo-card-body">
+      <div class="demo-field"><div class="demo-label">Chief Complaint</div><div class="demo-val">Chronic low back pain, fatigue, cold limbs, nocturia</div></div>
+      <div class="demo-2col">
+        <div class="demo-field"><div class="demo-label">Tongue</div><div class="demo-val">Pale, tooth-marked, white coat</div></div>
+        <div class="demo-field"><div class="demo-label">Pulse</div><div class="demo-val">Deep, thin, weak at chi</div></div>
+      </div>
+      <div class="demo-output-section">
+        <div class="demo-output-title">Clinical Output</div>
+        <div class="demo-output-row"><div class="demo-output-key">Pattern</div><div class="demo-output-val">Kidney Yang Deficiency with Spleen Qi Deficiency</div></div>
+        <div class="demo-output-row"><div class="demo-output-key">Treatment Principle</div><div class="demo-output-val">Warm &amp; tonify Kidney Yang, strengthen Spleen Qi, warm the meridians</div></div>
+        <div class="demo-output-row"><div class="demo-output-key">Points</div><div class="demo-output-val">KD 3, BL 23, CV 4, ST 36, SP 6 &mdash; with full individual rationale</div></div>
+        <div class="demo-output-row"><div class="demo-output-key">Herbal Formula</div><div class="demo-output-val">You Gui Wan base with modifications for Spleen involvement</div></div>
+        <div class="demo-output-row"><div class="demo-output-key">Dietary Guidance</div><div class="demo-output-val">Warm, cooked foods; avoid cold/raw; lamb, black beans, walnuts</div></div>
+      </div>
     </div>
   </div>
-  <div class="footer-note">Designed for practitioners in small clinics and large institutions · HIPAA-conscious · Cancel anytime</div>
+</div>
+
+<div class="value-chain">
+  <div>
+    <div class="vc-label">Why it matters</div>
+    <div class="vc-h">Better documentation leads to <em>better everything.</em></div>
+    <div class="vc-p">The quality of your clinical notes shapes everything that follows &mdash; how clearly you think, how precisely you act, and ultimately how well your patients respond. ZangFu gives you the structure to practice at your best, consistently.</div>
+  </div>
+  <div>
+    <div class="chain-step"><div class="chain-num">1</div><div><div class="chain-title">Organized, structured notes</div><div class="chain-desc">Complex information made clear &mdash; nothing missed, everything in its place</div></div></div>
+    <div class="chain-arrow">&darr;</div>
+    <div class="chain-step"><div class="chain-num">2</div><div><div class="chain-title">Clearer clinical thinking</div><div class="chain-desc">When the picture is organized, pattern recognition sharpens</div></div></div>
+    <div class="chain-arrow">&darr;</div>
+    <div class="chain-step"><div class="chain-num">3</div><div><div class="chain-title">More precise interventions</div><div class="chain-desc">Better diagnosis leads to more targeted, effective treatment</div></div></div>
+    <div class="chain-arrow">&darr;</div>
+    <div class="chain-step"><div class="chain-num">4</div><div><div class="chain-title">Better patient outcomes</div><div class="chain-desc">Patients who respond well complete treatment and come back</div></div></div>
+    <div class="chain-arrow">&darr;</div>
+    <div class="chain-step"><div class="chain-num">5</div><div><div class="chain-title">A more successful practice</div><div class="chain-desc">More referrals, more return visits, more revenue</div></div></div>
+  </div>
+</div>
+
+<div class="pricing-wrap">
+  <div>
+    <div class="pricing-h">Start free.<br>See it for yourself.</div>
+    <div class="pricing-p">Try everything ZangFu offers for 14 days &mdash; no credit card, no commitment. See what it does to your notes, your thinking, and your practice.</div>
+    <div class="pricing-detail">Complete clinical notes in under 30 seconds</div>
+    <div class="pricing-detail">Full pattern differentials with discriminating signs</div>
+    <div class="pricing-detail">Point prescriptions with individual rationale</div>
+    <div class="pricing-detail">Herbal, dietary, and lifestyle guidance included</div>
+    <div class="pricing-detail">Upload intake forms &mdash; PDF or photo</div>
+    <div class="pricing-detail">Cancel anytime &mdash; no questions asked</div>
+  </div>
+  <div class="pricing-cards">
+    <div class="p-card"><div class="p-row"><div class="p-amount">Free</div></div><div class="p-label">14-day trial &middot; All features &middot; No card required</div></div>
+    <div class="p-card featured"><div class="p-row"><div class="p-amount">$19<sub>/mo</sub></div><div class="p-badge">Founding Member</div></div><div class="p-label">Rate locked for life &middot; First 20 users only &middot; Price increases after</div></div>
+  </div>
+</div>
+</div>
+
+<footer>
+  <div class="footer-logo"><span class="zang">Zang</span><span class="fu">Fu</span></div>
+  <div class="footer-note">Designed for practitioners in small clinics and large institutions &middot; HIPAA-conscious &middot; Cancel anytime<br>A portion of every subscription supports TCM access for underserved communities</div>
+</footer>
 </div>
 
 <div id="app">
   <div class="app-header">
-    <span class="app-logo">Zang<em>Fu</em></span>
+    <div class="app-logo"><span class="zang">Zang</span><span class="fu">Fu</span></div>
     <div class="user-badge">Free Trial</div>
   </div>
   <div class="app-nav">
-    <div class="nav-tab active" onclick="showTab('soap',this)">SOAP Notes</div>
+    <div class="nav-tab active" onclick="showTab('note',this)">Clinical Notes</div>
     <div class="nav-tab" onclick="showTab('pattern',this)">Pattern Differentiator</div>
   </div>
   <div class="app-content" id="app-content"></div>
 </div>
 
 <script>
-const SYSTEM_SOAP = `You are an expert licensed acupuncturist and TCM practitioner with 20 years of clinical experience. Generate a complete, professional SOAP note in Traditional Chinese Medicine style.
+const SYSTEM_NOTE=`You are an expert licensed acupuncturist and TCM practitioner with 20 years of clinical experience. Generate a complete, professional clinical note in Traditional Chinese Medicine style.
 
 Format the note with these exact sections:
 SUBJECTIVE
 OBJECTIVE (Tongue & Pulse)
 ASSESSMENT (TCM Pattern Diagnosis)
-PLAN (Treatment Principle, Points Selected with individual rationale, Lifestyle/Dietary Recommendations)
+PLAN (Treatment Principle, Points Selected with individual rationale, Herbal Formula with modifications, Dietary Recommendations, Lifestyle Recommendations)
 
-Be clinically precise. Use proper TCM terminology. Point rationale should explain each point's specific function for this pattern. Keep the tone professional and documentation-ready. Output the SOAP note only — no preamble or disclaimers.`;
+Be clinically precise. Use proper TCM terminology. Point rationale should explain each point's specific function for this pattern. Keep the tone professional and documentation-ready. Output the clinical note only.`;
 
-const SYSTEM_PATTERN = `You are an expert TCM diagnostician. Given a set of symptoms, return a ranked differential diagnosis of TCM patterns.
+const SYSTEM_PATTERN=`You are an expert TCM diagnostician. Given a set of symptoms, return a ranked differential diagnosis of TCM patterns.
 
 For each pattern:
-1. Name the pattern precisely (e.g., "Liver Qi Stagnation with Depressed Heat")
+1. Name the pattern precisely
 2. Likelihood: High / Moderate / Low
 3. Supporting symptoms from the presented list
 4. 2-3 discriminating signs that would confirm or rule out this pattern
@@ -200,103 +284,173 @@ For each pattern:
 
 Present 3-4 patterns ranked by likelihood. Be clinically precise. Output the differentials only.`;
 
-function enterApp(){showApp()}
+const SYSTEM_FORM_READ=`You are a clinical assistant extracting information from a patient intake form. Extract all available clinical information and return ONLY a valid JSON object with exactly these fields:
+{"chief_complaint":"","tongue":"","pulse":"","symptoms":"","demo":"","history":""}
+If a field is not present, use empty string. Return only the JSON object, no other text.`;
 
+let currentFile=null;
+
+function enterApp(){showApp()}
 function showApp(){
   document.getElementById('landing').style.display='none';
   document.getElementById('app').style.display='flex';
-  renderSOAP();
+  renderNote();
 }
-
 function showTab(tab,el){
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
-  if(tab==='soap')renderSOAP();
+  if(tab==='note')renderNote();
   else renderPattern();
 }
 
-async function callClaude(systemPrompt,userContent){
-  const resp=await fetch('/api/generate',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      model:'claude-haiku-4-5-20251001',
-      max_tokens:1500,
-      system:systemPrompt,
-      messages:[{role:'user',content:userContent}]
-    })
-  });
+async function callClaude(body){
+  const resp=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
   const data=await resp.json();
   if(data.content&&data.content[0])return data.content[0].text;
   if(data.error)throw new Error(data.error.message);
   throw new Error('Unexpected API response');
 }
 
-function renderSOAP(){
+function renderNote(){
+  currentFile=null;
   document.getElementById('app-content').innerHTML=`
     <div class="tool-card">
-      <div class="tool-title">SOAP Note Generator</div>
-      <div class="tool-subtitle">Enter patient findings — receive a complete TCM SOAP note ready for your records</div>
-      <div class="form-full">
-        <label>Chief Complaint</label>
-        <input type="text" id="cc" placeholder="e.g., chronic low back pain, worse with cold, fatigue">
+      <div class="tool-title">Clinical Note Generator</div>
+      <div class="tool-subtitle">Upload a completed intake form or enter findings manually &mdash; receive a complete TCM clinical note ready for your records</div>
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="mode-upload" onclick="switchMode('upload')">Upload Intake Form</button>
+        <button class="mode-btn" id="mode-manual" onclick="switchMode('manual')">Enter Manually</button>
       </div>
-      <div class="form-grid">
-        <div>
-          <label>Tongue</label>
-          <input type="text" id="tongue" placeholder="e.g., pale, tooth-marked, thin white coat">
-        </div>
-        <div>
-          <label>Pulse</label>
-          <input type="text" id="pulse" placeholder="e.g., deep, thin, slightly wiry at left guan">
-        </div>
-      </div>
-      <div class="form-full">
-        <label>Additional Symptoms</label>
-        <textarea id="symptoms" placeholder="e.g., nocturia, cold limbs, low libido, poor memory, aversion to cold..."></textarea>
-      </div>
-      <div class="form-grid">
-        <div>
-          <label>Patient Age / Sex</label>
-          <input type="text" id="demo" placeholder="e.g., 48F">
-        </div>
-        <div>
-          <label>Relevant History</label>
-          <input type="text" id="hx" placeholder="e.g., hypothyroidism, gravida 2">
-        </div>
-      </div>
-      <button class="generate-btn" id="soap-btn" onclick="generateSOAP()">Generate SOAP Note →</button>
-      <div id="soap-output"></div>
+      <div id="mode-content"></div>
     </div>`;
+  renderUploadMode();
 }
 
-async function generateSOAP(){
-  const cc=document.getElementById('cc').value.trim();
-  if(!cc){alert('Please enter a chief complaint.');return;}
-  const btn=document.getElementById('soap-btn');
+function switchMode(mode){
+  document.getElementById('mode-upload').className='mode-btn'+(mode==='upload'?' active':'');
+  document.getElementById('mode-manual').className='mode-btn'+(mode==='manual'?' active':'');
+  if(mode==='upload')renderUploadMode();
+  else renderManualMode();
+}
+
+function renderUploadMode(){
+  document.getElementById('mode-content').innerHTML=`
+    <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png,.heic" style="display:none" onchange="handleFileSelect(event)">
+    <div class="upload-zone" id="drop-zone" onclick="document.getElementById('file-input').click()" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+      <div class="upload-zone-icon">&#8679;</div>
+      <div class="upload-zone-title">Drop your intake form here</div>
+      <div class="upload-zone-sub">Supports PDF, JPG, PNG &middot; HEIC: save as JPG first</div>
+      <div class="upload-zone-btn">Select File</div>
+    </div>
+    <div id="file-info"></div>
+    <div id="note-output"></div>`;
+}
+
+function renderManualMode(prefill){
+  prefill=prefill||{};
+  document.getElementById('mode-content').innerHTML=`
+    <div class="form-full"><label>Chief Complaint</label><input type="text" id="cc" placeholder="e.g., chronic low back pain, worse with cold, fatigue" value="${ea(prefill.chief_complaint)}"></div>
+    <div class="form-grid">
+      <div><label>Tongue</label><input type="text" id="tongue" placeholder="e.g., pale, tooth-marked, thin white coat" value="${ea(prefill.tongue)}"></div>
+      <div><label>Pulse</label><input type="text" id="pulse" placeholder="e.g., deep, thin, slightly wiry at left guan" value="${ea(prefill.pulse)}"></div>
+    </div>
+    <div class="form-full"><label>Additional Symptoms</label><textarea id="symptoms" placeholder="e.g., nocturia, cold limbs, low libido, poor memory...">${eh(prefill.symptoms)}</textarea></div>
+    <div class="form-grid">
+      <div><label>Patient Age / Sex</label><input type="text" id="demo" placeholder="e.g., 48F" value="${ea(prefill.demo)}"></div>
+      <div><label>Relevant History &amp; Medications</label><input type="text" id="hx" placeholder="e.g., hypothyroidism, metformin" value="${ea(prefill.history)}"></div>
+    </div>
+    <button class="generate-btn" id="note-btn" onclick="generateNote()">Generate Clinical Note &rarr;</button>
+    <div id="note-output"></div>`;
+}
+
+function handleDragOver(e){e.preventDefault();document.getElementById('drop-zone').classList.add('drag-over')}
+function handleDragLeave(e){document.getElementById('drop-zone').classList.remove('drag-over')}
+function handleDrop(e){e.preventDefault();document.getElementById('drop-zone').classList.remove('drag-over');const f=e.dataTransfer.files[0];if(f)processFile(f)}
+function handleFileSelect(e){const f=e.target.files[0];if(f)processFile(f)}
+
+function processFile(file){
+  const ext=file.name.split('.').pop().toLowerCase();
+  if(!['pdf','jpg','jpeg','png','heic','heif'].includes(ext)){alert('Please upload a PDF, JPG, or PNG file.');return}
+  currentFile=file;
+  document.getElementById('file-info').innerHTML=`
+    <div class="file-selected">
+      <div class="file-selected-name">${eh(file.name)}</div>
+      <span class="file-remove" onclick="removeFile()">Remove</span>
+    </div>
+    <button class="read-btn" id="read-btn" onclick="readForm()">Read Form &rarr;</button>`;
+}
+
+function removeFile(){
+  currentFile=null;
+  document.getElementById('file-info').innerHTML='';
+  document.getElementById('file-input').value='';
+}
+
+async function readForm(){
+  if(!currentFile)return;
+  const btn=document.getElementById('read-btn');
   btn.disabled=true;
-  btn.innerHTML='<span class="spinner"></span> Generating...';
-  const today=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-  const userContent=`Date: ${today}
-Patient: ${document.getElementById('demo').value||'not specified'}
-Chief Complaint: ${cc}
-Tongue: ${document.getElementById('tongue').value||'not documented'}
-Pulse: ${document.getElementById('pulse').value||'not documented'}
-Additional Symptoms: ${document.getElementById('symptoms').value||'none provided'}
-Relevant History: ${document.getElementById('hx').value||'none'}
-Generate a complete TCM SOAP note.`;
-  try{
-    const result=await callClaude(SYSTEM_SOAP,userContent);
-    document.getElementById('soap-output').innerHTML=`
-      <div class="output-box">
-        <div class="output-label">Generated SOAP Note</div>${escHtml(result)}
-      </div>
-      <div class="disclaimer">Review all generated content before adding to patient records. Clinical judgment supersedes generated output.</div>`;
-  }catch(e){
-    document.getElementById('soap-output').innerHTML=`<div class="error-box">Error: ${escHtml(e.message)}</div>`;
+  btn.innerHTML='<span class="spinner"></span> Reading form...';
+  const ext=currentFile.name.split('.').pop().toLowerCase();
+  if(ext==='heic'||ext==='heif'){
+    btn.disabled=false;btn.innerHTML='Read Form &rarr;';
+    alert('HEIC files are not supported. Please save the image as JPG and upload again.');
+    return;
   }
-  btn.disabled=false;
-  btn.innerHTML='Generate SOAP Note →';
+  try{
+    const base64=await fileToBase64(currentFile);
+    let contentBlock;
+    if(ext==='pdf'){
+      contentBlock={type:'document',source:{type:'base64',media_type:'application/pdf',data:base64}};
+    }else{
+      contentBlock={type:'image',source:{type:'base64',media_type:ext==='png'?'image/png':'image/jpeg',data:base64}};
+    }
+    const result=await callClaude({
+      model:'claude-sonnet-4-6',
+      max_tokens:1000,
+      system:SYSTEM_FORM_READ,
+      messages:[{role:'user',content:[contentBlock,{type:'text',text:'Extract the clinical information from this intake form.'}]}]
+    });
+    let parsed;
+    try{parsed=JSON.parse(result.replace(/```json|```/g,'').trim())}
+    catch(e){throw new Error('Could not parse the form. Please try a clearer image or enter manually.')}
+    document.getElementById('file-info').innerHTML=`
+      <div class="file-selected">
+        <div class="file-selected-name">${eh(currentFile.name)}</div>
+        <span class="file-remove" onclick="removeFile();switchMode('upload')">Remove</span>
+      </div>
+      <div class="read-success">Form read successfully. Review the fields below before generating.</div>`;
+    switchMode('manual');
+    renderManualMode(parsed);
+  }catch(e){
+    btn.disabled=false;btn.innerHTML='Read Form &rarr;';
+    document.getElementById('note-output').innerHTML=`<div class="error-box">Error: ${eh(e.message)}</div>`;
+  }
+}
+
+function fileToBase64(file){
+  return new Promise((res,rej)=>{
+    const r=new FileReader();
+    r.onload=()=>res(r.result.split(',')[1]);
+    r.onerror=()=>rej(new Error('Failed to read file'));
+    r.readAsDataURL(file);
+  });
+}
+
+async function generateNote(){
+  const cc=document.getElementById('cc').value.trim();
+  if(!cc){alert('Please enter a chief complaint.');return}
+  const btn=document.getElementById('note-btn');
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Generating...';
+  const today=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  const uc=`Date: ${today}\nPatient: ${document.getElementById('demo').value||'not specified'}\nChief Complaint: ${cc}\nTongue: ${document.getElementById('tongue').value||'not documented'}\nPulse: ${document.getElementById('pulse').value||'not documented'}\nAdditional Symptoms: ${document.getElementById('symptoms').value||'none provided'}\nRelevant History & Medications: ${document.getElementById('hx').value||'none'}\nGenerate a complete TCM clinical note.`;
+  try{
+    const result=await callClaude({model:'claude-haiku-4-5-20251001',max_tokens:1800,system:SYSTEM_NOTE,messages:[{role:'user',content:uc}]});
+    document.getElementById('note-output').innerHTML=`<div class="output-box"><div class="output-label">Generated Clinical Note</div>${eh(result)}</div><div class="disclaimer">Review all generated content before adding to patient records. Clinical judgment supersedes generated output.</div>`;
+  }catch(e){
+    document.getElementById('note-output').innerHTML=`<div class="error-box">Error: ${eh(e.message)}</div>`;
+  }
+  btn.disabled=false;btn.innerHTML='Generate Clinical Note &rarr;';
 }
 
 const ALL_SYMPTOMS=['Fatigue','Insomnia','Anxiety','Depression','Irritability','Low libido','Cold limbs','Night sweats','Hot flashes','Palpitations','Chest tightness','Shortness of breath','Poor appetite','Bloating','Loose stools','Constipation','Nausea','Acid reflux','Low back pain','Knee pain','Neck tension','Headache','Dizziness','Tinnitus','Frequent urination','Edema','Dry eyes','Blurred vision','Heavy periods','Irregular periods','Amenorrhea','PMS','Brain fog','Poor memory'];
@@ -307,55 +461,42 @@ function renderPattern(){
   document.getElementById('app-content').innerHTML=`
     <div class="tool-card">
       <div class="tool-title">Pattern Differentiator</div>
-      <div class="tool-subtitle">Select presenting symptoms — receive ranked TCM pattern differentials with discriminating signs</div>
+      <div class="tool-subtitle">Select presenting symptoms &mdash; receive ranked TCM pattern differentials with discriminating signs</div>
       <label>Select Symptoms</label>
       <div class="pattern-chips">${ALL_SYMPTOMS.map(s=>`<div class="chip" onclick="toggleChip(this,'${s}')">${s}</div>`).join('')}</div>
-      <div class="form-full" style="margin-top:0.5rem">
-        <label>Additional Symptoms</label>
-        <input type="text" id="extra-symptoms" placeholder="Any symptoms not listed above...">
-      </div>
+      <div class="form-full" style="margin-top:0.5rem"><label>Additional Symptoms</label><input type="text" id="extra-symptoms" placeholder="Any symptoms not listed above..."></div>
       <div class="form-grid">
         <div><label>Tongue</label><input type="text" id="p-tongue" placeholder="e.g., red, no coat, cracks"></div>
         <div><label>Pulse</label><input type="text" id="p-pulse" placeholder="e.g., rapid, thin, floating"></div>
       </div>
-      <button class="generate-btn" id="pattern-btn" onclick="generatePattern()">Differentiate Patterns →</button>
+      <button class="generate-btn" id="pattern-btn" onclick="generatePattern()">Differentiate Patterns &rarr;</button>
       <div id="pattern-output"></div>
     </div>`;
 }
 
 function toggleChip(el,sym){
-  if(selectedSymptoms.includes(sym)){selectedSymptoms=selectedSymptoms.filter(s=>s!==sym);el.classList.remove('selected');}
-  else{selectedSymptoms.push(sym);el.classList.add('selected');}
+  if(selectedSymptoms.includes(sym)){selectedSymptoms=selectedSymptoms.filter(s=>s!==sym);el.classList.remove('selected')}
+  else{selectedSymptoms.push(sym);el.classList.add('selected')}
 }
 
 async function generatePattern(){
   const extra=document.getElementById('extra-symptoms').value.trim();
-  const allSymptoms=[...selectedSymptoms,...(extra?[extra]:[])];
-  if(allSymptoms.length<2){alert('Please select at least 2 symptoms.');return;}
+  const all=[...selectedSymptoms,...(extra?[extra]:[])];
+  if(all.length<2){alert('Please select at least 2 symptoms.');return}
   const btn=document.getElementById('pattern-btn');
-  btn.disabled=true;
-  btn.innerHTML='<span class="spinner"></span> Differentiating...';
-  const userContent=`Presenting symptoms: ${allSymptoms.join(', ')}
-Tongue: ${document.getElementById('p-tongue').value||'not documented'}
-Pulse: ${document.getElementById('p-pulse').value||'not documented'}
-Provide a ranked TCM pattern differential diagnosis.`;
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Differentiating...';
+  const uc=`Presenting symptoms: ${all.join(', ')}\nTongue: ${document.getElementById('p-tongue').value||'not documented'}\nPulse: ${document.getElementById('p-pulse').value||'not documented'}\nProvide a ranked TCM pattern differential diagnosis.`;
   try{
-    const result=await callClaude(SYSTEM_PATTERN,userContent);
-    document.getElementById('pattern-output').innerHTML=`
-      <div class="output-box">
-        <div class="output-label">Pattern Differentials</div>${escHtml(result)}
-      </div>
-      <div class="disclaimer">For clinical reference only. All pattern diagnoses require full in-person assessment.</div>`;
+    const result=await callClaude({model:'claude-haiku-4-5-20251001',max_tokens:1500,system:SYSTEM_PATTERN,messages:[{role:'user',content:uc}]});
+    document.getElementById('pattern-output').innerHTML=`<div class="output-box"><div class="output-label">Pattern Differentials</div>${eh(result)}</div><div class="disclaimer">For clinical reference only. All pattern diagnoses require full in-person assessment.</div>`;
   }catch(e){
-    document.getElementById('pattern-output').innerHTML=`<div class="error-box">Error: ${escHtml(e.message)}</div>`;
+    document.getElementById('pattern-output').innerHTML=`<div class="error-box">Error: ${eh(e.message)}</div>`;
   }
-  btn.disabled=false;
-  btn.innerHTML='Differentiate Patterns →';
+  btn.disabled=false;btn.innerHTML='Differentiate Patterns &rarr;';
 }
 
-function escHtml(str){
-  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
+function eh(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function ea(s){return String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
 </script>
 </body>
 </html>
