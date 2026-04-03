@@ -463,7 +463,7 @@ async function generateNote(){
   const uc=`Date: ${today}\nPatient: ${document.getElementById('demo').value||'not specified'}\nChief Complaint: ${cc}\nTongue: ${document.getElementById('tongue').value||'not documented'}\nPulse: ${document.getElementById('pulse').value||'not documented'}\nAdditional Symptoms: ${document.getElementById('symptoms').value||'none provided'}\nRelevant History & Medications: ${document.getElementById('hx').value||'none'}\nGenerate a complete TCM clinical note.`;
   try{
     const result=await callClaude({model:'claude-haiku-4-5-20251001',max_tokens:1800,system:SYSTEM_NOTE,messages:[{role:'user',content:uc}]});
-document.getElementById('note-output').innerHTML=`<div class="output-box"><div class="output-label">Generated Clinical Note</div>${formatNote(result)}</div><div class="disclaimer">Review all generated content before adding to patient records. Clinical judgment supersedes generated output.</div>`;
+document.getElementById('note-output').innerHTML=`<div class="output-box"><div class="output-label">Generated Clinical Note</div>${formatNote(result)}</div><div class="disclaimer">For clinical use only. Verify all information before finalizing the record.</div>`;
   }catch(e){
     document.getElementById('note-output').innerHTML=`<div class="error-box">Error: ${eh(e.message)}</div>`;
   }
