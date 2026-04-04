@@ -92,16 +92,39 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-i
 .footer-logo{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.03em}
 .footer-logo .zang{color:var(--ink)}.footer-logo .fu{color:var(--accent)}
 .footer-note{font-size:0.75rem;color:var(--ink3);text-align:right;line-height:1.9}
+
+/* MODALS */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(4px)}
+.modal-box{background:var(--bg);border-radius:20px;padding:2.5rem;max-width:460px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.modal-logo{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:1.5rem}
+.modal-logo .zang{color:var(--ink)}.modal-logo .fu{color:var(--accent)}
+.modal-h{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--ink);letter-spacing:-0.03em;line-height:1.2;margin-bottom:0.75rem}
+.modal-p{font-size:0.88rem;color:var(--ink2);font-weight:300;line-height:1.7;margin-bottom:1.5rem}
+.modal-input{width:100%;padding:0.8rem 1rem;border:1px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--ink);background:var(--surface);outline:none;transition:border 0.15s;margin-bottom:1rem}
+.modal-input:focus{border-color:var(--accent);background:white;box-shadow:0 0 0 3px var(--accent-light)}
+.modal-btn{width:100%;padding:0.9rem;background:var(--accent);color:white;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;transition:all 0.2s}
+.modal-btn:hover{background:var(--accent2);transform:translateY(-1px)}
+.modal-note{font-size:0.75rem;color:var(--ink3);text-align:center;margin-top:0.75rem;line-height:1.6}
+.paywall-features{margin-bottom:1.5rem}
+.paywall-feat{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--ink2);font-weight:300;margin-bottom:0.5rem}
+.paywall-feat::before{content:'✓';color:var(--accent);font-weight:600;font-size:0.9rem}
+
+/* APP */
 #app{display:none;min-height:100vh;flex-direction:column}
 .app-header{background:rgba(255,255,255,0.95);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;backdrop-filter:blur(16px)}
 .app-logo{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;letter-spacing:-0.03em}
 .app-logo .zang{color:var(--ink)}.app-logo .fu{color:var(--accent)}
+.header-right{display:flex;align-items:center;gap:1rem}
+.trial-badge{font-size:0.72rem;color:var(--ink2);background:var(--surface);padding:4px 12px;border-radius:100px;border:1px solid var(--border)}
+.trial-badge span{color:var(--accent);font-weight:600}
 .user-badge{font-size:0.75rem;color:var(--accent);background:var(--accent-light);padding:4px 14px;border-radius:100px;font-weight:500;border:1px solid var(--accent-mid)}
 .app-nav{background:var(--bg);border-bottom:1px solid var(--border);padding:0 2rem;display:flex}
-.nav-tab{padding:1rem 1.25rem;font-size:0.85rem;color:var(--ink2);cursor:pointer;border-bottom:2px solid transparent;font-weight:500;transition:all 0.15s}
+.nav-tab{padding:1rem 1.25rem;font-size:0.85rem;color:var(--ink2);cursor:pointer;border-bottom:2px solid transparent;font-weight:500;transition:all 0.15s;white-space:nowrap}
 .nav-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
 .nav-tab:hover{color:var(--ink)}
-.app-content{flex:1;padding:2rem;max-width:860px;margin:0 auto;width:100%}
+.app-content{flex:1;padding:2rem;max-width:960px;margin:0 auto;width:100%}
+
+/* TOOL CARD */
 .tool-card{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow-sm)}
 .tool-title{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;letter-spacing:-0.02em}
 .tool-subtitle{font-size:0.85rem;color:var(--ink2);margin-bottom:1.75rem;font-weight:300}
@@ -125,8 +148,8 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-i
 .read-success{background:var(--accent-light);border:1px solid var(--accent-mid);border-radius:12px;padding:0.9rem 1.25rem;margin-bottom:1.5rem;font-size:0.83rem;color:var(--accent);font-weight:500;display:flex;align-items:center;gap:8px}
 .read-success::before{content:'✓';font-weight:700}
 label{display:block;font-size:0.72rem;font-weight:600;color:var(--ink3);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.08em}
-textarea,input[type=text]{width:100%;padding:0.75rem 1rem;border:1px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--ink);background:var(--surface);outline:none;transition:border 0.15s,background 0.15s;resize:vertical}
-textarea:focus,input[type=text]:focus{border-color:var(--accent);background:white;box-shadow:0 0 0 3px var(--accent-light)}
+textarea,input[type=text],input[type=email],input[type=date]{width:100%;padding:0.75rem 1rem;border:1px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--ink);background:var(--surface);outline:none;transition:border 0.15s,background 0.15s;resize:vertical}
+textarea:focus,input[type=text]:focus,input[type=email]:focus,input[type=date]:focus{border-color:var(--accent);background:white;box-shadow:0 0 0 3px var(--accent-light)}
 textarea{min-height:90px}
 input::placeholder,textarea::placeholder{color:var(--ink3)}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
@@ -134,21 +157,134 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
 .generate-btn{display:inline-flex;align-items:center;gap:8px;padding:0.85rem 2rem;background:var(--accent);color:white;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:500;cursor:pointer;transition:all 0.2s}
 .generate-btn:hover{background:var(--accent2);box-shadow:0 6px 20px rgba(6,95,70,0.3);transform:translateY(-1px)}
 .generate-btn:disabled{background:var(--border);color:var(--ink3);cursor:not-allowed;box-shadow:none;transform:none}
-.output-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px;padding:1.5rem;margin-top:1.5rem;font-size:0.88rem;line-height:1.9;color:var(--ink2);white-space:pre-wrap;font-family:'Inter',sans-serif;font-weight:300}
+.output-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px;padding:1.5rem;margin-top:1.5rem;font-size:0.88rem;line-height:1.9;color:var(--ink2);font-family:'Inter',sans-serif;font-weight:300}
 .output-label{font-size:0.7rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
 .output-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.output-actions{display:flex;gap:0.75rem;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border)}
+.action-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border:1px solid var(--border);border-radius:100px;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:500;cursor:pointer;background:var(--bg);color:var(--ink2);transition:all 0.2s}
+.action-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.action-btn.copied{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
 .spinner{width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.7s linear infinite;display:inline-block}
 @keyframes spin{to{transform:rotate(360deg)}}
-.disclaimer{font-size:0.72rem;color:var(--ink3);margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--border);font-style:italic}
+.disclaimer{font-size:0.72rem;color:var(--ink3);margin-top:0.75rem;font-style:italic}
 .error-box{background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:1rem 1.25rem;margin-top:1rem;font-size:0.82rem;color:#dc2626}
 .chip{padding:6px 14px;border:1px solid var(--border);border-radius:100px;font-size:0.8rem;cursor:pointer;background:white;color:var(--ink2);transition:all 0.15s;user-select:none}
 .chip.selected{background:var(--accent-light);color:var(--accent);border-color:var(--accent-mid)}
 .chip:hover{border-color:var(--ink2)}
 .pattern-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
+.obj-header{font-size:0.72rem;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem;margin-top:0.5rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+
+/* PATIENT BANNER */
+.patient-banner{background:var(--accent-light);border:1px solid var(--accent-mid);border-radius:12px;padding:0.75rem 1.25rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between}
+.patient-banner-name{font-size:0.85rem;font-weight:600;color:var(--accent);display:flex;align-items:center;gap:8px}
+.patient-banner-name::before{content:'👤';font-size:0.9rem}
+.patient-banner-clear{font-size:0.75rem;color:var(--ink3);cursor:pointer;transition:color 0.15s}.patient-banner-clear:hover{color:var(--ink)}
+
+/* PATIENTS TAB */
+.patients-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.patients-title{font-family:'Fraunces',serif;font-size:1.75rem;font-weight:700;color:var(--ink);letter-spacing:-0.03em}
+.new-patient-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--accent);color:white;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;transition:all 0.2s}
+.new-patient-btn:hover{background:var(--accent2);transform:translateY(-1px)}
+.search-input{width:100%;padding:0.7rem 1rem;border:1px solid var(--border);border-radius:100px;font-family:'Inter',sans-serif;font-size:0.88rem;color:var(--ink);background:var(--surface);outline:none;transition:border 0.15s;margin-bottom:1.5rem}
+.search-input:focus{border-color:var(--accent);background:white}
+.patient-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.patient-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1.5rem;cursor:pointer;transition:all 0.2s;position:relative}
+.patient-card:hover{border-color:var(--accent-mid);transform:translateY(-2px);box-shadow:var(--shadow)}
+.patient-card-name{font-weight:600;font-size:1rem;color:var(--ink);margin-bottom:0.25rem}
+.patient-card-meta{font-size:0.78rem;color:var(--ink3);margin-bottom:0.75rem}
+.patient-card-last{font-size:0.78rem;color:var(--ink2);font-weight:300}
+.patient-card-count{position:absolute;top:1.25rem;right:1.25rem;background:var(--accent-light);color:var(--accent);font-size:0.68rem;font-weight:600;padding:3px 8px;border-radius:100px;border:1px solid var(--accent-mid)}
+.empty-patients{text-align:center;padding:4rem 2rem;color:var(--ink3)}
+.empty-patients-icon{font-size:3rem;margin-bottom:1rem;opacity:0.3}
+.empty-patients-text{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--ink2);margin-bottom:0.5rem}
+.empty-patients-sub{font-size:0.85rem;font-weight:300}
+
+/* PATIENT DETAIL */
+.patient-detail-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.back-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--border);border-radius:100px;font-size:0.82rem;color:var(--ink2);cursor:pointer;background:var(--bg);font-family:'Inter',sans-serif;transition:all 0.15s}
+.back-btn:hover{border-color:var(--ink);color:var(--ink)}
+.patient-detail-name{font-family:'Fraunces',serif;font-size:1.75rem;font-weight:700;color:var(--ink);letter-spacing:-0.03em}
+.patient-detail-meta{font-size:0.82rem;color:var(--ink3);margin-top:0.2rem}
+.patient-actions{display:flex;gap:0.75rem;margin-left:auto}
+.note-for-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--accent);color:white;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;transition:all 0.2s}
+.note-for-btn:hover{background:var(--accent2)}
+.delete-patient-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border:1px solid #fecaca;border-radius:100px;font-size:0.82rem;color:#dc2626;cursor:pointer;background:var(--bg);font-family:'Inter',sans-serif;transition:all 0.15s}
+.delete-patient-btn:hover{background:#fef2f2}
+.note-history-title{font-weight:600;font-size:0.88rem;color:var(--ink);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.06em}
+.note-history-item{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:0.75rem;cursor:pointer;transition:all 0.15s}
+.note-history-item:hover{border-color:var(--accent-mid);background:var(--accent-light)}
+.note-history-date{font-size:0.75rem;font-weight:600;color:var(--accent);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.06em}
+.note-history-cc{font-size:0.88rem;color:var(--ink);font-weight:500;margin-bottom:0.2rem}
+.note-history-pattern{font-size:0.78rem;color:var(--ink2);font-weight:300}
+.note-expand{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-top:0.5rem;font-size:0.82rem;line-height:1.8;color:var(--ink2);white-space:pre-wrap;font-family:'Inter',sans-serif;font-weight:300}
+.no-notes{text-align:center;padding:2rem;color:var(--ink3);font-size:0.88rem;font-style:italic}
+
+/* REFERENCE TAB */
+.ref-search{width:100%;padding:0.75rem 1.25rem;border:1px solid var(--border);border-radius:100px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--ink);background:var(--surface);outline:none;transition:border 0.15s;margin-bottom:1.5rem}
+.ref-search:focus{border-color:var(--accent);background:white}
+.ref-tabs{display:flex;gap:0.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.ref-tab{padding:7px 18px;border:1px solid var(--border);border-radius:100px;font-size:0.82rem;cursor:pointer;background:var(--bg);color:var(--ink2);transition:all 0.15s;font-weight:500}
+.ref-tab.active{background:var(--accent);color:white;border-color:var(--accent)}
+.ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.ref-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1.5rem;transition:all 0.2s}
+.ref-card:hover{border-color:var(--accent-mid);box-shadow:var(--shadow-sm)}
+.ref-card-name{font-weight:600;font-size:0.95rem;color:var(--ink);margin-bottom:0.2rem}
+.ref-card-zh{font-size:0.85rem;color:var(--accent);margin-bottom:0.75rem;font-family:'Fraunces',serif}
+.ref-card-row{font-size:0.78rem;color:var(--ink2);margin-bottom:0.4rem;line-height:1.5;font-weight:300}
+.ref-card-row strong{color:var(--ink);font-weight:500}
 </style>
 </head>
 <body>
 
+<!-- EMAIL CAPTURE MODAL -->
+<div class="modal-overlay" id="email-modal" style="display:none">
+  <div class="modal-box">
+    <div class="modal-logo"><span class="zang">Zang</span><span class="fu">Fu</span></div>
+    <div class="modal-h">Start your free 14-day trial</div>
+    <div class="modal-p">Enter your email to get started. No credit card required. All features included.</div>
+    <input class="modal-input" type="email" id="trial-email" placeholder="your@email.com">
+    <button class="modal-btn" onclick="startTrial()">Start Free Trial &rarr;</button>
+    <div class="modal-note">By continuing you agree to receive occasional product updates. Cancel anytime.</div>
+  </div>
+</div>
+
+<!-- PAYWALL MODAL -->
+<div class="modal-overlay" id="paywall-modal" style="display:none">
+  <div class="modal-box">
+    <div class="modal-logo"><span class="zang">Zang</span><span class="fu">Fu</span></div>
+    <div class="modal-h">Your trial has ended</div>
+    <div class="modal-p">Upgrade to continue accessing ZangFu. Founding Member rate locked for life &mdash; only available to the first 20 subscribers.</div>
+    <div class="paywall-features">
+      <div class="paywall-feat">Complete TCM clinical notes in under 30 seconds</div>
+      <div class="paywall-feat">Full pattern differentials with discriminating signs</div>
+      <div class="paywall-feat">Point prescriptions with Chinese characters</div>
+      <div class="paywall-feat">Herbal, dietary, and lifestyle guidance</div>
+      <div class="paywall-feat">Patient roster with full note history</div>
+      <div class="paywall-feat">Upload intake forms &mdash; PDF or photo</div>
+    </div>
+    <button class="modal-btn" onclick="window.location.href='mailto:zangfuapp@gmail.com?subject=ZangFu Founding Member&body=I would like to upgrade to the Founding Member plan at $19/month.'">Upgrade for $19/month &rarr;</button>
+    <div class="modal-note">Rate locked for life &middot; First 20 users only &middot; Cancel anytime</div>
+  </div>
+</div>
+
+<!-- NEW PATIENT MODAL -->
+<div class="modal-overlay" id="new-patient-modal" style="display:none">
+  <div class="modal-box">
+    <div class="modal-h">New Patient</div>
+    <div class="form-full" style="margin-top:1rem"><label>Full Name</label><input type="text" id="np-name" placeholder="e.g., Jane Smith"></div>
+    <div class="form-grid">
+      <div><label>Date of Birth</label><input type="date" id="np-dob"></div>
+      <div><label>Sex</label><input type="text" id="np-sex" placeholder="e.g., F, M, Non-binary"></div>
+    </div>
+    <div class="form-full"><label>Chief Complaint</label><input type="text" id="np-cc" placeholder="e.g., chronic low back pain"></div>
+    <div style="display:flex;gap:0.75rem;margin-top:0.5rem">
+      <button class="modal-btn" style="flex:1" onclick="saveNewPatient()">Add Patient</button>
+      <button class="modal-btn" style="flex:1;background:var(--surface);color:var(--ink2);border:1px solid var(--border)" onclick="closeModal('new-patient-modal')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- LANDING PAGE -->
 <div id="landing">
 <nav>
   <div class="nav-logo"><span class="zang">Zang</span><span class="fu">Fu</span></div>
@@ -158,7 +294,6 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
     <button class="nav-btn" onclick="enterApp()">Try Free &rarr;</button>
   </div>
 </nav>
-
 <div class="hero">
   <h1 class="hero-h">The clinical intelligence platform <span class="italic">built for how you practice.</span></h1>
   <p class="hero-sub">ZangFu brings order to your most complex clinical presentations &mdash; generating <strong>polished, professional documentation</strong> with complete pattern diagnosis, treatment principles, point prescriptions, herbal guidance, dietary recommendations, and lifestyle plans. <strong>In under 30 seconds.</strong></p>
@@ -173,7 +308,6 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
     <div class="outcome"><div class="outcome-icon">&#x23F1;</div><div class="outcome-title">Less paperwork, more medicine</div><div class="outcome-desc">Reclaim the time you spend on documentation. Invest it in patients, learning, or your life.</div></div>
   </div>
 </div>
-
 <div style="max-width:1100px;margin:0 auto;padding:0 3rem 3rem">
 <div class="demo-section">
   <div>
@@ -182,7 +316,7 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
     <div class="demo-p">Enter your clinical findings &mdash; or upload a completed patient intake form. ZangFu organizes complex information into documentation that is thorough, structured, and ready to use.</div>
     <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>TCM Pattern Diagnosis</strong> &mdash; ranked differentials with supporting and discriminating signs</div></div>
     <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>Treatment Principle</strong> &mdash; clear therapeutic strategy derived from the pattern</div></div>
-    <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>Point Prescription</strong> &mdash; every point with individual clinical rationale</div></div>
+    <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>Point Prescription</strong> &mdash; points with Chinese names and characters</div></div>
     <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>Herbal Formula Guidance</strong> &mdash; base formula with modifications for the presentation</div></div>
     <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>Dietary &amp; Lifestyle Recommendations</strong> &mdash; specific, TCM-informed patient guidance</div></div>
     <div class="capability"><div class="cap-dot"></div><div class="cap-text"><strong>Upload Intake Forms</strong> &mdash; drop in a PDF or photo; ZangFu reads and populates everything automatically</div></div>
@@ -199,14 +333,13 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
         <div class="demo-output-title">Clinical Output</div>
         <div class="demo-output-row"><div class="demo-output-key">Pattern</div><div class="demo-output-val">Kidney Yang Deficiency with Spleen Qi Deficiency</div></div>
         <div class="demo-output-row"><div class="demo-output-key">Treatment Principle</div><div class="demo-output-val">Warm &amp; tonify Kidney Yang, strengthen Spleen Qi, warm the meridians</div></div>
-        <div class="demo-output-row"><div class="demo-output-key">Points</div><div class="demo-output-val">KD 3, BL 23, CV 4, ST 36, SP 6 &mdash; with full individual rationale</div></div>
-        <div class="demo-output-row"><div class="demo-output-key">Herbal Formula</div><div class="demo-output-val">You Gui Wan base with modifications for Spleen involvement</div></div>
+        <div class="demo-output-row"><div class="demo-output-key">Points</div><div class="demo-output-val">KD 3 (Taixi, 太溪), BL 23 (Shenshu, 肾俞), CV 4 (Guanyuan, 关元)</div></div>
+        <div class="demo-output-row"><div class="demo-output-key">Herbal Formula</div><div class="demo-output-val">You Gui Wan (右归丸) base with modifications</div></div>
         <div class="demo-output-row"><div class="demo-output-key">Dietary Guidance</div><div class="demo-output-val">Warm, cooked foods; avoid cold/raw; lamb, black beans, walnuts</div></div>
       </div>
     </div>
   </div>
 </div>
-
 <div class="value-chain">
   <div>
     <div class="vc-label">Why it matters</div>
@@ -225,16 +358,16 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
     <div class="chain-step"><div class="chain-num">5</div><div><div class="chain-title">A more successful practice</div><div class="chain-desc">More referrals, more return visits, more revenue</div></div></div>
   </div>
 </div>
-
 <div class="pricing-wrap">
   <div>
     <div class="pricing-h">Start free.<br>See it for yourself.</div>
     <div class="pricing-p">Try everything ZangFu offers for 14 days &mdash; no credit card, no commitment. See what it does to your notes, your thinking, and your practice.</div>
     <div class="pricing-detail">Complete clinical notes in under 30 seconds</div>
     <div class="pricing-detail">Full pattern differentials with discriminating signs</div>
-    <div class="pricing-detail">Point prescriptions with individual rationale</div>
+    <div class="pricing-detail">Patient roster with full visit history</div>
     <div class="pricing-detail">Herbal, dietary, and lifestyle guidance included</div>
     <div class="pricing-detail">Upload intake forms &mdash; PDF or photo</div>
+    <div class="pricing-detail">TCM reference library</div>
     <div class="pricing-detail">Cancel anytime &mdash; no questions asked</div>
   </div>
   <div class="pricing-cards">
@@ -243,27 +376,31 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
   </div>
 </div>
 </div>
-
 <footer>
   <div class="footer-logo"><span class="zang">Zang</span><span class="fu">Fu</span></div>
-  <div class="footer-note">Designed for practitioners in small clinics and large institutions &middot; HIPAA-conscious &middot; Cancel anytime</div>
+  <div class="footer-note">Designed for practitioners in small clinics and large institutions &middot; HIPAA-conscious &middot; Cancel anytime<br>A portion of every subscription supports TCM access for underserved communities</div>
 </footer>
 </div>
 
+<!-- APP -->
 <div id="app">
   <div class="app-header">
     <div class="app-logo"><span class="zang">Zang</span><span class="fu">Fu</span></div>
-    <div class="user-badge">Free Trial</div>
+    <div class="header-right">
+      <div class="trial-badge" id="trial-badge"></div>
+      <div class="user-badge" id="user-email-badge"></div>
+    </div>
   </div>
   <div class="app-nav">
     <div class="nav-tab active" onclick="showTab('note',this)">Clinical Notes</div>
     <div class="nav-tab" onclick="showTab('pattern',this)">Pattern Differentiator</div>
+    <div class="nav-tab" onclick="showTab('patients',this)">Patients</div>
+    <div class="nav-tab" onclick="showTab('reference',this)">Reference</div>
   </div>
   <div class="app-content" id="app-content"></div>
 </div>
 
 <script>
-
 const SYSTEM_NOTE=`You are an expert licensed acupuncturist and TCM practitioner with 20 years of clinical experience. Generate a complete, professional TCM clinical note suitable for a legal medical record.
 
 Format the note using EXACTLY these section headers on their own line in ALL CAPS:
@@ -307,7 +444,7 @@ Guidelines:
 - Do NOT use any markdown formatting — no asterisks, pound signs, dashes as bullets, or bold or italic markers
 - Use plain text with clean line breaks only
 - Output the clinical note only — no preamble, no disclaimers, no commentary`;
-  
+
 const SYSTEM_PATTERN=`You are an expert TCM diagnostician. Given a set of symptoms, return a ranked differential diagnosis of TCM patterns.
 
 For each pattern:
@@ -323,35 +460,103 @@ const SYSTEM_FORM_READ=`You are a clinical assistant extracting information from
 {"chief_complaint":"","tongue":"","pulse":"","symptoms":"","demo":"","history":""}
 If a field is not present, use empty string. Return only the JSON object, no other text.`;
 
-let currentFile=null;
+// TRIAL MANAGEMENT
+const TRIAL_DAYS = 14;
+let currentPatientId = null;
+let currentFile = null;
 
-function enterApp(){showApp()}
+function getTrial(){
+  const t = localStorage.getItem('zf_trial');
+  return t ? JSON.parse(t) : null;
+}
+
+function checkTrial(){
+  const t = getTrial();
+  if(!t) return 'none';
+  const days = Math.floor((Date.now() - t.start) / 86400000);
+  if(days >= TRIAL_DAYS) return 'expired';
+  return TRIAL_DAYS - days;
+}
+
+async function startTrial(){
+  const email = document.getElementById('trial-email').value.trim();
+  if(!email || !email.includes('@')){ alert('Please enter a valid email address.'); return; }
+  localStorage.setItem('zf_trial', JSON.stringify({email, start: Date.now()}));
+  try{
+    await fetch('https://formspree.io/f/xzdkjyvl', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email, message: 'New ZangFu trial signup', _subject: 'New ZangFu Trial Signup'})
+    });
+  } catch(e){ console.log('Form submission failed silently'); }
+  closeModal('email-modal');
+  showApp();
+}
+
+function enterApp(){
+  const status = checkTrial();
+  if(status === 'none'){
+    document.getElementById('email-modal').style.display = 'flex';
+  } else if(status === 'expired'){
+    document.getElementById('paywall-modal').style.display = 'flex';
+  } else {
+    showApp();
+  }
+}
+
 function showApp(){
-  document.getElementById('landing').style.display='none';
-  document.getElementById('app').style.display='flex';
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+  const t = getTrial();
+  const daysLeft = checkTrial();
+  if(t){
+    document.getElementById('user-email-badge').textContent = t.email;
+    if(typeof daysLeft === 'number'){
+      document.getElementById('trial-badge').innerHTML = `Trial: <span>${daysLeft} day${daysLeft===1?'':'s'} left</span>`;
+    }
+  }
   renderNote();
 }
-function showTab(tab,el){
-  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  if(tab==='note')renderNote();
-  else renderPattern();
+
+function closeModal(id){
+  document.getElementById(id).style.display = 'none';
 }
 
+// TAB NAVIGATION
+function showTab(tab, el){
+  const status = checkTrial();
+  if(status === 'expired'){ document.getElementById('paywall-modal').style.display = 'flex'; return; }
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  if(tab==='note') renderNote();
+  else if(tab==='pattern') renderPattern();
+  else if(tab==='patients') renderPatients();
+  else if(tab==='reference') renderReference();
+}
+
+// API
 async function callClaude(body){
-  const resp=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-  const data=await resp.json();
-  if(data.content&&data.content[0])return data.content[0].text;
-  if(data.error)throw new Error(data.error.message);
+  const resp = await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const data = await resp.json();
+  if(data.content && data.content[0]) return data.content[0].text;
+  if(data.error) throw new Error(data.error.message);
   throw new Error('Unexpected API response');
 }
 
+// CLINICAL NOTES
 function renderNote(){
-  currentFile=null;
-  document.getElementById('app-content').innerHTML=`
+  currentFile = null;
+  const patient = currentPatientId ? getPatient(currentPatientId) : null;
+  const banner = patient ? `
+    <div class="patient-banner">
+      <div class="patient-banner-name">${eh(patient.name)}</div>
+      <span class="patient-banner-clear" onclick="currentPatientId=null;renderNote()">Change patient</span>
+    </div>` : '';
+  document.getElementById('app-content').innerHTML = `
     <div class="tool-card">
       <div class="tool-title">Clinical Note Generator</div>
       <div class="tool-subtitle">Upload a completed intake form or enter findings manually &mdash; receive a complete TCM clinical note ready for your records</div>
+      ${banner}
       <div class="mode-toggle">
         <button class="mode-btn active" id="mode-upload" onclick="switchMode('upload')">Upload Intake Form</button>
         <button class="mode-btn" id="mode-manual" onclick="switchMode('manual')">Enter Manually</button>
@@ -362,14 +567,14 @@ function renderNote(){
 }
 
 function switchMode(mode){
-  document.getElementById('mode-upload').className='mode-btn'+(mode==='upload'?' active':'');
-  document.getElementById('mode-manual').className='mode-btn'+(mode==='manual'?' active':'');
-  if(mode==='upload')renderUploadMode();
+  document.getElementById('mode-upload').className = 'mode-btn'+(mode==='upload'?' active':'');
+  document.getElementById('mode-manual').className = 'mode-btn'+(mode==='manual'?' active':'');
+  if(mode==='upload') renderUploadMode();
   else renderManualMode();
 }
 
 function renderUploadMode(){
-  document.getElementById('mode-content').innerHTML=`
+  document.getElementById('mode-content').innerHTML = `
     <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png,.heic" style="display:none" onchange="handleFileSelect(event)">
     <div class="upload-zone" id="drop-zone" onclick="document.getElementById('file-input').click()" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
       <div class="upload-zone-icon">&#8679;</div>
@@ -382,15 +587,15 @@ function renderUploadMode(){
 }
 
 function renderManualMode(prefill){
-  prefill=prefill||{};
-  document.getElementById('mode-content').innerHTML=`
+  prefill = prefill || {};
+  document.getElementById('mode-content').innerHTML = `
     <div class="form-full"><label>Chief Complaint</label><input type="text" id="cc" placeholder="e.g., chronic low back pain, worse with cold" value="${ea(prefill.chief_complaint)}"></div>
     <div class="form-full"><label>Additional Symptoms</label><textarea id="symptoms" placeholder="e.g., nocturia, cold limbs, low libido, poor memory...">${eh(prefill.symptoms)}</textarea></div>
     <div class="form-grid">
       <div><label>Patient Age / Sex</label><input type="text" id="demo" placeholder="e.g., 48F" value="${ea(prefill.demo)}"></div>
       <div><label>Relevant History &amp; Medications</label><input type="text" id="hx" placeholder="e.g., hypothyroidism, metformin" value="${ea(prefill.history)}"></div>
     </div>
-    <div style="font-size:0.72rem;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem;margin-top:0.5rem">Objective Findings</div>
+    <div class="obj-header">Objective Findings</div>
     <div class="form-grid">
       <div><label>Tongue</label><input type="text" id="tongue" placeholder="e.g., pale, tooth-marked, thin white coat" value="${ea(prefill.tongue)}"></div>
       <div><label>Pulse</label><input type="text" id="pulse" placeholder="e.g., deep, thin, slightly wiry at left guan" value="${ea(prefill.pulse)}"></div>
@@ -486,42 +691,226 @@ function fileToBase64(file){
   });
 }
 
+let lastNoteText = '';
+
 async function generateNote(){
   const cc=document.getElementById('cc').value.trim();
   if(!cc){alert('Please enter a chief complaint.');return}
   const btn=document.getElementById('note-btn');
   btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Generating...';
   const today=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-const fields = [
+  const fields=[
     `Date: ${today}`,
     `Patient: ${document.getElementById('demo').value||'not specified'}`,
     `Chief Complaint: ${cc}`,
     `Additional Symptoms: ${document.getElementById('symptoms').value||'none'}`,
     `Relevant History & Medications: ${document.getElementById('hx').value||'none'}`
   ];
-  const obj = [
-    ['Tongue', document.getElementById('tongue').value],
-    ['Pulse', document.getElementById('pulse').value],
-    ['Complexion', document.getElementById('complexion').value],
-    ['Voice/Affect', document.getElementById('voice').value],
-    ['Abdomen/Hara', document.getElementById('hara').value],
-    ['Palpation Findings', document.getElementById('palpation').value],
-    ['Vertebral Assessment', document.getElementById('vertebral').value],
-    ['Orthopedic Tests', document.getElementById('ortho').value],
-    ['Other Findings', document.getElementById('other_findings').value]
+  const obj=[
+    ['Tongue',document.getElementById('tongue').value],
+    ['Pulse',document.getElementById('pulse').value],
+    ['Complexion',document.getElementById('complexion').value],
+    ['Voice/Affect',document.getElementById('voice').value],
+    ['Abdomen/Hara',document.getElementById('hara').value],
+    ['Palpation Findings',document.getElementById('palpation').value],
+    ['Vertebral Assessment',document.getElementById('vertebral').value],
+    ['Orthopedic Tests',document.getElementById('ortho').value],
+    ['Other Findings',document.getElementById('other_findings').value]
   ];
   obj.forEach(([k,v])=>{ if(v&&v.trim()) fields.push(`${k}: ${v.trim()}`); });
   fields.push('Generate a complete TCM clinical note.');
-  const uc = fields.join('\n');
+  const uc=fields.join('\n');
   try{
     const result=await callClaude({model:'claude-haiku-4-5-20251001',max_tokens:1800,system:SYSTEM_NOTE,messages:[{role:'user',content:uc}]});
-document.getElementById('note-output').innerHTML=`<div class="output-box"><div class="output-label">Generated Clinical Note</div>${formatNote(result)}</div><div class="disclaimer">For clinical use only. Verify all information before finalizing the record.</div>`;
+    lastNoteText=result;
+    if(currentPatientId){
+      saveNoteToPatient(currentPatientId, {
+        date: today,
+        chief_complaint: cc,
+        note_text: result
+      });
+    }
+    document.getElementById('note-output').innerHTML=`
+      <div class="output-box">
+        <div class="output-label">Generated Clinical Note</div>
+        ${formatNote(result)}
+      </div>
+      <div class="output-actions">
+        <button class="action-btn" id="copy-btn" onclick="copyNote()">&#128203; Copy Note</button>
+        <button class="action-btn" onclick="printNote()">&#128424; Print</button>
+        ${currentPatientId ? '<span style="font-size:0.75rem;color:var(--accent);display:flex;align-items:center;gap:4px;margin-left:auto">&#10003; Saved to patient record</span>' : ''}
+      </div>
+      <div class="disclaimer">For clinical use only. Verify all information before finalizing the record.</div>`;
   }catch(e){
     document.getElementById('note-output').innerHTML=`<div class="error-box">Error: ${eh(e.message)}</div>`;
   }
   btn.disabled=false;btn.innerHTML='Generate Clinical Note &rarr;';
 }
 
+function copyNote(){
+  navigator.clipboard.writeText(lastNoteText).then(()=>{
+    const btn=document.getElementById('copy-btn');
+    btn.textContent='✓ Copied';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.innerHTML='&#128203; Copy Note';btn.classList.remove('copied');},2000);
+  }).catch(()=>{ alert('Copy failed. Please select the text manually.'); });
+}
+
+function printNote(){
+  const w=window.open('','_blank');
+  w.document.write(`<!DOCTYPE html><html><head><title>Clinical Note</title>
+  <style>body{font-family:Georgia,serif;max-width:700px;margin:2rem auto;padding:0 2rem;font-size:14px;line-height:1.8;color:#111}
+  h2{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;border-bottom:1px solid #ccc;padding-bottom:0.3rem;margin:1.5rem 0 0.5rem;color:#333}
+  p{margin-bottom:0.5rem}
+  @media print{body{margin:0}}</style></head><body>
+  <pre style="font-family:Georgia,serif;white-space:pre-wrap;font-size:14px;line-height:1.8">${eh(lastNoteText)}</pre>
+  <script>window.onload=()=>{window.print();}<\/script></body></html>`);
+  w.document.close();
+}
+
+// PATIENTS
+function getPatients(){
+  const p=localStorage.getItem('zf_patients');
+  return p?JSON.parse(p):[];
+}
+
+function savePatients(patients){
+  localStorage.setItem('zf_patients',JSON.stringify(patients));
+}
+
+function getPatient(id){
+  return getPatients().find(p=>p.id===id);
+}
+
+function saveNoteToPatient(patientId, note){
+  const patients=getPatients();
+  const idx=patients.findIndex(p=>p.id===patientId);
+  if(idx===-1)return;
+  if(!patients[idx].notes) patients[idx].notes=[];
+  patients[idx].notes.unshift({...note, id: Date.now().toString()});
+  savePatients(patients);
+}
+
+function saveNewPatient(){
+  const name=document.getElementById('np-name').value.trim();
+  if(!name){alert('Please enter a patient name.');return}
+  const patients=getPatients();
+  const newPatient={
+    id: Date.now().toString(),
+    name,
+    dob: document.getElementById('np-dob').value,
+    sex: document.getElementById('np-sex').value,
+    chief_complaint: document.getElementById('np-cc').value,
+    created: new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}),
+    notes:[]
+  };
+  patients.unshift(newPatient);
+  savePatients(patients);
+  closeModal('new-patient-modal');
+  document.getElementById('np-name').value='';
+  document.getElementById('np-dob').value='';
+  document.getElementById('np-sex').value='';
+  document.getElementById('np-cc').value='';
+  renderPatients();
+}
+
+function renderPatients(){
+  const patients=getPatients();
+  document.getElementById('app-content').innerHTML=`
+    <div class="patients-header">
+      <div class="patients-title">Patients</div>
+      <button class="new-patient-btn" onclick="document.getElementById('new-patient-modal').style.display='flex'">+ New Patient</button>
+    </div>
+    <input class="search-input" placeholder="Search patients..." oninput="filterPatients(this.value)" id="patient-search">
+    <div id="patient-list"></div>`;
+  renderPatientList(patients);
+}
+
+function renderPatientList(patients){
+  const el=document.getElementById('patient-list');
+  if(!patients.length){
+    el.innerHTML=`<div class="empty-patients"><div class="empty-patients-icon">&#128100;</div><div class="empty-patients-text">No patients yet</div><div class="empty-patients-sub">Add your first patient to start building a roster</div></div>`;
+    return;
+  }
+  el.innerHTML=`<div class="patient-grid">${patients.map(p=>`
+    <div class="patient-card" onclick="renderPatientDetail('${p.id}')">
+      <div class="patient-card-count">${(p.notes||[]).length} note${(p.notes||[]).length===1?'':'s'}</div>
+      <div class="patient-card-name">${eh(p.name)}</div>
+      <div class="patient-card-meta">${p.dob?p.dob+' &middot; ':''} ${eh(p.sex||'')} ${p.chief_complaint?'&middot; '+eh(p.chief_complaint):''}</div>
+      <div class="patient-card-last">${(p.notes||[]).length?'Last visit: '+(p.notes[0].date||''):'No visits recorded'}</div>
+    </div>`).join('')}</div>`;
+}
+
+function filterPatients(q){
+  const patients=getPatients().filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||(p.chief_complaint||'').toLowerCase().includes(q.toLowerCase()));
+  renderPatientList(patients);
+}
+
+function renderPatientDetail(id){
+  const p=getPatient(id);
+  if(!p)return;
+  document.getElementById('app-content').innerHTML=`
+    <div class="patient-detail-header">
+      <button class="back-btn" onclick="renderPatients()">&larr; Patients</button>
+      <div>
+        <div class="patient-detail-name">${eh(p.name)}</div>
+        <div class="patient-detail-meta">${p.dob?'DOB: '+p.dob+' &middot; ':''} ${eh(p.sex||'')} ${p.chief_complaint?'&middot; '+eh(p.chief_complaint):''}</div>
+      </div>
+      <div class="patient-actions">
+        <button class="note-for-btn" onclick="startNoteForPatient('${id}')">+ Generate Note</button>
+        <button class="delete-patient-btn" onclick="deletePatient('${id}')">Delete</button>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="note-history-title">Visit History</div>
+      ${!(p.notes||[]).length?'<div class="no-notes">No notes yet. Generate a clinical note to start building this patient\'s history.</div>':
+        (p.notes||[]).map(n=>`
+          <div class="note-history-item" onclick="toggleNoteExpand('${n.id}')">
+            <div class="note-history-date">${n.date}</div>
+            <div class="note-history-cc">${eh(n.chief_complaint)}</div>
+            <div id="note-expand-${n.id}" style="display:none"><div class="note-expand">${formatNote(n.note_text||'')}</div>
+            <div style="display:flex;gap:0.5rem;margin-top:0.75rem">
+              <button class="action-btn" onclick="event.stopPropagation();copyNoteText(${JSON.stringify(n.note_text||'').replace(/'/g,'&#39;')})">&#128203; Copy</button>
+              <button class="action-btn" onclick="event.stopPropagation();printNoteText(${JSON.stringify(n.note_text||'').replace(/'/g,'&#39;')})">&#128424; Print</button>
+            </div></div>
+          </div>`).join('')}
+    </div>`;
+}
+
+function toggleNoteExpand(id){
+  const el=document.getElementById('note-expand-'+id);
+  if(el) el.style.display=el.style.display==='none'?'block':'none';
+}
+
+function startNoteForPatient(id){
+  currentPatientId=id;
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab')[0].classList.add('active');
+  renderNote();
+}
+
+function deletePatient(id){
+  if(!confirm('Delete this patient and all their notes? This cannot be undone.'))return;
+  const patients=getPatients().filter(p=>p.id!==id);
+  savePatients(patients);
+  renderPatients();
+}
+
+function copyNoteText(text){
+  navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard.')).catch(()=>alert('Copy failed.'));
+}
+
+function printNoteText(text){
+  const w=window.open('','_blank');
+  w.document.write(`<!DOCTYPE html><html><head><title>Clinical Note</title>
+  <style>body{font-family:Georgia,serif;max-width:700px;margin:2rem auto;padding:0 2rem;font-size:14px;line-height:1.8}
+  @media print{body{margin:0}}</style></head><body>
+  <pre style="font-family:Georgia,serif;white-space:pre-wrap;font-size:14px;line-height:1.8">${eh(text)}</pre>
+  <script>window.onload=()=>{window.print();}<\/script></body></html>`);
+  w.document.close();
+}
+
+// PATTERN DIFFERENTIATOR
 const ALL_SYMPTOMS=['Fatigue','Insomnia','Anxiety','Depression','Irritability','Low libido','Cold limbs','Night sweats','Hot flashes','Palpitations','Chest tightness','Shortness of breath','Poor appetite','Bloating','Loose stools','Constipation','Nausea','Acid reflux','Low back pain','Knee pain','Neck tension','Headache','Dizziness','Tinnitus','Frequent urination','Edema','Dry eyes','Blurred vision','Heavy periods','Irregular periods','Amenorrhea','PMS','Brain fog','Poor memory'];
 let selectedSymptoms=[];
 
@@ -557,34 +946,162 @@ async function generatePattern(){
   const uc=`Presenting symptoms: ${all.join(', ')}\nTongue: ${document.getElementById('p-tongue').value||'not documented'}\nPulse: ${document.getElementById('p-pulse').value||'not documented'}\nProvide a ranked TCM pattern differential diagnosis.`;
   try{
     const result=await callClaude({model:'claude-haiku-4-5-20251001',max_tokens:1500,system:SYSTEM_PATTERN,messages:[{role:'user',content:uc}]});
-    document.getElementById('pattern-output').innerHTML=`<div class="output-box"><div class="output-label">Pattern Differentials</div>${eh(result)}</div><div class="disclaimer">For clinical reference only. All pattern diagnoses require full in-person assessment.</div>`;
+    document.getElementById('pattern-output').innerHTML=`
+      <div class="output-box"><div class="output-label">Pattern Differentials</div>${formatNote(result)}</div>
+      <div class="output-actions">
+        <button class="action-btn" onclick="navigator.clipboard.writeText(${JSON.stringify(result)}).then(()=>alert('Copied.'))">&#128203; Copy</button>
+      </div>
+      <div class="disclaimer">For clinical reference only. All pattern diagnoses require full in-person assessment.</div>`;
   }catch(e){
     document.getElementById('pattern-output').innerHTML=`<div class="error-box">Error: ${eh(e.message)}</div>`;
   }
   btn.disabled=false;btn.innerHTML='Differentiate Patterns &rarr;';
 }
 
-function eh(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-function ea(s){return String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+// TCM REFERENCE LIBRARY
+const REF_DATA = {
+  patterns: [
+    {name:'Liver Qi Stagnation',zh:'肝气郁结',tongue:'Normal or slightly purple; thin white coat',pulse:'Wiry (Xian)',symptoms:'Distending pain in chest/hypochondria, emotional depression or irritability, sighing, possible menstrual irregularity, PMS',formula:'Xiao Yao San (逍遥散)'},
+    {name:'Liver Blood Deficiency',zh:'肝血虚',tongue:'Pale, slightly dry',pulse:'Choppy or thin (Se, Xi)',symptoms:'Dizziness, blurred vision, dry eyes, numbness/tingling in limbs, scanty pale menses or amenorrhea, pale nails, poor sleep',formula:'Si Wu Tang (四物汤)'},
+    {name:'Liver Yang Rising',zh:'肝阳上亢',tongue:'Red, possibly with red sides; thin yellow or no coat',pulse:'Wiry and rapid (Xian Shu)',symptoms:'Headache at vertex or temples, dizziness, tinnitus, flushed face, irritability, insomnia, bitter taste',formula:'Tian Ma Gou Teng Yin (天麻钩藤饮)'},
+    {name:'Heart Blood Deficiency',zh:'心血虚',tongue:'Pale, thin',pulse:'Thin, weak (Xi, Ruo)',symptoms:'Palpitations, poor memory, insomnia with vivid dreams, anxiety, pale complexion, dizziness',formula:'Gui Pi Tang (归脾汤)'},
+    {name:'Heart Yin Deficiency',zh:'心阴虚',tongue:'Red, scanty or no coat; tip may be red',pulse:'Thin, rapid (Xi, Shu)',symptoms:'Palpitations, insomnia, night sweats, afternoon fever, dry mouth, restlessness, anxiety',formula:'Tian Wang Bu Xin Dan (天王补心丹)'},
+    {name:'Spleen Qi Deficiency',zh:'脾气虚',tongue:'Pale or normal, tooth-marked; thin white coat',pulse:'Weak, possibly slow (Ruo, Huan)',symptoms:'Fatigue, poor appetite, abdominal distension after eating, loose stools, desire to lie down, weak limbs',formula:'Si Jun Zi Tang (四君子汤)'},
+    {name:'Spleen Yang Deficiency',zh:'脾阳虚',tongue:'Pale, swollen, moist; white coat',pulse:'Deep, slow, weak (Chen, Chi, Ruo)',symptoms:'Cold abdomen relieved by warmth, watery stools or undigested food, cold limbs, edema, fatigue, poor appetite',formula:'Li Zhong Wan (理中丸)'},
+    {name:'Kidney Yang Deficiency',zh:'肾阳虚',tongue:'Pale, swollen, moist',pulse:'Deep, weak at chi position (Chen, Chi Ruo)',symptoms:'Aversion to cold, cold limbs especially below waist, frequent pale urination or nocturia, low back and knee soreness, decreased libido, infertility',formula:'You Gui Wan (右归丸)'},
+    {name:'Kidney Yin Deficiency',zh:'肾阴虚',tongue:'Red, scanty coat; may have cracks',pulse:'Thin, rapid (Xi, Shu)',symptoms:'Dizziness, tinnitus, poor memory, low back and knee soreness, night sweats, afternoon fever, dry mouth and throat, scanty dark urine',formula:'Liu Wei Di Huang Wan (六味地黄丸)'},
+    {name:'Kidney Jing Deficiency',zh:'肾精不足',tongue:'Pale or slightly red, scanty coat',pulse:'Deep, thin (Chen, Xi)',symptoms:'Poor development, premature aging, thinning hair, loose teeth, poor memory, tinnitus, infertility, developmental delays in children',formula:'Zuo Gui Wan (左归丸)'},
+    {name:'Lung Qi Deficiency',zh:'肺气虚',tongue:'Pale; thin white coat',pulse:'Weak, especially in right cun position (Ruo)',symptoms:'Weak cough with thin white sputum, shortness of breath worse with exertion, spontaneous sweating, frequent colds, low voice, fatigue',formula:'Bu Fei Tang (补肺汤)'},
+    {name:'Stomach Yin Deficiency',zh:'胃阴虚',tongue:'Red with scanty or no coat; midline crack',pulse:'Thin, rapid (Xi, Shu)',symptoms:'Epigastric dull burning pain, dry mouth and throat, hunger without desire to eat, dry stools, mild nausea',formula:'Yi Wei Tang (益胃汤)'},
+    {name:'Blood Stasis',zh:'血瘀',tongue:'Purple or dark; possible petechiae; purple sublingual veins',pulse:'Choppy or wiry (Se, Xian)',symptoms:'Fixed stabbing pain worse at night, dark complexion, dark menstrual blood with clots, amenorrhea, masses',formula:'Xue Fu Zhu Yu Tang (血府逐瘀汤)'},
+    {name:'Phlegm-Dampness',zh:'痰湿',tongue:'Swollen, tooth-marked; thick greasy white coat',pulse:'Slippery (Hua)',symptoms:'Heaviness in head and body, chest oppression, nausea, poor appetite, excessive phlegm, weight gain, foggy thinking',formula:'Er Chen Tang (二陈汤)'},
+    {name:'Damp-Heat',zh:'湿热',tongue:'Red body; yellow greasy coat',pulse:'Slippery, rapid (Hua, Shu)',symptoms:'Heaviness, yellow turbid secretions, burning sensations, bitter taste, dark scanty urine, skin eruptions',formula:'San Ren Tang (三仁汤)'}
+  ],
+  points: [
+    {name:'ST 36',zh:'足三里 Zusanli',location:'3 cun below ST 35, one finger-breadth lateral to the anterior crest of the tibia',actions:'Tonifies Qi and Blood, strengthens Spleen/Stomach, raises Yang, supports Wei Qi, calms the mind',indications:'Fatigue, digestive disorders, immune deficiency, musculoskeletal weakness, post-illness recovery'},
+    {name:'SP 6',zh:'三阴交 Sanyinjiao',location:'3 cun above the tip of the medial malleolus, on the posterior border of the tibia',actions:'Strengthens Spleen, resolves Dampness, nourishes Blood and Yin, regulates menstruation, calms the mind',indications:'Gynecological disorders, digestive issues, insomnia, urinary disorders, Yin deficiency'},
+    {name:'LI 4',zh:'合谷 Hegu',location:'On the dorsum of the hand, between the 1st and 2nd metacarpal bones',actions:'Releases the exterior, clears Heat, promotes Qi and Blood circulation, relieves pain, opens the face',indications:'Headache, facial pain, fever, toothache, Bell\'s palsy, immune support. Contraindicated in pregnancy.'},
+    {name:'LV 3',zh:'太冲 Taichong',location:'On the dorsum of the foot, in the depression proximal to the 1st metatarsal space',actions:'Spreads Liver Qi, subdues Liver Yang, nourishes Liver Blood and Yin, benefits the eyes',indications:'Headache, hypertension, emotional disorders, menstrual irregularity, eye disorders, insomnia'},
+    {name:'KD 3',zh:'太溪 Taixi',location:'In the depression between the medial malleolus and the Achilles tendon',actions:'Tonifies Kidney Yin and Yang, benefits Jing, anchors Qi, strengthens lumbar spine',indications:'Low back pain, tinnitus, deafness, urinary disorders, sexual dysfunction, fatigue, night sweats'},
+    {name:'HT 7',zh:'神门 Shenmen',location:'At the ulnar end of the transverse crease of the wrist, in the depression on the radial side of the tendon of flexor carpi ulnaris',actions:'Calms the mind, tonifies Heart Qi and Blood, clears Heart Heat',indications:'Insomnia, palpitations, anxiety, poor memory, restlessness, mental disorders'},
+    {name:'PC 6',zh:'内关 Neiguan',location:'2 cun proximal to the midpoint of the palmar wrist crease, between the tendons of palmaris longus and flexor carpi radialis',actions:'Opens the chest, calms the mind, regulates Heart rhythm, harmonizes the Stomach, stops vomiting',indications:'Palpitations, chest pain, nausea, vomiting, anxiety, insomnia, motion sickness'},
+    {name:'CV 4',zh:'关元 Guanyuan',location:'On the anterior midline, 3 cun below the umbilicus',actions:'Tonifies Original Qi, fortifies Kidney Yang, nourishes Blood and Yin, regulates menstruation',indications:'Urinary disorders, sexual dysfunction, infertility, Yang deficiency, cold conditions, irregular menses'},
+    {name:'CV 12',zh:'中脘 Zhongwan',location:'On the anterior midline, 4 cun above the umbilicus',actions:'Tonifies Stomach and Spleen, regulates middle Jiao, resolves Dampness and Phlegm',indications:'Digestive disorders, epigastric pain, nausea, vomiting, Spleen Qi deficiency, Phlegm disorders'},
+    {name:'GV 20',zh:'百会 Baihui',location:'On the midline of the head, 5 cun posterior to the anterior hairline',actions:'Raises Yang and clear Yang to the head, calms the mind, clears the sense organs',indications:'Headache, dizziness, prolapse, tinnitus, poor memory, depression, insomnia'},
+    {name:'BL 23',zh:'肾俞 Shenshu',location:'1.5 cun lateral to the lower border of the spinous process of L2',actions:'Tonifies Kidney Yin and Yang, benefits Jing and marrow, strengthens the lumbar spine',indications:'Low back pain, urinary disorders, reproductive disorders, tinnitus, fatigue, bone disorders'},
+    {name:'BL 20',zh:'脾俞 Pishu',location:'1.5 cun lateral to the lower border of the spinous process of T11',actions:'Strengthens Spleen and Stomach, resolves Dampness, nourishes Blood',indications:'Digestive disorders, fatigue, weight issues, edema, menstrual irregularity, anemia'},
+    {name:'GB 34',zh:'阳陵泉 Yanglingquan',location:'In the depression anterior and inferior to the head of the fibula',actions:'Benefits sinews and joints, spreads Liver Qi, clears Damp-Heat from Liver and Gallbladder',indications:'Musculoskeletal disorders, hip and knee pain, hypochondriac pain, bitter taste, jaundice'},
+    {name:'SP 10',zh:'血海 Xuehai',location:'2 cun proximal to the superomedial border of the patella',actions:'Invigorates Blood, resolves Blood stasis, cools Blood, regulates menstruation',indications:'Menstrual disorders, skin conditions, Blood stasis, urticaria, eczema, amenorrhea'},
+    {name:'ST 40',zh:'丰隆 Fenglong',location:'Midway between ST 35 and the lateral malleolus, two finger-breadths lateral to the anterior crest of the tibia',actions:'Resolves Phlegm and Dampness, calms the mind, clears Phlegm from the Lungs',indications:'Phlegm conditions, cough with phlegm, dizziness, chest oppression, mental disorders, obesity'}
+  ],
+  formulas: [
+    {name:'Si Jun Zi Tang',zh:'四君子汤',composition:'Ren Shen, Bai Zhu, Fu Ling, Zhi Gan Cao',actions:'Tonifies Qi, strengthens Spleen and Stomach',indications:'Spleen Qi deficiency: fatigue, poor appetite, loose stools, pale complexion'},
+    {name:'Liu Wei Di Huang Wan',zh:'六味地黄丸',composition:'Shu Di Huang, Shan Zhu Yu, Shan Yao, Ze Xie, Mu Dan Pi, Fu Ling',actions:'Nourishes Kidney and Liver Yin',indications:'Kidney Yin deficiency: low back soreness, tinnitus, night sweats, afternoon fever'},
+    {name:'You Gui Wan',zh:'右归丸',composition:'Shu Di, Shan Yao, Shan Zhu Yu, Gou Qi Zi, Tu Si Zi, Du Zhong, Dang Gui, Rou Gui, Fu Zi, Lu Jiao Jiao',actions:'Warms and tonifies Kidney Yang, replenishes Jing and Blood',indications:'Kidney Yang deficiency: aversion to cold, cold limbs, impotence, infertility, low back pain'},
+    {name:'Zuo Gui Wan',zh:'左归丸',composition:'Shu Di, Shan Yao, Gou Qi Zi, Shan Zhu Yu, Chuan Niu Xi, Tu Si Zi, Lu Jiao Jiao, Gui Ban Jiao',actions:'Enriches Yin, replenishes Jing and marrow',indications:'Kidney Jing/Yin deficiency: dizziness, tinnitus, weak knees, night sweats, poor memory'},
+    {name:'Xiao Yao San',zh:'逍遥散',composition:'Chai Hu, Dang Gui, Bai Shao, Bai Zhu, Fu Ling, Zhi Gan Cao, Bo He, Sheng Jiang',actions:'Spreads Liver Qi, strengthens Spleen, nourishes Blood',indications:'Liver Qi stagnation with Spleen deficiency: hypochondriac pain, depression, irregular menses, poor appetite'},
+    {name:'Xue Fu Zhu Yu Tang',zh:'血府逐瘀汤',composition:'Tao Ren, Hong Hua, Dang Gui, Sheng Di, Chuan Xiong, Chi Shao, Niu Xi, Jie Geng, Chai Hu, Zhi Ke, Gan Cao',actions:'Invigorates Blood, dispels stasis, spreads Liver Qi, unblocks the channels',indications:'Blood stasis in the chest: chest pain, headache, insomnia, palpitations, persistent low-grade fever'},
+    {name:'Gui Pi Tang',zh:'归脾汤',composition:'Ren Shen, Huang Qi, Bai Zhu, Fu Ling, Dang Gui, Long Yan Rou, Suan Zao Ren, Yuan Zhi, Mu Xiang, Gan Cao, Sheng Jiang, Da Zao',actions:'Tonifies and nourishes Heart and Spleen, supplements Qi, nourishes Blood',indications:'Heart and Spleen deficiency: palpitations, insomnia, poor memory, fatigue, poor appetite, irregular menses'},
+    {name:'Ba Zhen Tang',zh:'八珍汤',composition:'Ren Shen, Bai Zhu, Fu Ling, Zhi Gan Cao, Shu Di, Bai Shao, Dang Gui, Chuan Xiong',actions:'Tonifies Qi and Blood',indications:'Qi and Blood deficiency: pale complexion, fatigue, shortness of breath, palpitations, dizziness'},
+    {name:'Er Chen Tang',zh:'二陈汤',composition:'Ban Xia, Chen Pi, Fu Ling, Zhi Gan Cao, Sheng Jiang, Wu Mei',actions:'Dries Dampness, transforms Phlegm, regulates Qi, harmonizes the middle',indications:'Phlegm-Dampness: cough with white phlegm, nausea, vomiting, chest oppression, dizziness'},
+    {name:'Long Dan Xie Gan Tang',zh:'龙胆泻肝汤',composition:'Long Dan Cao, Huang Qin, Zhi Zi, Chai Hu, Sheng Di, Ze Xie, Mu Tong, Che Qian Zi, Dang Gui, Gan Cao',actions:'Drains Liver and Gallbladder Fire, clears and drains Damp-Heat from the lower Jiao',indications:'Liver/GB Fire or Damp-Heat: headache, red eyes, bitter taste, hypochondriac pain, urinary disorders, genital itching'}
+  ]
+};
 
+let refCategory = 'patterns';
+let refSearch = '';
 
+function renderReference(){
+  document.getElementById('app-content').innerHTML=`
+    <div class="tool-card" style="margin-bottom:0;border-bottom:none;border-radius:20px 20px 0 0">
+      <div class="tool-title">TCM Reference Library</div>
+      <div class="tool-subtitle">Quick reference for common patterns, points, and formulas</div>
+      <input class="ref-search" placeholder="Search..." oninput="searchRef(this.value)" id="ref-search-input">
+      <div class="ref-tabs">
+        <div class="ref-tab ${refCategory==='patterns'?'active':''}" onclick="setRefCat('patterns')">Patterns (${REF_DATA.patterns.length})</div>
+        <div class="ref-tab ${refCategory==='points'?'active':''}" onclick="setRefCat('points')">Points (${REF_DATA.points.length})</div>
+        <div class="ref-tab ${refCategory==='formulas'?'active':''}" onclick="setRefCat('formulas')">Formulas (${REF_DATA.formulas.length})</div>
+      </div>
+    </div>
+    <div id="ref-content" style="background:var(--surface);border:1px solid var(--border);border-top:none;border-radius:0 0 20px 20px;padding:1.5rem"></div>`;
+  renderRefContent();
+}
+
+function setRefCat(cat){
+  refCategory=cat;
+  refSearch='';
+  renderReference();
+}
+
+function searchRef(q){
+  refSearch=q;
+  renderRefContent();
+}
+
+function renderRefContent(){
+  const q=refSearch.toLowerCase();
+  const data=REF_DATA[refCategory].filter(item=>{
+    const searchStr=JSON.stringify(item).toLowerCase();
+    return !q||searchStr.includes(q);
+  });
+  const el=document.getElementById('ref-content');
+  if(!data.length){el.innerHTML='<div style="text-align:center;padding:2rem;color:var(--ink3);font-style:italic">No results found</div>';return;}
+  if(refCategory==='patterns'){
+    el.innerHTML=`<div class="ref-grid">${data.map(p=>`
+      <div class="ref-card">
+        <div class="ref-card-name">${eh(p.name)}</div>
+        <div class="ref-card-zh">${eh(p.zh)}</div>
+        <div class="ref-card-row"><strong>Tongue:</strong> ${eh(p.tongue)}</div>
+        <div class="ref-card-row"><strong>Pulse:</strong> ${eh(p.pulse)}</div>
+        <div class="ref-card-row"><strong>Key Symptoms:</strong> ${eh(p.symptoms)}</div>
+        <div class="ref-card-row"><strong>Formula:</strong> ${eh(p.formula)}</div>
+      </div>`).join('')}</div>`;
+  } else if(refCategory==='points'){
+    el.innerHTML=`<div class="ref-grid">${data.map(p=>`
+      <div class="ref-card">
+        <div class="ref-card-name">${eh(p.name)}</div>
+        <div class="ref-card-zh">${eh(p.zh)}</div>
+        <div class="ref-card-row"><strong>Location:</strong> ${eh(p.location)}</div>
+        <div class="ref-card-row"><strong>Actions:</strong> ${eh(p.actions)}</div>
+        <div class="ref-card-row"><strong>Indications:</strong> ${eh(p.indications)}</div>
+      </div>`).join('')}</div>`;
+  } else {
+    el.innerHTML=`<div class="ref-grid">${data.map(p=>`
+      <div class="ref-card">
+        <div class="ref-card-name">${eh(p.name)}</div>
+        <div class="ref-card-zh">${eh(p.zh)}</div>
+        <div class="ref-card-row"><strong>Composition:</strong> ${eh(p.composition)}</div>
+        <div class="ref-card-row"><strong>Actions:</strong> ${eh(p.actions)}</div>
+        <div class="ref-card-row"><strong>Indications:</strong> ${eh(p.indications)}</div>
+      </div>`).join('')}</div>`;
+  }
+}
+
+// HELPERS
 function formatNote(text){
-  const lines = text.split('\n');
-  let html = '';
-  const sectionHeaders = ['SUBJECTIVE','OBJECTIVE','ASSESSMENT','PLAN','TREATMENT PRINCIPLE','POINTS SELECTED','HERBAL FORMULA','DIETARY','LIFESTYLE'];
+  const lines=text.split('\n');
+  let html='';
+  const headers=['SUBJECTIVE','OBJECTIVE','ASSESSMENT','PLAN','TREATMENT PRINCIPLE','POINTS','HERBAL FORMULA','DIETARY','LIFESTYLE','TREATMENT FREQUENCY'];
+  const subheaders=['Treatment Principle:','Points:','Herbal Formula:','Dietary Recommendations:','Lifestyle Recommendations:','Treatment Frequency:'];
   for(let line of lines){
-    const trimmed = line.trim();
-    if(!trimmed){ html += '<div style="height:0.6rem"></div>'; continue; }
-    const isHeader = sectionHeaders.some(h => trimmed.toUpperCase().startsWith(h));
+    const trimmed=line.trim();
+    if(!trimmed){html+='<div style="height:0.5rem"></div>';continue;}
+    const isHeader=headers.some(h=>trimmed.toUpperCase()===h||trimmed.toUpperCase().startsWith(h+' '));
+    const isSub=subheaders.some(h=>trimmed.startsWith(h));
     if(isHeader){
-      html += `<div style="font-weight:600;color:var(--ink);font-size:0.88rem;text-transform:uppercase;letter-spacing:0.07em;margin-top:1.25rem;margin-bottom:0.4rem;padding-bottom:0.3rem;border-bottom:1px solid var(--border)">${eh(trimmed)}</div>`;
+      html+=`<div style="font-weight:600;color:var(--ink);font-size:0.88rem;text-transform:uppercase;letter-spacing:0.07em;margin-top:1.25rem;margin-bottom:0.4rem;padding-bottom:0.3rem;border-bottom:1px solid var(--border)">${eh(trimmed)}</div>`;
+    } else if(isSub){
+      html+=`<div style="font-weight:600;color:var(--ink2);font-size:0.84rem;margin-top:0.75rem;margin-bottom:0.2rem">${eh(trimmed)}</div>`;
     } else {
-      const cleaned = trimmed.replace(/\*\*/g,'').replace(/\*/g,'').replace(/^[-•]\s*/,'').replace(/^#{1,3}\s*/,'');
-      html += `<div style="font-size:0.86rem;color:var(--ink2);line-height:1.75;font-weight:300">${eh(cleaned)}</div>`;
+      const cleaned=trimmed.replace(/\*\*/g,'').replace(/\*/g,'').replace(/^[-•]\s*/,'').replace(/^#{1,3}\s*/,'');
+      html+=`<div style="font-size:0.86rem;color:var(--ink2);line-height:1.75;font-weight:300">${eh(cleaned)}</div>`;
     }
   }
   return html;
 }
+
+function eh(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function ea(s){return String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
 </script>
 </body>
 </html>
