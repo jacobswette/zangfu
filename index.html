@@ -276,6 +276,8 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
   <div class="nav-links">
     <span class="nav-link" onclick="document.querySelector('.demo-section').scrollIntoView({behavior:'smooth'})">Features</span>
     <span class="nav-link" onclick="document.querySelector('.pricing-wrap').scrollIntoView({behavior:'smooth'})">Pricing</span>
+    <span class="nav-link" onclick="document.getElementById('faq-section').scrollIntoView({behavior:'smooth'})">FAQ</span>
+    <span class="nav-link" onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})">Contact</span>
     <button class="nav-btn" onclick="enterApp()">Try Free &rarr;</button>
   </div>
 </nav>
@@ -356,10 +358,99 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
     <div class="pricing-detail">Cancel anytime &mdash; no questions asked</div>
   </div>
   <div class="pricing-cards">
-<div class="p-card" onclick="enterApp()" style="cursor:pointer"><div class="p-row"><div class="p-amount">Free Trial</div></div><div class="p-label">3 free uses &middot; All features &middot; No card required</div></div>    
-<div class="p-card featured" onclick="window.location.href='https://buy.stripe.com/bJe7sE9Ra9ML7NT3pifUQ00'" style="cursor:pointer"><div class="p-row"><div class="p-amount">$19<sub>/mo</sub></div><div class="p-badge">Founding Member</div></div><div class="p-label">Rate locked for life &middot; First 20 users only &middot; Price increases after</div></div>  </div>
+    <div class="p-card"><div class="p-row"><div class="p-amount">Free</div></div><div class="p-label">3 free uses &middot; All features &middot; No card required</div></div>
+    <div class="p-card featured"><div class="p-row"><div class="p-amount">$19<sub>/mo</sub></div><div class="p-badge">Founding Member</div></div><div class="p-label">Rate locked for life &middot; First 20 users only &middot; Price increases after</div></div>
+  </div>
 </div>
 </div>
+<!-- ABOUT SECTION -->
+<div style="max-width:1100px;margin:0 auto;padding:0 3rem 3rem">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:3rem;margin-bottom:3rem">
+  <div>
+    <div style="font-size:0.7rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:1rem;display:flex;align-items:center;gap:8px"><span style="display:inline-block;width:20px;height:1px;background:var(--accent)"></span>About ZangFu</div>
+    <div style="font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--ink);letter-spacing:-0.03em;line-height:1.2;margin-bottom:1.25rem">Built by a clinician,<br>for clinicians.</div>
+    <div style="font-size:0.9rem;color:var(--ink2);font-weight:300;line-height:1.85;margin-bottom:1rem">ZangFu was created by a licensed acupuncturist and Doctor of Acupuncture with over a decade of clinical experience in integrative medicine settings. The documentation burden on practitioners is real — and it takes time away from what matters most: the patient in front of you.</div>
+    <div style="font-size:0.9rem;color:var(--ink2);font-weight:300;line-height:1.85;margin-bottom:1rem">ZangFu was built to handle the structure so you can focus on the medicine. Every output reflects how experienced TCM practitioners actually think and document — not a generic AI approximation of clinical care.</div>
+    <div style="font-size:0.9rem;color:var(--ink2);font-weight:300;line-height:1.85">The platform is designed for licensed practitioners who trained rigorously and deserve tools that reflect that training.</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:1.25rem">
+    <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1.5rem">
+      <div style="font-size:1.75rem;margin-bottom:0.5rem">&#x1F393;</div>
+      <div style="font-weight:600;font-size:0.9rem;color:var(--ink);margin-bottom:0.3rem">Clinical training, not approximation</div>
+      <div style="font-size:0.82rem;color:var(--ink2);font-weight:300;line-height:1.6">Outputs reflect real TCM clinical reasoning — patterns, principles, and points the way you learned them.</div>
+    </div>
+    <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1.5rem">
+      <div style="font-size:1.75rem;margin-bottom:0.5rem">&#x1F91D;</div>
+      <div style="font-weight:600;font-size:0.9rem;color:var(--ink);margin-bottom:0.3rem">Made for solo and institutional practitioners</div>
+      <div style="font-size:0.82rem;color:var(--ink2);font-weight:300;line-height:1.6">Whether you run a private practice or work in a large health system, ZangFu fits into your workflow.</div>
+    </div>
+    <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1.5rem">
+      <div style="font-size:1.75rem;margin-bottom:0.5rem">&#x1F331;</div>
+      <div style="font-weight:600;font-size:0.9rem;color:var(--ink);margin-bottom:0.3rem">A portion of revenue funds TCM access</div>
+      <div style="font-size:0.82rem;color:var(--ink2);font-weight:300;line-height:1.6">We believe traditional medicine should be accessible to everyone. A portion of every subscription supports TCM care for underserved communities.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ SECTION --><div id="faq-section"></div>
+<div style="margin-bottom:3rem">
+  <div style="text-align:center;margin-bottom:2.5rem">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.75rem">FAQ</div>
+    <div style="font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:var(--ink);letter-spacing:-0.04em">Common questions</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem">
+      <div style="font-weight:600;font-size:0.92rem;color:var(--ink);margin-bottom:0.6rem">Is ZangFu HIPAA compliant?</div>
+      <div style="font-size:0.84rem;color:var(--ink2);font-weight:300;line-height:1.7">ZangFu is not currently a HIPAA-certified platform. Do not enter patient names or other identifying information. Use initials or patient IDs only. We are actively working toward compliance for a future version.</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem">
+      <div style="font-weight:600;font-size:0.92rem;color:var(--ink);margin-bottom:0.6rem">How accurate are the clinical outputs?</div>
+      <div style="font-size:0.84rem;color:var(--ink2);font-weight:300;line-height:1.7">ZangFu generates clinically informed drafts based on the findings you enter. All outputs should be reviewed and modified by the treating practitioner before finalizing in the medical record. It is a clinical tool, not a replacement for clinical judgment.</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem">
+      <div style="font-weight:600;font-size:0.92rem;color:var(--ink);margin-bottom:0.6rem">Does it integrate with my EHR?</div>
+      <div style="font-size:0.84rem;color:var(--ink2);font-weight:300;line-height:1.7">Not yet. ZangFu currently generates notes you can copy and paste into any EHR system. Direct EHR integration is on the roadmap for a future release.</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem">
+      <div style="font-weight:600;font-size:0.92rem;color:var(--ink);margin-bottom:0.6rem">What styles of TCM does it support?</div>
+      <div style="font-size:0.84rem;color:var(--ink2);font-weight:300;line-height:1.7">ZangFu is grounded in TCM pattern differentiation as taught in accredited programs across North America. It supports tongue and pulse-based diagnosis, zang-fu pattern theory, channel theory, herbal medicine, and integrative assessment including orthopedic and hara findings.</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem">
+      <div style="font-weight:600;font-size:0.92rem;color:var(--ink);margin-bottom:0.6rem">Can I cancel anytime?</div>
+      <div style="font-size:0.84rem;color:var(--ink2);font-weight:300;line-height:1.7">Yes. No contracts, no cancellation fees. Cancel anytime from your billing portal and you will not be charged again. Your access continues through the end of the billing period.</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem">
+      <div style="font-weight:600;font-size:0.92rem;color:var(--ink);margin-bottom:0.6rem">What is the Founding Member rate?</div>
+      <div style="font-size:0.84rem;color:var(--ink2);font-weight:300;line-height:1.7">The first 20 subscribers lock in $19/month for life — even as the price increases for new users. This is our way of rewarding early adopters who help shape the product. Once 20 spots are filled, this rate is gone permanently.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT SECTION --><div id="contact-section"></div>
+<div style="background:var(--ink);border-radius:24px;padding:3.5rem 3rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
+  <div>
+    <div style="font-size:0.7rem;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:1rem;display:flex;align-items:center;gap:8px"><span style="display:inline-block;width:20px;height:1px;background:rgba(255,255,255,0.3)"></span>Contact</div>
+    <div style="font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:white;letter-spacing:-0.04em;line-height:1.15;margin-bottom:1rem">Questions? <em style="color:var(--accent-mid);font-style:italic;font-weight:300">We're here.</em></div>
+    <div style="font-size:0.9rem;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.8;margin-bottom:1.5rem">Whether you have a question about the product, want to request a feature, or are ready to upgrade — reach out directly. You'll hear back from the person who built it.</div>
+    <a href="mailto:zangfuapp@gmail.com" style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--accent);color:white;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:500;cursor:pointer;text-decoration:none;transition:all 0.2s">&#9993; zangfuapp@gmail.com</a>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:1rem">
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.5rem;display:flex;align-items:flex-start;gap:14px">
+      <div style="font-size:1.4rem;flex-shrink:0">&#128172;</div>
+      <div><div style="font-weight:500;font-size:0.88rem;color:white;margin-bottom:0.3rem">Feature requests</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.5">Have a clinical workflow we should support? Tell us. The roadmap is shaped by practitioners.</div></div>
+    </div>
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.5rem;display:flex;align-items:flex-start;gap:14px">
+      <div style="font-size:1.4rem;flex-shrink:0">&#128187;</div>
+      <div><div style="font-weight:500;font-size:0.88rem;color:white;margin-bottom:0.3rem">Technical support</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.5">Something not working as expected? Email us and we'll get it sorted quickly.</div></div>
+    </div>
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.5rem;display:flex;align-items:flex-start;gap:14px">
+      <div style="font-size:1.4rem;flex-shrink:0">&#128176;</div>
+      <div><div style="font-weight:500;font-size:0.88rem;color:white;margin-bottom:0.3rem">Billing and account</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.5">Questions about your subscription, invoice, or cancellation — email us directly.</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
 <footer>
   <div class="footer-logo"><span class="zang">Zang</span><span class="fu">Fu</span></div>
   <div class="footer-note">Designed for practitioners in small clinics and large institutions &middot; HIPAA-conscious &middot; Cancel anytime<br>A portion of every subscription supports TCM access for underserved communities</div>
@@ -375,18 +466,13 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
       <div class="user-badge" id="user-email-badge"></div>
     </div>
   </div>
- 
-<div class="app-nav">
+  <div class="app-nav">
     <div class="nav-tab active" onclick="showTab('note',this)">Clinical Notes</div>
     <div class="nav-tab" onclick="showTab('pattern',this)">Pattern Differentiator</div>
     <div class="nav-tab" onclick="showTab('patients',this)">Patients</div>
     <div class="nav-tab" onclick="showTab('reference',this)">Reference</div>
   </div>
-  <div style="background:#fefce8;border-bottom:1px solid #fde68a;padding:0.5rem 2rem;font-size:0.75rem;color:#92400e;text-align:center">
-    ⚠ Do not enter patient names or other identifying information. Use initials or patient IDs only. ZangFu is not yet a fully HIPAA-compliant platform.
-  </div>
   <div class="app-content" id="app-content"></div>
-  
 </div>
 
 <script>
@@ -725,11 +811,9 @@ async function generateNote(){
     if(currentPatientId){
       saveNoteToPatient(currentPatientId,{date:today,chief_complaint:cc,note_text:result});
     }
-
     document.getElementById('note-output').innerHTML=`
       <div class="output-box">
-        <div class="output-label">Draft Clinical Note</div>
-        <div style="background:var(--accent-light);border:1px solid var(--accent-mid);border-radius:8px;padding:0.6rem 1rem;margin-bottom:1.25rem;font-size:0.75rem;color:var(--accent);font-weight:500"> Draft — review and modify all sections as appropriate to treatment before finalizing in the medical record.</div>
+        <div class="output-label">Generated Clinical Note</div>
         ${formatNote(result)}
       </div>
       <div class="output-actions">
@@ -738,8 +822,6 @@ async function generateNote(){
         ${currentPatientId?'<span style="font-size:0.75rem;color:var(--accent);display:flex;align-items:center;gap:4px;margin-left:auto">&#10003; Saved to patient record</span>':''}
       </div>
       <div class="disclaimer">For clinical use only. Verify all information before finalizing the record.</div>`;
-
-    
   }catch(e){
     document.getElementById('note-output').innerHTML=`<div class="error-box">Error: ${eh(e.message)}</div>`;
   }
