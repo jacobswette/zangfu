@@ -428,8 +428,11 @@ Guidelines:
 - Write in a conservative, professional tone appropriate for a legal medical record
 - Do NOT use any markdown formatting — no asterisks, pound signs, dashes as bullets, or bold or italic markers
 - Use plain text with clean line breaks only
+- Every single line of output must use identical plain text formatting — no uppercase sentences, no bold text, no larger text, no emphasis of any kind anywhere in the note. Section headers are the only text in ALL CAPS and they appear alone on their own line. Everything else is sentence case plain text.
+- Dietary Recommendations and Lifestyle Recommendations are plain prose sentences in sentence case — they are NOT headers and must NOT be written in all caps
 - Output the clinical note only — no preamble, no disclaimers, no commentary`;
 
+  
 const SYSTEM_PATTERN=`You are an expert TCM diagnostician. Given a set of symptoms, return a ranked differential diagnosis of TCM patterns.
 
 For each pattern:
