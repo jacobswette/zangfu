@@ -92,8 +92,6 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-i
 .footer-logo{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.03em}
 .footer-logo .zang{color:var(--ink)}.footer-logo .fu{color:var(--accent)}
 .footer-note{font-size:0.75rem;color:var(--ink3);text-align:right;line-height:1.9}
-
-/* MODALS */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(4px)}
 .modal-box{background:var(--bg);border-radius:20px;padding:2.5rem;max-width:460px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
 .modal-logo{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:1.5rem}
@@ -108,8 +106,6 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-i
 .paywall-features{margin-bottom:1.5rem}
 .paywall-feat{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--ink2);font-weight:300;margin-bottom:0.5rem}
 .paywall-feat::before{content:'✓';color:var(--accent);font-weight:600;font-size:0.9rem}
-
-/* APP */
 #app{display:none;min-height:100vh;flex-direction:column}
 .app-header{background:rgba(255,255,255,0.95);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;backdrop-filter:blur(16px)}
 .app-logo{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;letter-spacing:-0.03em}
@@ -123,8 +119,6 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-i
 .nav-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
 .nav-tab:hover{color:var(--ink)}
 .app-content{flex:1;padding:2rem;max-width:960px;margin:0 auto;width:100%}
-
-/* TOOL CARD */
 .tool-card{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow-sm)}
 .tool-title{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem;letter-spacing:-0.02em}
 .tool-subtitle{font-size:0.85rem;color:var(--ink2);margin-bottom:1.75rem;font-weight:300}
@@ -173,14 +167,10 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
 .chip:hover{border-color:var(--ink2)}
 .pattern-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
 .obj-header{font-size:0.72rem;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem;margin-top:0.5rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
-
-/* PATIENT BANNER */
 .patient-banner{background:var(--accent-light);border:1px solid var(--accent-mid);border-radius:12px;padding:0.75rem 1.25rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between}
 .patient-banner-name{font-size:0.85rem;font-weight:600;color:var(--accent);display:flex;align-items:center;gap:8px}
 .patient-banner-name::before{content:'👤';font-size:0.9rem}
 .patient-banner-clear{font-size:0.75rem;color:var(--ink3);cursor:pointer;transition:color 0.15s}.patient-banner-clear:hover{color:var(--ink)}
-
-/* PATIENTS TAB */
 .patients-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
 .patients-title{font-family:'Fraunces',serif;font-size:1.75rem;font-weight:700;color:var(--ink);letter-spacing:-0.03em}
 .new-patient-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--accent);color:white;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;transition:all 0.2s}
@@ -198,8 +188,6 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
 .empty-patients-icon{font-size:3rem;margin-bottom:1rem;opacity:0.3}
 .empty-patients-text{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--ink2);margin-bottom:0.5rem}
 .empty-patients-sub{font-size:0.85rem;font-weight:300}
-
-/* PATIENT DETAIL */
 .patient-detail-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
 .back-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--border);border-radius:100px;font-size:0.82rem;color:var(--ink2);cursor:pointer;background:var(--bg);font-family:'Inter',sans-serif;transition:all 0.15s}
 .back-btn:hover{border-color:var(--ink);color:var(--ink)}
@@ -215,11 +203,8 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
 .note-history-item:hover{border-color:var(--accent-mid);background:var(--accent-light)}
 .note-history-date{font-size:0.75rem;font-weight:600;color:var(--accent);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.06em}
 .note-history-cc{font-size:0.88rem;color:var(--ink);font-weight:500;margin-bottom:0.2rem}
-.note-history-pattern{font-size:0.78rem;color:var(--ink2);font-weight:300}
 .note-expand{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-top:0.5rem;font-size:0.82rem;line-height:1.8;color:var(--ink2);white-space:pre-wrap;font-family:'Inter',sans-serif;font-weight:300}
 .no-notes{text-align:center;padding:2rem;color:var(--ink3);font-size:0.88rem;font-style:italic}
-
-/* REFERENCE TAB */
 .ref-search{width:100%;padding:0.75rem 1.25rem;border:1px solid var(--border);border-radius:100px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--ink);background:var(--surface);outline:none;transition:border 0.15s;margin-bottom:1.5rem}
 .ref-search:focus{border-color:var(--accent);background:white}
 .ref-tabs{display:flex;gap:0.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
@@ -240,8 +225,8 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
 <div class="modal-overlay" id="email-modal" style="display:none">
   <div class="modal-box">
     <div class="modal-logo"><span class="zang">Zang</span><span class="fu">Fu</span></div>
-    <div class="modal-h">Start your free 14-day trial</div>
-    <div class="modal-p">Enter your email to get started. No credit card required. All features included.</div>
+    <div class="modal-h">Try ZangFu free</div>
+    <div class="modal-p">Enter your email to get started. Includes 3 free uses &mdash; no credit card required.</div>
     <input class="modal-input" type="email" id="trial-email" placeholder="your@email.com">
     <button class="modal-btn" onclick="startTrial()">Start Free Trial &rarr;</button>
     <div class="modal-note">By continuing you agree to receive occasional product updates. Cancel anytime.</div>
@@ -361,7 +346,7 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
 <div class="pricing-wrap">
   <div>
     <div class="pricing-h">Start free.<br>See it for yourself.</div>
-    <div class="pricing-p">Try everything ZangFu offers for 14 days &mdash; no credit card, no commitment. See what it does to your notes, your thinking, and your practice.</div>
+    <div class="pricing-p">Try everything ZangFu offers &mdash; no credit card, no commitment. See what it does to your notes, your thinking, and your practice.</div>
     <div class="pricing-detail">Complete clinical notes in under 30 seconds</div>
     <div class="pricing-detail">Full pattern differentials with discriminating signs</div>
     <div class="pricing-detail">Patient roster with full visit history</div>
@@ -371,7 +356,7 @@ input::placeholder,textarea::placeholder{color:var(--ink3)}
     <div class="pricing-detail">Cancel anytime &mdash; no questions asked</div>
   </div>
   <div class="pricing-cards">
-    <div class="p-card"><div class="p-row"><div class="p-amount">Free</div></div><div class="p-label">14-day trial &middot; All features &middot; No card required</div></div>
+    <div class="p-card"><div class="p-row"><div class="p-amount">Free</div></div><div class="p-label">3 free uses &middot; All features &middot; No card required</div></div>
     <div class="p-card featured"><div class="p-row"><div class="p-amount">$19<sub>/mo</sub></div><div class="p-badge">Founding Member</div></div><div class="p-label">Rate locked for life &middot; First 20 users only &middot; Price increases after</div></div>
   </div>
 </div>
@@ -460,11 +445,11 @@ const SYSTEM_FORM_READ=`You are a clinical assistant extracting information from
 {"chief_complaint":"","tongue":"","pulse":"","symptoms":"","demo":"","history":""}
 If a field is not present, use empty string. Return only the JSON object, no other text.`;
 
-// TRIAL MANAGEMENT
-const TRIAL_DAYS = 14;
 let currentPatientId = null;
 let currentFile = null;
+let lastNoteText = '';
 
+// TRIAL MANAGEMENT
 function getTrial(){
   const t = localStorage.getItem('zf_trial');
   return t ? JSON.parse(t) : null;
@@ -473,15 +458,21 @@ function getTrial(){
 function checkTrial(){
   const t = getTrial();
   if(!t) return 'none';
-  const days = Math.floor((Date.now() - t.start) / 86400000);
-  if(days >= TRIAL_DAYS) return 'expired';
-  return TRIAL_DAYS - days;
+  if((t.uses||0) >= 3) return 'expired';
+  return 3 - (t.uses||0);
+}
+
+function incrementUses(){
+  const t = getTrial();
+  if(!t) return;
+  t.uses = (t.uses||0) + 1;
+  localStorage.setItem('zf_trial', JSON.stringify(t));
 }
 
 async function startTrial(){
   const email = document.getElementById('trial-email').value.trim();
   if(!email || !email.includes('@')){ alert('Please enter a valid email address.'); return; }
-  localStorage.setItem('zf_trial', JSON.stringify({email, start: Date.now()}));
+  localStorage.setItem('zf_trial', JSON.stringify({email, start: Date.now(), uses: 0}));
   try{
     await fetch('https://formspree.io/f/xzdkjyvl', {
       method: 'POST',
@@ -508,11 +499,11 @@ function showApp(){
   document.getElementById('landing').style.display = 'none';
   document.getElementById('app').style.display = 'flex';
   const t = getTrial();
-  const daysLeft = checkTrial();
+  const usesLeft = checkTrial();
   if(t){
     document.getElementById('user-email-badge').textContent = t.email;
-    if(typeof daysLeft === 'number'){
-      document.getElementById('trial-badge').innerHTML = `Trial: <span>${daysLeft} day${daysLeft===1?'':'s'} left</span>`;
+    if(typeof usesLeft === 'number'){
+      document.getElementById('trial-badge').innerHTML = `Trial: <span>${usesLeft} use${usesLeft===1?'':'s'} remaining</span>`;
     }
   }
   renderNote();
@@ -522,7 +513,6 @@ function closeModal(id){
   document.getElementById(id).style.display = 'none';
 }
 
-// TAB NAVIGATION
 function showTab(tab, el){
   const status = checkTrial();
   if(status === 'expired'){ document.getElementById('paywall-modal').style.display = 'flex'; return; }
@@ -534,7 +524,6 @@ function showTab(tab, el){
   else if(tab==='reference') renderReference();
 }
 
-// API
 async function callClaude(body){
   const resp = await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
   const data = await resp.json();
@@ -543,7 +532,6 @@ async function callClaude(body){
   throw new Error('Unexpected API response');
 }
 
-// CLINICAL NOTES
 function renderNote(){
   currentFile = null;
   const patient = currentPatientId ? getPatient(currentPatientId) : null;
@@ -691,13 +679,20 @@ function fileToBase64(file){
   });
 }
 
-let lastNoteText = '';
-
 async function generateNote(){
   const cc=document.getElementById('cc').value.trim();
   if(!cc){alert('Please enter a chief complaint.');return}
   const btn=document.getElementById('note-btn');
   btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Generating...';
+
+  incrementUses();
+  if(checkTrial()==='expired'){
+    document.getElementById('paywall-modal').style.display='flex';
+    btn.disabled=false;btn.innerHTML='Generate Clinical Note &rarr;';
+    return;
+  }
+  updateTrialBadge();
+
   const today=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
   const fields=[
     `Date: ${today}`,
@@ -724,11 +719,7 @@ async function generateNote(){
     const result=await callClaude({model:'claude-haiku-4-5-20251001',max_tokens:1800,system:SYSTEM_NOTE,messages:[{role:'user',content:uc}]});
     lastNoteText=result;
     if(currentPatientId){
-      saveNoteToPatient(currentPatientId, {
-        date: today,
-        chief_complaint: cc,
-        note_text: result
-      });
+      saveNoteToPatient(currentPatientId,{date:today,chief_complaint:cc,note_text:result});
     }
     document.getElementById('note-output').innerHTML=`
       <div class="output-box">
@@ -738,7 +729,7 @@ async function generateNote(){
       <div class="output-actions">
         <button class="action-btn" id="copy-btn" onclick="copyNote()">&#128203; Copy Note</button>
         <button class="action-btn" onclick="printNote()">&#128424; Print</button>
-        ${currentPatientId ? '<span style="font-size:0.75rem;color:var(--accent);display:flex;align-items:center;gap:4px;margin-left:auto">&#10003; Saved to patient record</span>' : ''}
+        ${currentPatientId?'<span style="font-size:0.75rem;color:var(--accent);display:flex;align-items:center;gap:4px;margin-left:auto">&#10003; Saved to patient record</span>':''}
       </div>
       <div class="disclaimer">For clinical use only. Verify all information before finalizing the record.</div>`;
   }catch(e){
@@ -747,47 +738,42 @@ async function generateNote(){
   btn.disabled=false;btn.innerHTML='Generate Clinical Note &rarr;';
 }
 
+function updateTrialBadge(){
+  const usesLeft=checkTrial();
+  if(typeof usesLeft==='number'){
+    document.getElementById('trial-badge').innerHTML=`Trial: <span>${usesLeft} use${usesLeft===1?'':'s'} remaining</span>`;
+  }
+}
+
 function copyNote(){
   navigator.clipboard.writeText(lastNoteText).then(()=>{
     const btn=document.getElementById('copy-btn');
     btn.textContent='✓ Copied';
     btn.classList.add('copied');
     setTimeout(()=>{btn.innerHTML='&#128203; Copy Note';btn.classList.remove('copied');},2000);
-  }).catch(()=>{ alert('Copy failed. Please select the text manually.'); });
+  }).catch(()=>{alert('Copy failed. Please select the text manually.');});
 }
 
 function printNote(){
   const w=window.open('','_blank');
   w.document.write(`<!DOCTYPE html><html><head><title>Clinical Note</title>
   <style>body{font-family:Georgia,serif;max-width:700px;margin:2rem auto;padding:0 2rem;font-size:14px;line-height:1.8;color:#111}
-  h2{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;border-bottom:1px solid #ccc;padding-bottom:0.3rem;margin:1.5rem 0 0.5rem;color:#333}
-  p{margin-bottom:0.5rem}
   @media print{body{margin:0}}</style></head><body>
   <pre style="font-family:Georgia,serif;white-space:pre-wrap;font-size:14px;line-height:1.8">${eh(lastNoteText)}</pre>
   <script>window.onload=()=>{window.print();}<\/script></body></html>`);
   w.document.close();
 }
 
-// PATIENTS
-function getPatients(){
-  const p=localStorage.getItem('zf_patients');
-  return p?JSON.parse(p):[];
-}
+function getPatients(){const p=localStorage.getItem('zf_patients');return p?JSON.parse(p):[];}
+function savePatients(p){localStorage.setItem('zf_patients',JSON.stringify(p));}
+function getPatient(id){return getPatients().find(p=>p.id===id);}
 
-function savePatients(patients){
-  localStorage.setItem('zf_patients',JSON.stringify(patients));
-}
-
-function getPatient(id){
-  return getPatients().find(p=>p.id===id);
-}
-
-function saveNoteToPatient(patientId, note){
+function saveNoteToPatient(patientId,note){
   const patients=getPatients();
   const idx=patients.findIndex(p=>p.id===patientId);
   if(idx===-1)return;
-  if(!patients[idx].notes) patients[idx].notes=[];
-  patients[idx].notes.unshift({...note, id: Date.now().toString()});
+  if(!patients[idx].notes)patients[idx].notes=[];
+  patients[idx].notes.unshift({...note,id:Date.now().toString()});
   savePatients(patients);
 }
 
@@ -795,22 +781,10 @@ function saveNewPatient(){
   const name=document.getElementById('np-name').value.trim();
   if(!name){alert('Please enter a patient name.');return}
   const patients=getPatients();
-  const newPatient={
-    id: Date.now().toString(),
-    name,
-    dob: document.getElementById('np-dob').value,
-    sex: document.getElementById('np-sex').value,
-    chief_complaint: document.getElementById('np-cc').value,
-    created: new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}),
-    notes:[]
-  };
-  patients.unshift(newPatient);
+  patients.unshift({id:Date.now().toString(),name,dob:document.getElementById('np-dob').value,sex:document.getElementById('np-sex').value,chief_complaint:document.getElementById('np-cc').value,created:new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}),notes:[]});
   savePatients(patients);
   closeModal('new-patient-modal');
-  document.getElementById('np-name').value='';
-  document.getElementById('np-dob').value='';
-  document.getElementById('np-sex').value='';
-  document.getElementById('np-cc').value='';
+  ['np-name','np-dob','np-sex','np-cc'].forEach(id=>{document.getElementById(id).value='';});
   renderPatients();
 }
 
@@ -821,41 +795,33 @@ function renderPatients(){
       <div class="patients-title">Patients</div>
       <button class="new-patient-btn" onclick="document.getElementById('new-patient-modal').style.display='flex'">+ New Patient</button>
     </div>
-    <input class="search-input" placeholder="Search patients..." oninput="filterPatients(this.value)" id="patient-search">
+    <input class="search-input" placeholder="Search patients..." oninput="filterPatients(this.value)">
     <div id="patient-list"></div>`;
   renderPatientList(patients);
 }
 
 function renderPatientList(patients){
   const el=document.getElementById('patient-list');
-  if(!patients.length){
-    el.innerHTML=`<div class="empty-patients"><div class="empty-patients-icon">&#128100;</div><div class="empty-patients-text">No patients yet</div><div class="empty-patients-sub">Add your first patient to start building a roster</div></div>`;
-    return;
-  }
+  if(!patients.length){el.innerHTML=`<div class="empty-patients"><div class="empty-patients-icon">&#128100;</div><div class="empty-patients-text">No patients yet</div><div class="empty-patients-sub">Add your first patient to start building a roster</div></div>`;return;}
   el.innerHTML=`<div class="patient-grid">${patients.map(p=>`
     <div class="patient-card" onclick="renderPatientDetail('${p.id}')">
       <div class="patient-card-count">${(p.notes||[]).length} note${(p.notes||[]).length===1?'':'s'}</div>
       <div class="patient-card-name">${eh(p.name)}</div>
-      <div class="patient-card-meta">${p.dob?p.dob+' &middot; ':''} ${eh(p.sex||'')} ${p.chief_complaint?'&middot; '+eh(p.chief_complaint):''}</div>
+      <div class="patient-card-meta">${p.dob?p.dob+' &middot; ':''}${eh(p.sex||'')}${p.chief_complaint?' &middot; '+eh(p.chief_complaint):''}</div>
       <div class="patient-card-last">${(p.notes||[]).length?'Last visit: '+(p.notes[0].date||''):'No visits recorded'}</div>
     </div>`).join('')}</div>`;
 }
 
 function filterPatients(q){
-  const patients=getPatients().filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||(p.chief_complaint||'').toLowerCase().includes(q.toLowerCase()));
-  renderPatientList(patients);
+  renderPatientList(getPatients().filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||(p.chief_complaint||'').toLowerCase().includes(q.toLowerCase())));
 }
 
 function renderPatientDetail(id){
-  const p=getPatient(id);
-  if(!p)return;
+  const p=getPatient(id);if(!p)return;
   document.getElementById('app-content').innerHTML=`
     <div class="patient-detail-header">
       <button class="back-btn" onclick="renderPatients()">&larr; Patients</button>
-      <div>
-        <div class="patient-detail-name">${eh(p.name)}</div>
-        <div class="patient-detail-meta">${p.dob?'DOB: '+p.dob+' &middot; ':''} ${eh(p.sex||'')} ${p.chief_complaint?'&middot; '+eh(p.chief_complaint):''}</div>
-      </div>
+      <div><div class="patient-detail-name">${eh(p.name)}</div><div class="patient-detail-meta">${p.dob?'DOB: '+p.dob+' &middot; ':''}${eh(p.sex||'')}${p.chief_complaint?' &middot; '+eh(p.chief_complaint):''}</div></div>
       <div class="patient-actions">
         <button class="note-for-btn" onclick="startNoteForPatient('${id}')">+ Generate Note</button>
         <button class="delete-patient-btn" onclick="deletePatient('${id}')">Delete</button>
@@ -868,49 +834,23 @@ function renderPatientDetail(id){
           <div class="note-history-item" onclick="toggleNoteExpand('${n.id}')">
             <div class="note-history-date">${n.date}</div>
             <div class="note-history-cc">${eh(n.chief_complaint)}</div>
-            <div id="note-expand-${n.id}" style="display:none"><div class="note-expand">${formatNote(n.note_text||'')}</div>
-            <div style="display:flex;gap:0.5rem;margin-top:0.75rem">
-              <button class="action-btn" onclick="event.stopPropagation();copyNoteText(${JSON.stringify(n.note_text||'').replace(/'/g,'&#39;')})">&#128203; Copy</button>
-              <button class="action-btn" onclick="event.stopPropagation();printNoteText(${JSON.stringify(n.note_text||'').replace(/'/g,'&#39;')})">&#128424; Print</button>
-            </div></div>
+            <div id="note-expand-${n.id}" style="display:none">
+              <div class="note-expand">${formatNote(n.note_text||'')}</div>
+              <div style="display:flex;gap:0.5rem;margin-top:0.75rem">
+                <button class="action-btn" onclick="event.stopPropagation();copyNoteText(${JSON.stringify(n.note_text||'').replace(/'/g,'&#39;')})">&#128203; Copy</button>
+                <button class="action-btn" onclick="event.stopPropagation();printNoteText(${JSON.stringify(n.note_text||'').replace(/'/g,'&#39;')})">&#128424; Print</button>
+              </div>
+            </div>
           </div>`).join('')}
     </div>`;
 }
 
-function toggleNoteExpand(id){
-  const el=document.getElementById('note-expand-'+id);
-  if(el) el.style.display=el.style.display==='none'?'block':'none';
-}
+function toggleNoteExpand(id){const el=document.getElementById('note-expand-'+id);if(el)el.style.display=el.style.display==='none'?'block':'none';}
+function startNoteForPatient(id){currentPatientId=id;document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.nav-tab')[0].classList.add('active');renderNote();}
+function deletePatient(id){if(!confirm('Delete this patient and all their notes? This cannot be undone.'))return;savePatients(getPatients().filter(p=>p.id!==id));renderPatients();}
+function copyNoteText(text){navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard.')).catch(()=>alert('Copy failed.'));}
+function printNoteText(text){const w=window.open('','_blank');w.document.write(`<!DOCTYPE html><html><head><title>Clinical Note</title><style>body{font-family:Georgia,serif;max-width:700px;margin:2rem auto;padding:0 2rem;font-size:14px;line-height:1.8}@media print{body{margin:0}}</style></head><body><pre style="font-family:Georgia,serif;white-space:pre-wrap;font-size:14px;line-height:1.8">${eh(text)}</pre><script>window.onload=()=>{window.print();}<\/script></body></html>`);w.document.close();}
 
-function startNoteForPatient(id){
-  currentPatientId=id;
-  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.nav-tab')[0].classList.add('active');
-  renderNote();
-}
-
-function deletePatient(id){
-  if(!confirm('Delete this patient and all their notes? This cannot be undone.'))return;
-  const patients=getPatients().filter(p=>p.id!==id);
-  savePatients(patients);
-  renderPatients();
-}
-
-function copyNoteText(text){
-  navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard.')).catch(()=>alert('Copy failed.'));
-}
-
-function printNoteText(text){
-  const w=window.open('','_blank');
-  w.document.write(`<!DOCTYPE html><html><head><title>Clinical Note</title>
-  <style>body{font-family:Georgia,serif;max-width:700px;margin:2rem auto;padding:0 2rem;font-size:14px;line-height:1.8}
-  @media print{body{margin:0}}</style></head><body>
-  <pre style="font-family:Georgia,serif;white-space:pre-wrap;font-size:14px;line-height:1.8">${eh(text)}</pre>
-  <script>window.onload=()=>{window.print();}<\/script></body></html>`);
-  w.document.close();
-}
-
-// PATTERN DIFFERENTIATOR
 const ALL_SYMPTOMS=['Fatigue','Insomnia','Anxiety','Depression','Irritability','Low libido','Cold limbs','Night sweats','Hot flashes','Palpitations','Chest tightness','Shortness of breath','Poor appetite','Bloating','Loose stools','Constipation','Nausea','Acid reflux','Low back pain','Knee pain','Neck tension','Headache','Dizziness','Tinnitus','Frequent urination','Edema','Dry eyes','Blurred vision','Heavy periods','Irregular periods','Amenorrhea','PMS','Brain fog','Poor memory'];
 let selectedSymptoms=[];
 
@@ -943,6 +883,15 @@ async function generatePattern(){
   if(all.length<2){alert('Please select at least 2 symptoms.');return}
   const btn=document.getElementById('pattern-btn');
   btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Differentiating...';
+
+  incrementUses();
+  if(checkTrial()==='expired'){
+    document.getElementById('paywall-modal').style.display='flex';
+    btn.disabled=false;btn.innerHTML='Differentiate Patterns &rarr;';
+    return;
+  }
+  updateTrialBadge();
+
   const uc=`Presenting symptoms: ${all.join(', ')}\nTongue: ${document.getElementById('p-tongue').value||'not documented'}\nPulse: ${document.getElementById('p-pulse').value||'not documented'}\nProvide a ranked TCM pattern differential diagnosis.`;
   try{
     const result=await callClaude({model:'claude-haiku-4-5-20251001',max_tokens:1500,system:SYSTEM_PATTERN,messages:[{role:'user',content:uc}]});
@@ -958,9 +907,8 @@ async function generatePattern(){
   btn.disabled=false;btn.innerHTML='Differentiate Patterns &rarr;';
 }
 
-// TCM REFERENCE LIBRARY
-const REF_DATA = {
-  patterns: [
+const REF_DATA={
+  patterns:[
     {name:'Liver Qi Stagnation',zh:'肝气郁结',tongue:'Normal or slightly purple; thin white coat',pulse:'Wiry (Xian)',symptoms:'Distending pain in chest/hypochondria, emotional depression or irritability, sighing, possible menstrual irregularity, PMS',formula:'Xiao Yao San (逍遥散)'},
     {name:'Liver Blood Deficiency',zh:'肝血虚',tongue:'Pale, slightly dry',pulse:'Choppy or thin (Se, Xi)',symptoms:'Dizziness, blurred vision, dry eyes, numbness/tingling in limbs, scanty pale menses or amenorrhea, pale nails, poor sleep',formula:'Si Wu Tang (四物汤)'},
     {name:'Liver Yang Rising',zh:'肝阳上亢',tongue:'Red, possibly with red sides; thin yellow or no coat',pulse:'Wiry and rapid (Xian Shu)',symptoms:'Headache at vertex or temples, dizziness, tinnitus, flushed face, irritability, insomnia, bitter taste',formula:'Tian Ma Gou Teng Yin (天麻钩藤饮)'},
@@ -977,7 +925,7 @@ const REF_DATA = {
     {name:'Phlegm-Dampness',zh:'痰湿',tongue:'Swollen, tooth-marked; thick greasy white coat',pulse:'Slippery (Hua)',symptoms:'Heaviness in head and body, chest oppression, nausea, poor appetite, excessive phlegm, weight gain, foggy thinking',formula:'Er Chen Tang (二陈汤)'},
     {name:'Damp-Heat',zh:'湿热',tongue:'Red body; yellow greasy coat',pulse:'Slippery, rapid (Hua, Shu)',symptoms:'Heaviness, yellow turbid secretions, burning sensations, bitter taste, dark scanty urine, skin eruptions',formula:'San Ren Tang (三仁汤)'}
   ],
-  points: [
+  points:[
     {name:'ST 36',zh:'足三里 Zusanli',location:'3 cun below ST 35, one finger-breadth lateral to the anterior crest of the tibia',actions:'Tonifies Qi and Blood, strengthens Spleen/Stomach, raises Yang, supports Wei Qi, calms the mind',indications:'Fatigue, digestive disorders, immune deficiency, musculoskeletal weakness, post-illness recovery'},
     {name:'SP 6',zh:'三阴交 Sanyinjiao',location:'3 cun above the tip of the medial malleolus, on the posterior border of the tibia',actions:'Strengthens Spleen, resolves Dampness, nourishes Blood and Yin, regulates menstruation, calms the mind',indications:'Gynecological disorders, digestive issues, insomnia, urinary disorders, Yin deficiency'},
     {name:'LI 4',zh:'合谷 Hegu',location:'On the dorsum of the hand, between the 1st and 2nd metacarpal bones',actions:'Releases the exterior, clears Heat, promotes Qi and Blood circulation, relieves pain, opens the face',indications:'Headache, facial pain, fever, toothache, Bell\'s palsy, immune support. Contraindicated in pregnancy.'},
@@ -994,7 +942,7 @@ const REF_DATA = {
     {name:'SP 10',zh:'血海 Xuehai',location:'2 cun proximal to the superomedial border of the patella',actions:'Invigorates Blood, resolves Blood stasis, cools Blood, regulates menstruation',indications:'Menstrual disorders, skin conditions, Blood stasis, urticaria, eczema, amenorrhea'},
     {name:'ST 40',zh:'丰隆 Fenglong',location:'Midway between ST 35 and the lateral malleolus, two finger-breadths lateral to the anterior crest of the tibia',actions:'Resolves Phlegm and Dampness, calms the mind, clears Phlegm from the Lungs',indications:'Phlegm conditions, cough with phlegm, dizziness, chest oppression, mental disorders, obesity'}
   ],
-  formulas: [
+  formulas:[
     {name:'Si Jun Zi Tang',zh:'四君子汤',composition:'Ren Shen, Bai Zhu, Fu Ling, Zhi Gan Cao',actions:'Tonifies Qi, strengthens Spleen and Stomach',indications:'Spleen Qi deficiency: fatigue, poor appetite, loose stools, pale complexion'},
     {name:'Liu Wei Di Huang Wan',zh:'六味地黄丸',composition:'Shu Di Huang, Shan Zhu Yu, Shan Yao, Ze Xie, Mu Dan Pi, Fu Ling',actions:'Nourishes Kidney and Liver Yin',indications:'Kidney Yin deficiency: low back soreness, tinnitus, night sweats, afternoon fever'},
     {name:'You Gui Wan',zh:'右归丸',composition:'Shu Di, Shan Yao, Shan Zhu Yu, Gou Qi Zi, Tu Si Zi, Du Zhong, Dang Gui, Rou Gui, Fu Zi, Lu Jiao Jiao',actions:'Warms and tonifies Kidney Yang, replenishes Jing and Blood',indications:'Kidney Yang deficiency: aversion to cold, cold limbs, impotence, infertility, low back pain'},
@@ -1008,15 +956,15 @@ const REF_DATA = {
   ]
 };
 
-let refCategory = 'patterns';
-let refSearch = '';
+let refCategory='patterns';
+let refSearch='';
 
 function renderReference(){
   document.getElementById('app-content').innerHTML=`
     <div class="tool-card" style="margin-bottom:0;border-bottom:none;border-radius:20px 20px 0 0">
       <div class="tool-title">TCM Reference Library</div>
       <div class="tool-subtitle">Quick reference for common patterns, points, and formulas</div>
-      <input class="ref-search" placeholder="Search..." oninput="searchRef(this.value)" id="ref-search-input">
+      <input class="ref-search" placeholder="Search..." oninput="searchRef(this.value)">
       <div class="ref-tabs">
         <div class="ref-tab ${refCategory==='patterns'?'active':''}" onclick="setRefCat('patterns')">Patterns (${REF_DATA.patterns.length})</div>
         <div class="ref-tab ${refCategory==='points'?'active':''}" onclick="setRefCat('points')">Points (${REF_DATA.points.length})</div>
@@ -1027,57 +975,23 @@ function renderReference(){
   renderRefContent();
 }
 
-function setRefCat(cat){
-  refCategory=cat;
-  refSearch='';
-  renderReference();
-}
-
-function searchRef(q){
-  refSearch=q;
-  renderRefContent();
-}
+function setRefCat(cat){refCategory=cat;refSearch='';renderReference();}
+function searchRef(q){refSearch=q;renderRefContent();}
 
 function renderRefContent(){
   const q=refSearch.toLowerCase();
-  const data=REF_DATA[refCategory].filter(item=>{
-    const searchStr=JSON.stringify(item).toLowerCase();
-    return !q||searchStr.includes(q);
-  });
+  const data=REF_DATA[refCategory].filter(item=>!q||JSON.stringify(item).toLowerCase().includes(q));
   const el=document.getElementById('ref-content');
   if(!data.length){el.innerHTML='<div style="text-align:center;padding:2rem;color:var(--ink3);font-style:italic">No results found</div>';return;}
   if(refCategory==='patterns'){
-    el.innerHTML=`<div class="ref-grid">${data.map(p=>`
-      <div class="ref-card">
-        <div class="ref-card-name">${eh(p.name)}</div>
-        <div class="ref-card-zh">${eh(p.zh)}</div>
-        <div class="ref-card-row"><strong>Tongue:</strong> ${eh(p.tongue)}</div>
-        <div class="ref-card-row"><strong>Pulse:</strong> ${eh(p.pulse)}</div>
-        <div class="ref-card-row"><strong>Key Symptoms:</strong> ${eh(p.symptoms)}</div>
-        <div class="ref-card-row"><strong>Formula:</strong> ${eh(p.formula)}</div>
-      </div>`).join('')}</div>`;
+    el.innerHTML=`<div class="ref-grid">${data.map(p=>`<div class="ref-card"><div class="ref-card-name">${eh(p.name)}</div><div class="ref-card-zh">${eh(p.zh)}</div><div class="ref-card-row"><strong>Tongue:</strong> ${eh(p.tongue)}</div><div class="ref-card-row"><strong>Pulse:</strong> ${eh(p.pulse)}</div><div class="ref-card-row"><strong>Key Symptoms:</strong> ${eh(p.symptoms)}</div><div class="ref-card-row"><strong>Formula:</strong> ${eh(p.formula)}</div></div>`).join('')}</div>`;
   } else if(refCategory==='points'){
-    el.innerHTML=`<div class="ref-grid">${data.map(p=>`
-      <div class="ref-card">
-        <div class="ref-card-name">${eh(p.name)}</div>
-        <div class="ref-card-zh">${eh(p.zh)}</div>
-        <div class="ref-card-row"><strong>Location:</strong> ${eh(p.location)}</div>
-        <div class="ref-card-row"><strong>Actions:</strong> ${eh(p.actions)}</div>
-        <div class="ref-card-row"><strong>Indications:</strong> ${eh(p.indications)}</div>
-      </div>`).join('')}</div>`;
+    el.innerHTML=`<div class="ref-grid">${data.map(p=>`<div class="ref-card"><div class="ref-card-name">${eh(p.name)}</div><div class="ref-card-zh">${eh(p.zh)}</div><div class="ref-card-row"><strong>Location:</strong> ${eh(p.location)}</div><div class="ref-card-row"><strong>Actions:</strong> ${eh(p.actions)}</div><div class="ref-card-row"><strong>Indications:</strong> ${eh(p.indications)}</div></div>`).join('')}</div>`;
   } else {
-    el.innerHTML=`<div class="ref-grid">${data.map(p=>`
-      <div class="ref-card">
-        <div class="ref-card-name">${eh(p.name)}</div>
-        <div class="ref-card-zh">${eh(p.zh)}</div>
-        <div class="ref-card-row"><strong>Composition:</strong> ${eh(p.composition)}</div>
-        <div class="ref-card-row"><strong>Actions:</strong> ${eh(p.actions)}</div>
-        <div class="ref-card-row"><strong>Indications:</strong> ${eh(p.indications)}</div>
-      </div>`).join('')}</div>`;
+    el.innerHTML=`<div class="ref-grid">${data.map(p=>`<div class="ref-card"><div class="ref-card-name">${eh(p.name)}</div><div class="ref-card-zh">${eh(p.zh)}</div><div class="ref-card-row"><strong>Composition:</strong> ${eh(p.composition)}</div><div class="ref-card-row"><strong>Actions:</strong> ${eh(p.actions)}</div><div class="ref-card-row"><strong>Indications:</strong> ${eh(p.indications)}</div></div>`).join('')}</div>`;
   }
 }
 
-// HELPERS
 function formatNote(text){
   const lines=text.split('\n');
   let html='';
