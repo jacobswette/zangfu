@@ -428,11 +428,8 @@ Guidelines:
 - Write in a conservative, professional tone appropriate for a legal medical record
 - Do NOT use any markdown formatting — no asterisks, pound signs, dashes as bullets, or bold or italic markers
 - Use plain text with clean line breaks only
-- Every single line of output must use identical plain text formatting — no uppercase sentences, no bold text, no larger text, no emphasis of any kind anywhere in the note. Section headers are the only text in ALL CAPS and they appear alone on their own line. Everything else is sentence case plain text.
-- Dietary Recommendations and Lifestyle Recommendations are plain prose sentences in sentence case — they are NOT headers and must NOT be written in all caps
 - Output the clinical note only — no preamble, no disclaimers, no commentary`;
 
-  
 const SYSTEM_PATTERN=`You are an expert TCM diagnostician. Given a set of symptoms, return a ranked differential diagnosis of TCM patterns.
 
 For each pattern:
@@ -998,21 +995,27 @@ function renderRefContent(){
 function formatNote(text){
   const lines=text.split('\n');
   let html='';
-  const headers=['SUBJECTIVE','OBJECTIVE','ASSESSMENT','PLAN','TREATMENT PRINCIPLE','POINTS','HERBAL FORMULA','DIETARY','LIFESTYLE','TREATMENT FREQUENCY'];
-  const subheaders=['Treatment Principle:','Points:','Herbal Formula:','Dietary Recommendations:','Lifestyle Recommendations:','Treatment Frequency:'];
+  const headers=['SUBJECTIVE','OBJECTIVE','ASSESSMENT','PLAN'];
+  const subLabels=['Treatment Principle','Points','Herbal Formula','Dietary Recommendations','Lifestyle Recommendations','Treatment Frequency'];
   for(let line of lines){
     const trimmed=line.trim();
-    if(!trimmed){html+='<div style="height:0.5rem"></div>';continue;}
-    const isHeader=headers.some(h=>trimmed.toUpperCase()===h||trimmed.toUpperCase().startsWith(h+' '));
-    const isSub=subheaders.some(h=>trimmed.startsWith(h));
-    if(isHeader){
-      html+=`<div style="font-weight:600;color:var(--ink);font-size:0.88rem;text-transform:uppercase;letter-spacing:0.07em;margin-top:1.25rem;margin-bottom:0.4rem;padding-bottom:0.3rem;border-bottom:1px solid var(--border)">${eh(trimmed)}</div>`;
-    } else if(isSub){
-      html+=`<div style="font-weight:600;color:var(--ink2);font-size:0.84rem;margin-top:0.75rem;margin-bottom:0.2rem">${eh(trimmed)}</div>`;
-    } else {
-      const cleaned=trimmed.replace(/\*\*/g,'').replace(/\*/g,'').replace(/^[-•]\s*/,'').replace(/^#{1,3}\s*/,'');
-      html+=`<div style="font-size:0.86rem;color:var(--ink2);line-height:1.75;font-weight:300">${eh(cleaned)}</div>`;
+    if(!trimmed){html+='<div style="height:0.4rem"></div>';continue;}
+    const cleaned=trimmed.replace(/\*\*/g,'').replace(/\*/g,'').replace(/^#{1,3}\s*/,'').replace(/^[-•]\s*/,'');
+    if(headers.some(h=>cleaned.toUpperCase()===h)){
+      html+=`<div style="font-size:0.82rem;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:0.07em;margin-top:1.25rem;margin-bottom:0.4rem;padding-bottom:0.3rem;border-bottom:1px solid var(--border)">${eh(cleaned.toUpperCase())}</div>`;
+      continue;
     }
+    let matchedSub=null;
+    for(const label of subLabels){
+      if(cleaned.toUpperCase().startsWith(label.toUpperCase()+':')){matchedSub=label;break;}
+    }
+    if(matchedSub){
+      html+=`<div style="font-size:0.84rem;font-weight:600;color:var(--ink2);margin-top:0.75rem;margin-bottom:0.2rem">${eh(matchedSub+':')}</div>`;
+      const after=cleaned.slice(matchedSub.length+1).trim();
+      if(after) html+=`<div style="font-size:0.86rem;font-weight:300;color:var(--ink2);line-height:1.75">${eh(after)}</div>`;
+      continue;
+    }
+    html+=`<div style="font-size:0.86rem;font-weight:300;color:var(--ink2);line-height:1.75">${eh(cleaned)}</div>`;
   }
   return html;
 }
