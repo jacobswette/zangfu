@@ -721,9 +721,11 @@ async function generateNote(){
     if(currentPatientId){
       saveNoteToPatient(currentPatientId,{date:today,chief_complaint:cc,note_text:result});
     }
+
     document.getElementById('note-output').innerHTML=`
       <div class="output-box">
-        <div class="output-label">Generated Clinical Note</div>
+        <div class="output-label">Draft Clinical Note</div>
+        <div style="background:var(--accent-light);border:1px solid var(--accent-mid);border-radius:8px;padding:0.6rem 1rem;margin-bottom:1.25rem;font-size:0.75rem;color:var(--accent);font-weight:500">Suggested draft — review and modify all sections before finalizing in the medical record.</div>
         ${formatNote(result)}
       </div>
       <div class="output-actions">
@@ -732,6 +734,8 @@ async function generateNote(){
         ${currentPatientId?'<span style="font-size:0.75rem;color:var(--accent);display:flex;align-items:center;gap:4px;margin-left:auto">&#10003; Saved to patient record</span>':''}
       </div>
       <div class="disclaimer">For clinical use only. Verify all information before finalizing the record.</div>`;
+
+    
   }catch(e){
     document.getElementById('note-output').innerHTML=`<div class="error-box">Error: ${eh(e.message)}</div>`;
   }
